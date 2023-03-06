@@ -118,6 +118,7 @@ fenetre.config(menu=mon_menu)
 
 fenetre.mainloop()
 
+
 print("\033[0;97m 2")
 print("\033[0;96m 4")
 print("\033[0;95m 8")
@@ -134,3 +135,16 @@ print("\033[0;33m 8192")
 print("\033[0;32m 16384")
 print("\033[0;31m 32768")
 print("\033[0;30m 65536")
+
+import tkinter as tk 
+
+fenetre=tk.Tk()
+listepourboutton=[]
+fenetre.title("2048 jeu video")
+fenetre.geometry("420x420")
+for a in range(0,420,105):
+    for b in range(0,420,105):
+        bouton=tk.Button(fenetre)
+        bouton.place(x=a,y=b,width=140,height=140)
+        listepourboutton.append(bouton)
+fenetre.mainloop()
