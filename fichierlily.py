@@ -1,4 +1,4 @@
-from random import*
+import random
 import numpy as np
 
 #def systeme2048(nombre):
@@ -45,13 +45,13 @@ grille1=[[2, 0, 0, 0], [2, 0, 0, 0],[4, 0, 0, 0],[4, 0, 0, 0]]
 #finjeu(grille1)
 
 def joueur_tuile(grille):
-    x=random.randint(len(grille))
-    y=random.randint(len(grille[1]))
+    x=random.randint(0,3)
+    y=random.randint(0,3)
     nbliste=[2,2,2,2,2,2,2,2,2,4]
     while grille[x][y]!=0:
-        x=random.randint(len(grille))
-        y=random.randint(len(grille[1]))
-    grille[x][y]=choice(nbliste)
+        x=random.randint(0,3)
+        y=random.randint(0,3)
+    grille[x][y]=random.choice(nbliste)
     return grille
 
 
@@ -109,5 +109,5 @@ def mouvement(grille):
         x=0
         print( grille2)
     
-mouvement(grille1)
-
+#mouvement(grille1)
+joueur_tuile(grille1)
