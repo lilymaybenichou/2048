@@ -13,34 +13,47 @@ import numpy as np
 
 
 #L=[[2,0,0,0]]
-#def grille_depart():
-    #nbliste=[2,2,2,2,2,2,2,2,2,4]
-    #L=[]
-    #for i in range (4):
-    #    x=[0,0,0,0]
-    #    L.append(x)
-    #y=randrange(0,2)
-    #i=randrange(0,2)
-    #z=choice(nbliste)
-    #L[y][i]=z 
-    #L_numpy = np.array(L) 
-    #return L_numpy
+def grille_depart():
+    nbliste=[2,2,2,2,2,2,2,2,2,4]
+    L=[]
+    for i in range (4):
+        x=[0,0,0,0]
+        L.append(x)
+    y=randrange(0,2)
+    i=randrange(0,2)
+    z=choice(nbliste)
+    L[y][i]=z 
+    L_numpy = np.array(L) 
+    return L_numpy
 #grille_depart()
 
-#def finjeu (grille):
-    #cpt = 16
-    #for i in range(4):
-    #    for j in range(4) :
-    #        if grille[i][j]!=0:
-    #            cpt-=1
-    #if cpt==0 :
-    #    return 0
-    #else :
-    #    return 1
+
+
+def finjeu (grille):
+    cpt = 16
+    for i in range(4):
+        for j in range(4) :
+            if grille[i][j]!=0:
+                cpt-=1
+    if cpt==0 :
+        return False
+    else :
+        return True
 
 grille1=[[2, 0, 0, 0], [2, 0, 0, 0],[4, 0, 0, 0],[4, 0, 0, 0]]
 
 #finjeu(grille1)
+
+def joueur_tuile(grille):
+    x=random.randint(len(grille))
+    y=random.randint(len(grille[1]))
+    nbliste=[2,2,2,2,2,2,2,2,2,4]
+    while grille[x][y]!=0:
+        x=random.randint(len(grille))
+        y=random.randint(len(grille[1]))
+    grille[x][y]=choice(nbliste)
+    return grille
+
 
 grille1=[[2, 0, 0, 0], [2, 0, 0, 0],[4, 0, 0, 0],[4, 0, 0, 0]]
 def mouvement(grille):
@@ -97,3 +110,4 @@ def mouvement(grille):
         print( grille2)
     
 mouvement(grille1)
+
