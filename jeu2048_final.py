@@ -347,3 +347,6 @@ def mouvement(grille):
     
 #mouvement(grille1)
 joueur_tuile(grille1)
+
+fenetre=tk.Tk()
+fenetre.title("2048")

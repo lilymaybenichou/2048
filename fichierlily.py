@@ -1,5 +1,11 @@
-import random
+
+#lily
+
+import tkinter as tk
+from tkinter import filedialog
+from tkinter import simpledialog
 import numpy as np
+from random import*
 
 #def systeme2048(nombre):
     #L=[2,4,8,16,32,64,128,256,512,1024,2048]
@@ -45,13 +51,13 @@ grille1=[[2, 0, 0, 0], [2, 0, 0, 0],[4, 0, 0, 0],[4, 0, 0, 0]]
 #finjeu(grille1)
 
 def joueur_tuile(grille):
-    x=random.randint(0,3)
-    y=random.randint(0,3)
+    x=randint(0,3)
+    y=randint(0,3)
     nbliste=[2,2,2,2,2,2,2,2,2,4]
     while grille[x][y]!=0:
-        x=random.randint(0,3)
-        y=random.randint(0,3)
-    grille[x][y]=random.choice(nbliste)
+        x=randint(0,3)
+        y=randint(0,3)
+    grille[x][y]=choice(nbliste)
     return grille
 
 
@@ -111,3 +117,6 @@ def mouvement(grille):
     
 #mouvement(grille1)
 joueur_tuile(grille1)
+
+fenetre=tk.Tk()
+fenetre.title("2048")
