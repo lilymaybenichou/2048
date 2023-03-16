@@ -21,7 +21,6 @@ def play():
     alea=tk.Label(fenetre,text=c,bg="#FFC584")
     alea.grid(row=0,column=4)
 
-
 def left():
     pass
 
@@ -40,28 +39,15 @@ fenetre.title("Jeu du 2048")
 fenetre.geometry('700x600')
 fenetre['bg']='#FFC584'
 
-zonaffi=tk.Label(fenetre,text="°",bg="#FFC584")
-zonaffi.grid(row=0,column=1)
-zonaffi3=tk.Label(fenetre,text="°",bg="#FFC584")
-zonaffi3.grid(row=0,column=7)
-
 #bouton
-bouton1=tk.Button(fenetre,text='Play',height=2,width=5,bg='green')
-bouton1.grid(row=1, column=0)
-bouton2=tk.Button(fenetre,text='Left',height=2,width=5,bg='white',command=left)
-bouton2.grid(row=2, column=8)
-bouton3=tk.Button(fenetre,text='Right',height=2,width=5,bg='white',command=right)
-bouton3.grid(row=2, column=10)
-bouton4=tk.Button(fenetre,text='Down',height=2,width=5,bg='white',command=down)
-bouton4.grid(row=1, column=9)
-bouton5=tk.Button(fenetre,text='Up',height=2,width=5,bg='white',command=up)
-bouton5.grid(row=3, column=9)
+bouton1=tk.Button(fenetre,text='Play',height=2,width=5,bg='green',command=play)
+bouton1.grid(row=1, column=0, columnspan=2, rowspan=2)
 bouton6=tk.Button(fenetre,text='Exit',height=2,width=5,bg='red',command=fermer_fenetre)
-bouton6.grid(row=2, column=0)
+bouton6.grid(row=1, column=9, columnspan=2)
 bouton7=tk.Button(fenetre,text='Save',height=2,width=5,bg='grey',command=sauvegarder)
-bouton7.grid(row=4, column=0)
+bouton7.grid(row=2, column=9, columnspan=2)
 bouton8=tk.Button(fenetre,text='Load',height=2,width=5,bg='grey',command=ouvrir)
-bouton8.grid(row=5, column=0)
+bouton8.grid(row=3, column=9, columnspan=2)
 
 #tableau
 canevas1=tk.Canvas(width=100,height=100,bg="#FCE6CC")
