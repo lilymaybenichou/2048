@@ -247,8 +247,13 @@ grille1=[[2, 0, 0, 0], [2, 0, 0, 0],[4, 0, 0, 0],[4, 0, 0, 0]]
 
 
 def textjeu(grille):
-        x=0
+        x=16
         while x!=0:
+                x=16
+                for i in range(len(grille)):
+                     for j in range(len(grille[i])):
+                          if grille[i][j]!=0:
+                               x-=1
                 fenetre=tk.Tk()
                 fenetre.title("2048")
 
@@ -260,7 +265,7 @@ def textjeu(grille):
                 save=tk.Button(fenetre,text='Save')
                 save.grid(column=0,row=2)
 
-                load=tk.Button(fenetre,text='Loas')
+                load=tk.Button(fenetre,text='Load')
                 load.grid(column=0,row=1)
 
                 start=tk.Button(fenetre,text='Start')
