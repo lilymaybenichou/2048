@@ -238,91 +238,99 @@ def mouvement(grille):
 joueur_tuile(grille1)
 
 
+
+#affichage tkinter
+
 grille1=[[2, 0, 0, 0], [2, 0, 0, 0],[4, 0, 0, 0],[4, 0, 0, 0]]
 
-fenetre=tk.Tk()
-fenetre.title("2048")
-
-#Butons
-exit=tk.Button(fenetre,text='Exit')
-exit.grid(column=0,row=3)
-
-save=tk.Button(fenetre,text='Save')
-save.grid(column=0,row=2)
-
-load=tk.Button(fenetre,text='Loas')
-load.grid(column=0,row=1)
-
-start=tk.Button(fenetre,text='Start')
-start.grid(column=0,row=0)
-
-#Tuiles
-tuile1=tk.Canvas(fenetre,width=100,height=100,bg="white",bd=5,relief='ridge')
-tuile1.create_text(60, 60, text= str(grille1[0][0]),fill="black",font=('Helvetica', '30' ,'bold'))
-tuile1.grid(column=1,row=0)
-
-tuile2=tk.Canvas(fenetre,width=100,height=100,bg="white",bd=5,relief='ridge')
-tuile2.create_text(60, 60, text= str(grille1[0][1]),fill="black",font=('Helvetica', '30' ,'bold'))
-tuile2.grid(column=2,row=0)
-
-tuile3=tk.Canvas(fenetre,width=100,height=100,bg="white",bd=5,relief='ridge')
-tuile3.create_text(60, 60, text= str(grille1[0][2]),fill="black",font=('Helvetica', '30' ,'bold'))
-tuile3.grid(column=3,row=0)
-
-tuile4=tk.Canvas(fenetre,width=100,height=100,bg="white",bd=5,relief='ridge')
-tuile4.create_text(60, 60, text= str(grille1[0][3]),fill="black",font=('Helvetica', '30' ,'bold'))
-tuile4.grid(column=4,row=0)
-
-tuile5=tk.Canvas(fenetre,width=100,height=100,bg="white",bd=5,relief='ridge')
-tuile5.create_text(60, 60, text= str(grille1[1][0]),fill="black",font=('Helvetica', '30' ,'bold'))
-tuile5.grid(column=1,row=1)
-
-tuile6=tk.Canvas(fenetre,width=100,height=100,bg="white",bd=5,relief='ridge')
-tuile6.create_text(60, 60, text= str(grille1[1][1]),fill="black",font=('Helvetica', '30' ,'bold'))
-tuile6.grid(column=2,row=1)
-
-tuile7=tk.Canvas(fenetre,width=100,height=100,bg="white",bd=5,relief='ridge')
-tuile7.create_text(60, 60, text= str(grille1[1][2]),fill="black",font=('Helvetica', '30' ,'bold'))
-tuile7.grid(column=3,row=1)
-
-tuile8=tk.Canvas(fenetre,width=100,height=100,bg="white",bd=5,relief='ridge')
-tuile8.create_text(60, 60, text= str(grille1[1][3]),fill="black",font=('Helvetica', '30' ,'bold'))
-tuile8.grid(column=4,row=1)
-
-tuile9=tk.Canvas(fenetre,width=100,height=100,bg="white",bd=5,relief='ridge')
-tuile9.create_text(60, 60, text= str(grille1[2][0]),fill="black",font=('Helvetica', '30' ,'bold'))
-tuile9.grid(column=1,row=2)
-
-tuile10=tk.Canvas(fenetre,width=100,height=100,bg="white",bd=5,relief='ridge')
-tuile10.create_text(60, 60, text= str(grille1[2][1]),fill="black",font=('Helvetica', '30' ,'bold'))
-tuile10.grid(column=2,row=2)
-
-tuile11=tk.Canvas(fenetre,width=100,height=100,bg="white",bd=5,relief='ridge')
-tuile11.create_text(60, 60, text= str(grille1[2][2]),fill="black",font=('Helvetica', '30' ,'bold'))
-tuile11.grid(column=3,row=2)
-
-tuile12=tk.Canvas(fenetre,width=100,height=100,bg="white",bd=5,relief='ridge')
-tuile12.create_text(60, 60, text= str(grille1[2][3]),fill="black",font=('Helvetica', '30' ,'bold'))
-tuile12.grid(column=4,row=2)
-
-tuile13=tk.Canvas(fenetre,width=100,height=100,bg="white",bd=5,relief='ridge')
-tuile13.create_text(60, 60, text= str(grille1[3][0]),fill="black",font=('Helvetica', '30' ,'bold'))
-tuile13.grid(column=1,row=3)
-
-tuile14=tk.Canvas(fenetre,width=100,height=100,bg="white",bd=5,relief='ridge')
-tuile14.create_text(60, 60, text= str(grille1[3][1]),fill="black",font=('Helvetica', '30' ,'bold'))
-tuile14.grid(column=2,row=3)
-
-tuile15=tk.Canvas(fenetre,width=100,height=100,bg="white",bd=5,relief='ridge')
-tuile15.create_text(60, 60, text= str(grille1[3][2]),fill="black",font=('Helvetica', '30' ,'bold'))
-tuile15.grid(column=3,row=3)
-
-tuile16=tk.Canvas(fenetre,width=100,height=100,bg="white",bd=5,relief='ridge')
-tuile16.create_text(60, 60, text= str(grille1[3][3]),fill="black",font=('Helvetica', '30' ,'bold'))
-tuile16.grid(column=4,row=3)
 
 
 
+def textjeu(grille):
+        x=0
+        while x!=0:
+                fenetre=tk.Tk()
+                fenetre.title("2048")
 
+                #Butons
+                exit=tk.Button(fenetre,text='Exit')
+                exit.bind('Button-1',joueur_tuile(grille))
+                exit.grid(column=0,row=3)
 
-fenetre.mainloop()
+                save=tk.Button(fenetre,text='Save')
+                save.grid(column=0,row=2)
+
+                load=tk.Button(fenetre,text='Loas')
+                load.grid(column=0,row=1)
+
+                start=tk.Button(fenetre,text='Start')
+                start.grid(column=0,row=0)
+
+                #Tuiles
+                tuile1=tk.Canvas(fenetre,width=100,height=100,bg="white",bd=5,relief='ridge')
+                tuile1.create_text(60, 60, text= str(grille[0][0]),fill="black",font=('Helvetica', '30' ,'bold'))
+                tuile1.grid(column=1,row=0)
+
+                tuile2=tk.Canvas(fenetre,width=100,height=100,bg="white",bd=5,relief='ridge')
+                tuile2.create_text(60, 60, text= str(grille[0][1]),fill="black",font=('Helvetica', '30' ,'bold'))
+                tuile2.grid(column=2,row=0)
+
+                tuile3=tk.Canvas(fenetre,width=100,height=100,bg="white",bd=5,relief='ridge')
+                tuile3.create_text(60, 60, text= str(grille[0][2]),fill="black",font=('Helvetica', '30' ,'bold'))
+                tuile3.grid(column=3,row=0)
+
+                tuile4=tk.Canvas(fenetre,width=100,height=100,bg="white",bd=5,relief='ridge')
+                tuile4.create_text(60, 60, text= str(grille[0][3]),fill="black",font=('Helvetica', '30' ,'bold'))
+                tuile4.grid(column=4,row=0)
+
+                tuile5=tk.Canvas(fenetre,width=100,height=100,bg="white",bd=5,relief='ridge')
+                tuile5.create_text(60, 60, text= str(grille[1][0]),fill="black",font=('Helvetica', '30' ,'bold'))
+                tuile5.grid(column=1,row=1)
+
+                tuile6=tk.Canvas(fenetre,width=100,height=100,bg="white",bd=5,relief='ridge')
+                tuile6.create_text(60, 60, text= str(grille[1][1]),fill="black",font=('Helvetica', '30' ,'bold'))
+                tuile6.grid(column=2,row=1)
+
+                tuile7=tk.Canvas(fenetre,width=100,height=100,bg="white",bd=5,relief='ridge')
+                tuile7.create_text(60, 60, text= str(grille[1][2]),fill="black",font=('Helvetica', '30' ,'bold'))
+                tuile7.grid(column=3,row=1)
+
+                tuile8=tk.Canvas(fenetre,width=100,height=100,bg="white",bd=5,relief='ridge')
+                tuile8.create_text(60, 60, text= str(grille[1][3]),fill="black",font=('Helvetica', '30' ,'bold'))
+                tuile8.grid(column=4,row=1)
+
+                tuile9=tk.Canvas(fenetre,width=100,height=100,bg="white",bd=5,relief='ridge')
+                tuile9.create_text(60, 60, text= str(grille[2][0]),fill="black",font=('Helvetica', '30' ,'bold'))
+                tuile9.grid(column=1,row=2)
+
+                tuile10=tk.Canvas(fenetre,width=100,height=100,bg="white",bd=5,relief='ridge')
+                tuile10.create_text(60, 60, text= str(grille[2][1]),fill="black",font=('Helvetica', '30' ,'bold'))
+                tuile10.grid(column=2,row=2)
+
+                tuile11=tk.Canvas(fenetre,width=100,height=100,bg="white",bd=5,relief='ridge')
+                tuile11.create_text(60, 60, text= str(grille[2][2]),fill="black",font=('Helvetica', '30' ,'bold'))
+                tuile11.grid(column=3,row=2)
+
+                tuile12=tk.Canvas(fenetre,width=100,height=100,bg="white",bd=5,relief='ridge')
+                tuile12.create_text(60, 60, text= str(grille[2][3]),fill="black",font=('Helvetica', '30' ,'bold'))
+                tuile12.grid(column=4,row=2)
+
+                tuile13=tk.Canvas(fenetre,width=100,height=100,bg="white",bd=5,relief='ridge')
+                tuile13.create_text(60, 60, text= str(grille[3][0]),fill="black",font=('Helvetica', '30' ,'bold'))
+                tuile13.grid(column=1,row=3)
+
+                tuile14=tk.Canvas(fenetre,width=100,height=100,bg="white",bd=5,relief='ridge')
+                tuile14.create_text(60, 60, text= str(grille[3][1]),fill="black",font=('Helvetica', '30' ,'bold'))
+                tuile14.grid(column=2,row=3)
+
+                tuile15=tk.Canvas(fenetre,width=100,height=100,bg="white",bd=5,relief='ridge')
+                tuile15.create_text(60, 60, text= str(grille[3][2]),fill="black",font=('Helvetica', '30' ,'bold'))
+                tuile15.grid(column=3,row=3)
+
+                tuile16=tk.Canvas(fenetre,width=100,height=100,bg="white",bd=5,relief='ridge')
+                tuile16.create_text(60, 60, text= str(grille[3][3]),fill="black",font=('Helvetica', '30' ,'bold'))
+                tuile16.grid(column=4,row=3)
+                fenetre.mainloop()
+                
+
+textjeu(grille1)
