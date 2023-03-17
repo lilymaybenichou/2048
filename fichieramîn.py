@@ -16,6 +16,38 @@ def ouvrir(): #Marche (100%)
 def sauvegarder(): #Marche (100%)
     ouvrir_fichier = filedialog.asksaveasfile(title =" sauvagarder la partie")
 
+def help():
+    import tkinter as tk 
+    fenetre2=tk.Tk()
+    fenetre2.title("help 2048")
+    fenetre2.geometry("800x800")
+    label=tk.Label(fenetre2,fg="black",text="Sur une grille de 16 cases on fait bouger les tuiles pour obtenir un 2048")
+    label.pack()
+    fenetre2.mainloop()
+import webbrowser
+def partage():
+    webbrowser.open("https://www.instagram.com/?hl=fr")
+
+def avis():
+    fenetre6=tk.Tk()
+    fenetre6['bg']="orange"
+    fenetre6.title("Note du jeu 2048")
+    fenetre6.geometry("300x300")
+    label9=tk.Label(fenetre6,text="Notez le jeu 2048 les etoiles dependent de votre appreciation.")
+    label9.pack()
+    app1=tk.Button(fenetre6,text="1 etoile",fg="yellow",bg="green")
+    app2=tk.Button(fenetre6,text="2 etoile",fg="yellow",bg="green")
+    app3=tk.Button(fenetre6,text="3 etoile",fg="yellow",bg="green")
+    app4=tk.Button(fenetre6,text="4etoile",fg="yellow",bg="green")
+    app5=tk.Button(fenetre6,text="5etoile",fg="yellow",bg="green")
+    
+    app1.pack()
+    app2.pack()
+    app3.pack()
+    app4.pack()
+    app5.pack()
+     
+
 from random import*
 
 def play(): #Marche (75%)
@@ -118,6 +150,34 @@ canevas15=tk.Canvas(width=100,height=100,bg="#FCE6CC")
 canevas15.grid(row=7,column=5)
 canevas16=tk.Canvas(width=100,height=100,bg="#FCE6CC")
 canevas16.grid(row=7,column=6)
+
+#Menu (APPARTENANT A PIOOOOOOOO !)
+mon_menu= tk.Menu(fenetre)
+exit=tk.Menu(mon_menu,tearoff=0)
+exit.add_command(label="quitter",command=fermer_fenetre)
+aide=tk.Menu(mon_menu,tearoff=0)
+aide.add_command(label="regle du jeu",command=help)
+fichier= tk.Menu(mon_menu,tearoff=0)
+fichier.add_command(label="Enregistrer sous",command=save)
+fichier.add_command(label="Partager score",command=partage)
+option = tk.Menu(mon_menu,tearoff=0)
+option.add_command(label="changer qlqc")
+option.add_command(label=" difficulte ")
+notezlejeu= tk.Menu(mon_menu,tearoff=0)
+notezlejeu.add_command(label="note",command=avis)
+rejouer= tk.Menu(mon_menu,tearoff=0)
+rejouer.add_command(label="rejouer")
+mon_menu.add_cascade(label="Fichier",menu=fichier)
+mon_menu.add_cascade(label="Option",menu=option)
+mon_menu.add_cascade(label="Aide",menu= aide)
+mon_menu.add_cascade(label="Exit",menu=exit)
+mon_menu.add_cascade(label="Note",menu=notezlejeu)
+mon_menu.add_cascade(label="Rejouer",menu=rejouer)
+
+
+
+
+fenetre.config(menu=mon_menu)
 
 #touche (source d'utilisation : https://infoforall.fr/python/python-act150.html)
 fenetre.bind('Left', left)
