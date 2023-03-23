@@ -78,15 +78,6 @@ def avis():
     app3.pack()
     app4.pack()
     app5.pack()
-     
- 
-
-    
-    
-
-    
-    
-
 
 
 mon_menu= tk.Menu(fenetre)
