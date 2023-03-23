@@ -6,16 +6,14 @@ from tkinter import simpledialog
 import numpy as np
 from random import*
 
-#def systeme2048(nombre):
-    #L=[2,4,8,16,32,64,128,256,512,1024,2048]
-    #if nombre in L:
-    #    x=nombre*2
-    #    return x
-    #else :
-    #    print("nombre hors jeu")
-
+def systeme2048(nombre):
+    L=[2,4,8,16,32,64,128,256,512,1024,2048]
+    if nombre in L:
+        x=nombre*2
+        return x
+    else :
+       print("nombre hors jeu")
 #systeme2048(64)
-
 
 #L=[[2,0,0,0]]
 def grille_depart():
@@ -31,8 +29,6 @@ def grille_depart():
     L_numpy = np.array(L) 
     return L_numpy
 #grille_depart()
-
-
 
 def finjeu (grille):
     cpt = 16
@@ -114,6 +110,11 @@ def haut(grille):
                         grille[j-1][i],grille[j][i]=grille[j][i],grille[j-1][i]
         return grille
      
+grille3=[[2, 2, 4, 4], [0, 0, 0, 0],[0, 0, 0, 0],[0, 0, 0, 0]]
+grille4=[[0, 0, 0, 0], [0, 0, 0, 0],[0, 0, 0, 0],[2, 2, 4, 4]]
+#haut(grille4)
+#bas(grille3)
+
 def gauche(grille):
         for i in range (len(grille)):
                 if grille[i][0]==grille[i][1]:
@@ -134,7 +135,7 @@ def gauche(grille):
                 grille[i][0]=x
                 grille[i][1]=y
                 grille[i][2]=z
-                for j in range(3,2,-1):
+                for j in range(3,0,-1):
                     if grille[i][j-1]==0 :
                             grille[i][j-1],grille[i][j]=grille[i][j],grille[i][j-1]
         return grille
@@ -164,14 +165,10 @@ def droite(grille):
                             grille[i][j+1],grille[i][j]=grille[i][j],grille[i][j+1]
         return grille
 
-grille1=[[0, 0, 0, 2], [0, 0, 0, 2],[0, 0, 0, 4],[0, 0, 0, 4]]
+grille1=[[0, 0, 4, 2], [0, 0, 0, 2], [0, 0, 0, 4], [0, 0, 0, 4]]
 grille2=[[2, 0, 0, 0], [4, 0, 0, 0],[4, 0, 0, 0],[4, 0, 0, 0]]
-grille3=[[2, 2, 4, 4], [0, 0, 0, 0],[0, 0, 0, 0],[0, 0, 0, 0]]
-grille4=[[0, 0, 0, 0], [0, 0, 0, 0],[0, 0, 0, 0],[2, 2, 4, 4]]
-#bas(grille3)
-haut(grille4)
-#gauche(grille2)
-#droite(grille2)
+gauche(grille1)
+#droite(grille1)
 
 
 
