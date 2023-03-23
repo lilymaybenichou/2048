@@ -65,7 +65,7 @@ def play(): #Marche (75%)
     debut2.grid(row=int(hasardrow2),column=int(hasardcolumn2))
     bouton1=tk.Button(fenetre,text='Try Again',height=2,width=12,bg='Blue',command=tryagain)
     bouton1.grid(row=1, column=0, columnspan=2, rowspan=2)
-    
+
 def tryagain(): #Marche pas (25%)
     hasardrow1=randint(4,7)
     hasardcolumn1=randint(3,6)
