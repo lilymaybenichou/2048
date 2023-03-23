@@ -156,6 +156,7 @@ fenetre.mainloop()
 
 import tkinter as tk
 from tkinter import filedialog
+from random import * 
 
 
 
@@ -167,10 +168,24 @@ fenetre.title("Jeu du 2048")
 fenetre.geometry('500x450')
 fenetre['bg']='black'
 
+def play(): #Marche (75%)
+    hasardrow1=randint(4,7)
+    hasardcolumn1=randint(3,6)
+    hasardrow2=randint(4,7)
+    hasardcolumn2=randint(3,6)
+    casedebut1=tk.Canvas(width=100,height=100,bg="#FCE6CC")
+    casedebut1.grid(row=int(hasardrow1),column=int(hasardcolumn1))
+    casedebut2=tk.Canvas(width=100,height=100,bg="#FCE6CC")
+    casedebut2.grid(row=int(hasardrow2),column=int(hasardcolumn2))
+    debut1=tk.Label(fenetre, text="2",bg="#FFC0C0",height=3,width=6,font=("Helvetica", 20))
+    debut1.grid(row=int(hasardrow1),column=int(hasardcolumn1))
+    debut2=tk.Label(fenetre, text="2",bg="#FFC0C0",height=3,width=6,font=("Helvetica", 20))
+    debut2.grid(row=int(hasardrow2),column=int(hasardcolumn2))
+    bouton1=tk.Button(fenetre,text='Try Again',height=2,width=12,bg='Blue',command=tryagain)
+    bouton1.grid(row=1, column=0, columnspan=2, rowspan=2)
 
 
-
-bouton1=tk.Button(fenetre,text='Play',bg='red')
+bouton1=tk.Button(fenetre,text='Play',bg='red',command=play)
 bouton1.grid(row=1,column=0)
 bouton2=tk.Button(fenetre,text='Left',bg='red')
 bouton2.grid(row=2,column=0)
@@ -287,3 +302,5 @@ fenetre.mainloop()
 
 
 
+
+       
