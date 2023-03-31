@@ -10,13 +10,13 @@ tableau = np.array([[0, 0, 0, 0], [0, 0, 0, 0],[0, 0, 0, 0],[0, 0, 0, 0]])
 def fermer_fenetre(): #Marche (100%)
     fenetre.destroy()
 
-def ouvrir(): #Marche (100%)
+def ouvrir(): #Marche (100%) Pris de Pio
     ouvrir_fichier = filedialog.askopenfilename(title=" ouvrir un fichier")
 
-def sauvegarder(): #Marche (100%)
+def sauvegarder(): #Marche (100%) Pris de Pio
     ouvrir_fichier = filedialog.asksaveasfile(title =" sauvagarder la partie")
 
-def help():
+def help(): #Pris de Pio
     import tkinter as tk 
     fenetre2=tk.Tk()
     fenetre2.title("help 2048")
@@ -25,10 +25,11 @@ def help():
     label.pack()
     fenetre2.mainloop()
 import webbrowser
-def partage():
+
+def partage(): #Pris de Pio
     webbrowser.open("https://www.instagram.com/?hl=fr")
 
-def avis():
+def avis(): #Pris de Pio
     fenetre6=tk.Tk()
     fenetre6['bg']="orange"
     fenetre6.title("Note du jeu 2048")
@@ -51,6 +52,7 @@ def avis():
 from random import*
 
 def play(): #Marche (75%)
+    V=["2","2","2","2","2","2","2","4","2"]
     hasardrow1=randint(4,7)
     hasardcolumn1=randint(3,6)
     hasardrow2=randint(4,7)
@@ -59,29 +61,20 @@ def play(): #Marche (75%)
     casedebut1.grid(row=int(hasardrow1),column=int(hasardcolumn1))
     casedebut2=tk.Canvas(width=100,height=100,bg="#FCE6CC")
     casedebut2.grid(row=int(hasardrow2),column=int(hasardcolumn2))
-    debut1=tk.Label(fenetre, text="2",bg="#FFC0C0",height=3,width=6,font=("Helvetica", 20))
+    debut1=tk.Label(fenetre, text=choice(V),bg="#FFC0C0",height=3,width=6,font=("Helvetica", 20))
     debut1.grid(row=int(hasardrow1),column=int(hasardcolumn1))
-    debut2=tk.Label(fenetre, text="2",bg="#FFC0C0",height=3,width=6,font=("Helvetica", 20))
+    debut2=tk.Label(fenetre, text=choice(V),bg="#FFC0C0",height=3,width=6,font=("Helvetica", 20))
     debut2.grid(row=int(hasardrow2),column=int(hasardcolumn2))
     bouton1=tk.Button(fenetre,text='Try Again',height=2,width=12,bg='Blue',command=tryagain)
-    bouton1.grid(row=1, column=0, columnspan=2, rowspan=2)
+    bouton1.grid(row=1, column=1)
 
 def tryagain(): #Marche pas (25%)
-    hasardrow1=randint(4,7)
-    hasardcolumn1=randint(3,6)
-    hasardrow2=randint(4,7)
-    hasardcolumn2=randint(3,6)
-    casedebut1=tk.Canvas(width= 0,height=0,bg="")
-    casedebut1.grid(row=int(hasardrow1),column=int(hasardcolumn1))
-    casedebut2=tk.Canvas(width=0,height=0,bg="")
-    casedebut2.grid(row=int(hasardrow2),column=int(hasardcolumn2))
-    debut1=tk.Label(fenetre, text="",bg="",height=0,width=0)
-    debut1.grid(row=int(hasardrow1),column=int(hasardcolumn1))
-    debut2=tk.Label(fenetre, text="",bg="",height=0,width=0)
-    debut2.grid(row=int(hasardrow2),column=int(hasardcolumn2))
+    casedebut1.delete(ALL)
+    casedebut1.delete(ALL)
+    debut1.delete(ALL)
+    debut2.delete(ALL)
     bouton1=tk.Button(fenetre,text='Play',height=2,width=12,bg='green',command=play)
-    bouton1.grid(row=1, column=0, columnspan=2, rowspan=2)
-    
+    bouton1.grid(row=1, column=1)
 
 def left(): #Marche pas (0%)
     pass
@@ -99,17 +92,20 @@ def down(): #Marche pas (0%)
 fenetre=tk.Tk()
 fenetre.title("Jeu du 2048")
 fenetre.geometry('700x600')
+fenetre.minsize(665, 570)
 fenetre['bg']='#FFC584'
 
 #zonetexte
 affi1=tk.Label(fenetre, text="°",fg="#FFC584",bg="#FFC584",height=3,width=3)
-affi1.grid(column=1, row=0)
+affi1.grid(column=2, row=0)
 affi1=tk.Label(fenetre, text="°",fg="#FFC584",bg="#FFC584",height=3,width=3)
 affi1.grid(column=8, row=0)
+affi1=tk.Label(fenetre, text="°",fg="#FFC584",bg="#FFC584",height=3,width=3)
+affi1.grid(column=0, row=0)
 
 #bouton
 bouton1=tk.Button(fenetre,text='Play',height=2,width=12,bg='green',command=play)
-bouton1.grid(row=1, column=0, columnspan=2, rowspan=2)
+bouton1.grid(row=1, column=1)
 bouton6=tk.Button(fenetre,text='Exit',height=2,width=12,bg='red',command=fermer_fenetre)
 bouton6.grid(row=1, column=9, columnspan=2)
 bouton7=tk.Button(fenetre,text='Save',height=2,width=12,bg='grey',command=sauvegarder)
@@ -173,9 +169,6 @@ mon_menu.add_cascade(label="Aide",menu= aide)
 mon_menu.add_cascade(label="Exit",menu=exit)
 mon_menu.add_cascade(label="Note",menu=notezlejeu)
 mon_menu.add_cascade(label="Rejouer",menu=rejouer)
-
-
-
 
 fenetre.config(menu=mon_menu)
 
