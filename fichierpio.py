@@ -41,8 +41,7 @@ bouton8.grid(column=7)
 
 
 
-tableau=np.array([[[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0]]])
-tableau
+
 
 def save():
     ouvrir_fichier= filedialog.asksaveasfile(title="partie a sauvegarder")
@@ -159,11 +158,11 @@ fenetre.title("Jeu du 2048")
 fenetre.geometry('500x450')
 fenetre['bg']='black'
 
-def play(): #Marche (75%)
-    hasardrow1=randint(4,7)
-    hasardcolumn1=randint(3,6)
-    hasardrow2=randint(4,7)
-    hasardcolumn2=randint(3,6)
+def play(): 
+    hasardrow1=randint(1,4)
+    hasardcolumn1=randint(1,4)
+    hasardrow2=randint(1,4)
+    hasardcolumn2=randint(1,4)
     casedebut1=tk.Canvas(width=100,height=100,bg="#FCE6CC")
     casedebut1.grid(row=int(hasardrow1),column=int(hasardcolumn1))
     casedebut2=tk.Canvas(width=100,height=100,bg="#FCE6CC")
