@@ -58,122 +58,114 @@ def joueur_tuile(grille):
 #joueur_tuile(grille1)
 
 #fonctions de directions
-def bas(grille):
+def mouvemement(direction,grille):
+        if direction=="down":
+                for i in range(len(grille)):
+                        if grille[0][i]==grille[1][i]:
+                                x=grille[0][i]+grille[1][i]
+                                grille[0][i]=0
+                        else:
+                                x=0
+                        if grille[1][i]==grille[2][i]:
+                                y=grille[2][i]+grille[1][i]
+                                grille[1][i]=0
+                        else:
+                                y=0
+                        if grille[2][i]==grille[3][i]:
+                                z=grille[2][i]+grille[3][i]
+                                grille[2][i]=0
+                        else:
+                                z=0
+                        grille[1][i]=x
+                        grille[2][i]=y
+                        grille[3][i]=z
+                        for j in range (1,3):
+                                if grille[j+1][i]==0:
+                                        grille[j+1][i],grille[j][i]=grille[j][i],grille[j+1][i]
+        if direction=="up":
+                for i in range(len(grille)):
+                        if grille[0][i]==grille[1][i]:
+                                x=grille[0][i]+grille[1][i]
+                                grille[1][i]=0
+                        else:
+                                x=0
+                        if grille[1][i]==grille[2][i]:
+                                y=grille[2][i]+grille[1][i]
+                                grille[2][i]=0
+                        else:
+                                y=0
+                        if grille[2][i]==grille[3][i]:
+                                z=grille[2][i]+grille[3][i]
+                                grille[3][i]=0
+                        else:
+                                z=0
+                        grille[0][i]=x
+                        grille[1][i]=y
+                        grille[2][i]=z
+                        for j in range (1,3):
+                                if grille[j-1][i]==0:
+                                        grille[j-1][i],grille[j][i]=grille[j][i],grille[j-1][i]
+        if direction=="left":
+               for i in range(len(grille)):
+                        for j in range(1,len(grille[i])):
+                                if grille[i][j]!=0:
+                                        for k in range(j,0,-1):
+                                                if grille[i][k-1]==0:
+                                                        grille[i][k-1]=grille[i][k]
+                                                        grille[i][k]=0
+                             
+                                                elif grille[i][k-1]==grille[i][k]:
+                                                       grille[i][k-1]*=2
+                                                       grille[i][k]=0
+                                                       break
+                                                        
+                             
 
-        for i in range(len(grille)):
-                if grille[0][i]==grille[1][i]:
-                        x=grille[0][i]+grille[1][i]
-                        grille[0][i]=0
-                else:
-                     x=0
-                if grille[1][i]==grille[2][i]:
-                        y=grille[2][i]+grille[1][i]
-                        grille[1][i]=0
-                else:
-                     y=0
-                if grille[2][i]==grille[3][i]:
-                        z=grille[2][i]+grille[3][i]
-                        grille[2][i]=0
-                else:
-                     z=0
-                grille[1][i]=x
-                grille[2][i]=y
-                grille[3][i]=z
-                for j in range (1,3):
-                      if grille[j+1][i]==0:
-                        grille[j+1][i],grille[j][i]=grille[j][i],grille[j+1][i]
 
+
+
+
+                #for i in range (1,len(grille)):
+                        #for j in range(len(grille[i])):
+                                #if grille[i][j]!=0:
+                                        #for k in range(j,0,-1):
+                                                #if grille[i][k-1]==0:
+                                                        #grille[i][k-1]=grille[i][k]
+                                                        #grille[i][k]=0
+        
+                                                
+        
+        
+                        
+        if direction=="right":     
+                for i in range (len(grille)):
+                        if grille[i][0]==grille[i][1]:
+                                x=grille[i][0]+grille[i][1]
+                                grille[i][0]=0
+                        else:
+                                x=0
+                        if grille[i][1]==grille[i][2]:
+                                y=grille[i][1]+grille[i][2]
+                                grille[i][1]=0
+                        else:
+                                y=0
+                        if grille[i][2]==grille[i][3]:
+                                z=grille[i][2]+grille[i][3]
+                                grille[i][2]=0
+                        else:
+                                z=0
+                        grille[i][1]=x
+                        grille[i][2]=y
+                        grille[i][3]=z
+                        for j in range(0,3):
+                                if grille[i][j+1]==0 :
+                                        grille[i][j+1],grille[i][j]=grille[i][j],grille[i][j+1]
         return grille
-
-def haut(grille):
-        for i in range(len(grille)):
-                if grille[0][i]==grille[1][i]:
-                        x=grille[0][i]+grille[1][i]
-                        grille[1][i]=0
-                else:
-                      x=0
-                if grille[1][i]==grille[2][i]:
-                        y=grille[2][i]+grille[1][i]
-                        grille[2][i]=0
-                else:
-                      y=0
-                if grille[2][i]==grille[3][i]:
-                        z=grille[2][i]+grille[3][i]
-                        grille[3][i]=0
-                else:
-                      z=0
-                grille[0][i]=x
-                grille[1][i]=y
-                grille[2][i]=z
-                for j in range (1,3):
-                      if grille[j-1][i]==0:
-                        grille[j-1][i],grille[j][i]=grille[j][i],grille[j-1][i]
-        return grille
-     
-grille3=[[2, 2, 4, 4], [0, 0, 0, 0],[0, 0, 0, 0],[0, 0, 0, 0]]
-grille4=[[0, 0, 0, 0], [0, 0, 0, 0],[0, 0, 0, 0],[2, 2, 4, 4]]
-#haut(grille4)
-#bas(grille3)
-
-def gauche(grille):
-        for i in range (len(grille)):
-                if grille[i][0]==grille[i][1]:
-                        x=grille[i][0]+grille[i][1]
-                        grille[i][1]=0
-                else:
-                      x=0
-                if grille[i][2]==grille[i][1]:
-                        y=grille[i][2]+grille[i][1]
-                        grille[i][2]=0
-                else:
-                      y=0
-                if grille[i][3]==grille[i][2]:
-                        z=grille[i][2]+grille[i][3]
-                        grille[i][3]=0
-                else:
-                      z=0
-                grille[i][0]=x
-                grille[i][1]=y
-                grille[i][2]=z
-                for j in range(3,0,-1):
-                    if grille[i][j-1]==0 :
-                            grille[i][j-1],grille[i][j]=grille[i][j],grille[i][j-1]
-        return grille
-
-def droite(grille):
-        for i in range (len(grille)):
-                if grille[i][0]==grille[i][1]:
-                        x=grille[i][0]+grille[i][1]
-                        grille[i][0]=0
-                else:
-                      x=0
-                if grille[i][1]==grille[i][2]:
-                        y=grille[i][1]+grille[i][2]
-                        grille[i][1]=0
-                else:
-                      y=0
-                if grille[i][2]==grille[i][3]:
-                        z=grille[i][2]+grille[i][3]
-                        grille[i][2]=0
-                else:
-                      z=0
-                grille[i][1]=x
-                grille[i][2]=y
-                grille[i][3]=z
-                for j in range(0,3):
-                    if grille[i][j+1]==0 :
-                            grille[i][j+1],grille[i][j]=grille[i][j],grille[i][j+1]
-        return grille
-
-grille1=[[0, 0, 4, 2], [0, 0, 0, 2], [0, 0, 0, 4], [0, 0, 0, 4]]
-grille2=[[2, 0, 0, 0], [4, 0, 0, 0],[4, 0, 0, 0],[4, 0, 0, 0]]
-gauche(grille1)
-#droite(grille1)
 
 
 
 #affichage tkinter
-def textjeu(grille):
+def testjeu(grille):
         x=16
         while x!=0:
                 x=16
@@ -185,7 +177,7 @@ def textjeu(grille):
                 fenetre.title("2048")
 
                 #Butons
-                exit=tk.Button(fenetre,text='Exit',command=lambda:bas(grille))
+                exit=tk.Button(fenetre,text='Exit',command=lambda:mouvemement("left",grille))
                 exit.grid(column=0,row=3)
 
                 save=tk.Button(fenetre,text='Save')
@@ -264,4 +256,4 @@ def textjeu(grille):
                 fenetre.mainloop()
                 
 
-#textjeu(grille1)
+testjeu(grille1)
