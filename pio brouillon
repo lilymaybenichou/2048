@@ -21,12 +21,14 @@ print("\033[0;32m 16384")
 print("\033[0;31m 32768")
 print("\033[0;30m 65536")
 
+# fonction pour commencer le jeu
 def start_game():
     mat=[]
     for i in range(4):
         mat.append([0]*4)
     return mat
 
+# fonction pour ajouter une nouvelle case
 def add_new_2(mat):
     r=R.randint(0,3)
     c=R.randint(0,3)
@@ -37,23 +39,24 @@ def add_new_2(mat):
 
     mat[r][c]=2 
 
+#fonction pour 
 def get_current_state(mat):
-    #if 2048 is present
+    #si le 2048 et present alors la partie n est pas encore termine
     for i in range(4):
         for j in range(4):
             if mat[i][j]==2048:
                 return 'WIN'
-    #if 0 is a present the game is not over yet 
+    #si 0 est present dans le jeu la partie n'est pas fini
     for i in range(4):
         for j in range(4):
             if mat[i][j]==0:
                 return 'GAME NOT OVER '
-    #if except last row or column, there are adjacent equal values than
+    #  à l’exception de la dernière ligne ou colonne, il existe des valeurs égales adjacentes à
     for i in range(3):
         for j in range(3):
             if mat[i][j]==mat[i+j][j] or mat[i][j]==mat[i][j+1]:
                 return 'GAME NOT OVER'
-    ## for last row 
+    ## pour les derniere ligne
     for j in range(3):
         if mat[4][j]==mat[4][j+1]:
             return ' GAME NOT OVER'
