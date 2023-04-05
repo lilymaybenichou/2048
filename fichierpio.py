@@ -6,6 +6,8 @@
 import tkinter as tk
 from tkinter import Widget, filedialog
 from random import * 
+from time import* 
+
 
 
 
@@ -32,24 +34,19 @@ fenetre.bind_all('<Right>',press)
     
     
 
-
+grille=[0]*16
+score=0
     
 
-def play(): 
-    hasardrow1=randint(1,4)
-    hasardcolumn1=randint(1,4)
-    hasardrow2=randint(1,4)
-    hasardcolumn2=randint(1,4)
-    casedebut1=tk.Canvas(width=100,height=100,bg="#FCE6CC")
-    casedebut1.grid(row=int(hasardrow1),column=int(hasardcolumn1))
-    casedebut2=tk.Canvas(width=100,height=100,bg="#FCE6CC")
-    casedebut2.grid(row=int(hasardrow2),column=int(hasardcolumn2))
-    debut1=tk.Label(fenetre,bg="#FFC0C0",text="2",height=3,width=6,font=("Helvetica", 20))
-    debut1.grid(row=int(hasardrow1),column=int(hasardcolumn1))
-    debut2=tk.Label(fenetre,bg="#FFC0C0",text="2",width=6,font=("Helvetica", 20))
-    debut2.grid(row=int(hasardrow2),column=int(hasardcolumn2))
+def play():
+    # nous allons donneer le debut du jeu
+        casevid=[i for i,x in enumerate(grille) if x==0]     
+        if len(casevid)!=0:
+            grille[choice(casevid)]=choices([2,2,2,4])
+        jeu()
 
 
+ 
 
     
 
