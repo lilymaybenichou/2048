@@ -9,6 +9,7 @@ from random import *
 
 
 
+
 def fermer_fenetre():
     fenetre.destroy()
 
@@ -27,6 +28,11 @@ fenetre.bind_all('<Left>',press)
 fenetre.bind_all('<Right>',press)
 
 
+
+    
+    
+
+
     
 
 def play(): 
@@ -38,10 +44,23 @@ def play():
     casedebut1.grid(row=int(hasardrow1),column=int(hasardcolumn1))
     casedebut2=tk.Canvas(width=100,height=100,bg="#FCE6CC")
     casedebut2.grid(row=int(hasardrow2),column=int(hasardcolumn2))
-    debut1=tk.Label(fenetre, text="2",bg="#FFC0C0",height=3,width=6,font=("Helvetica", 20))
+    debut1=tk.Label(fenetre,bg="#FFC0C0",text="2",height=3,width=6,font=("Helvetica", 20))
     debut1.grid(row=int(hasardrow1),column=int(hasardcolumn1))
-    debut2=tk.Label(fenetre, text="2",bg="#FFC0C0",height=3,width=6,font=("Helvetica", 20))
+    debut2=tk.Label(fenetre,bg="#FFC0C0",text="2",width=6,font=("Helvetica", 20))
     debut2.grid(row=int(hasardrow2),column=int(hasardcolumn2))
+
+
+
+    
+
+    
+
+
+
+
+
+    
+
 
     
     
