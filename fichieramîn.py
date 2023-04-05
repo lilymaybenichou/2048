@@ -6,6 +6,11 @@ from random import*
 
 tableau = np.array([[0, 0, 0, 0], [0, 0, 0, 0],[0, 0, 0, 0],[0, 0, 0, 0]])
 
+val_num = {
+  "number": [2,4,8,16,32,64,128,256,512,1024,2048],
+  "number_color":["#000000","#1A1A1A","#333333","#4D4D4D","#666666","#808080","#9A9A9A","#B3B3B3","#CDCDCD","#E6E6E6","#FFFFFF"],
+  "colors_case": ["#FFE6E6","#FFB3B3","#FF8080","#FF4D4D","#FF1A1A","#FF0000","#E60000","#B30000","#800000","#4D0000","#1A0000"]
+}
 #fonction
 def fermer_fenetre(): #Marche (100%)
     fenetre.destroy()
@@ -53,68 +58,65 @@ from random import*
 
 def play(): #Marche (100%)
     V=["2","2","2","2","2","2","2","4","2"]
-    color=""
+    N=["2","2","4","2","2","2","2","2","2"]
+    color1=""
+    color2=""
     V1=choice(V)
-    V2=choice(V)
+    V2=choice(N)
     if V1=='4':
-        color="#FFCDCD"
+        color1=val_num["colors_case"][1]
     else:
-        color="#FFE6E6"
+        color1=val_num["colors_case"][0]
     if V2=='4':
-        color="#FFCDCD"
+        color2=val_num["colors_case"][1]
     else:
-        color="#FFE6E6"
+        color2=val_num["colors_case"][0]
 
     hasardrow1=randint(4,7)
     hasardcolumn1=randint(3,6)
     hasardrow2=randint(4,7)
     hasardcolumn2=randint(3,6)
 
-    casedebut1=tk.Canvas(width=100,height=100,bg=color)
-    casedebut1.grid(row=int(hasardrow1),column=int(hasardcolumn1))
-    casedebut2=tk.Canvas(width=100,height=100,bg=color)
-    casedebut2.grid(row=int(hasardrow2),column=int(hasardcolumn2))
-
-    debut1=tk.Label(fenetre, text=V1,bg=color,height=3,width=6,font=("Helvetica", 20))
+    debut1=tk.Label(fenetre, text=V1,bg=color1,height=3,width=6,font=("Helvetica", 20),bd=2)
     debut1.grid(row=int(hasardrow1),column=int(hasardcolumn1))
-    debut2=tk.Label(fenetre, text=V2,bg=color,height=3,width=6,font=("Helvetica", 20))
+    debut2=tk.Label(fenetre, text=V2,bg=color2,height=3,width=6,font=("Helvetica", 20),bd=2)
     debut2.grid(row=int(hasardrow2),column=int(hasardcolumn2))
 
     bouton1=tk.Button(fenetre,text='Try Again',height=2,width=12,bg='Blue',command=tryagain)
     bouton1.grid(row=1, column=1)
 
 def tryagain(): #Marche pas (100%)
-    canevas1=tk.Canvas(width=100,height=100,bg="#FCE6CC")
+    canevas1=tk.Canvas(width=100,height=100,bg="#EFB9F5")
     canevas1.grid(row=4,column=3)
-    canevas2=tk.Canvas(width=100,height=100,bg="#FCE6CC")
+    canevas2=tk.Canvas(width=100,height=100,bg="#EFB9F5")
     canevas2.grid(row=4,column=4)
-    canevas3=tk.Canvas(width=100,height=100,bg="#FCE6CC")
+    canevas3=tk.Canvas(width=100,height=100,bg="#EFB9F5")
     canevas3.grid(row=4,column=5)
-    canevas4=tk.Canvas(width=100,height=100,bg="#FCE6CC")
+    canevas4=tk.Canvas(width=100,height=100,bg="#EFB9F5")
     canevas4.grid(row=4,column=6)
-    canevas5=tk.Canvas(width=100,height=100,bg="#FCE6CC")
+    canevas5=tk.Canvas(width=100,height=100,bg="#EFB9F5")
     canevas5.grid(row=5,column=3)
-    canevas6=tk.Canvas(width=100,height=100,bg="#FCE6CC")
+    canevas6=tk.Canvas(width=100,height=100,bg="#EFB9F5")
     canevas6.grid(row=5,column=4)
-    canevas7=tk.Canvas(width=100,height=100,bg="#FCE6CC")
+    canevas7=tk.Canvas(width=100,height=100,bg="#EFB9F5")
     canevas7.grid(row=5,column=5)
-    canevas8=tk.Canvas(width=100,height=100,bg="#FCE6CC")
+    canevas8=tk.Canvas(width=100,height=100,bg="#EFB9F5")
     canevas8.grid(row=5,column=6)
-    canevas9=tk.Canvas(width=100,height=100,bg="#FCE6CC")
+    canevas9=tk.Canvas(width=100,height=100,bg="#EFB9F5")
     canevas9.grid(row=6,column=3)
-    canevas10=tk.Canvas(width=100,height=100,bg="#FCE6CC")
+    canevas10=tk.Canvas(width=100,height=100,bg="#EFB9F5")
     canevas10.grid(row=6,column=4)
-    canevas11=tk.Canvas(width=100,height=100,bg="#FCE6CC")
+    canevas11=tk.Canvas(width=100,height=100,bg="#EFB9F5")
     canevas11.grid(row=6,column=5)
-    canevas12=tk.Canvas(width=100,height=100,bg="#FCE6CC")
+    canevas12=tk.Canvas(width=100,height=100,bg="#EFB9F5")
     canevas12.grid(row=6,column=6)
-    canevas13=tk.Canvas(width=100,height=100,bg="#FCE6CC")
+    canevas13=tk.Canvas(width=100,height=100,bg="#EFB9F5")
     canevas13.grid(row=7,column=3)
-    canevas14=tk.Canvas(width=100,height=100,bg="#FCE6CC")
+    canevas14=tk.Canvas(width=100,height=100,bg="#EFB9F5")
     canevas14.grid(row=7,column=4)
-    canevas15=tk.Canvas(width=100,height=100,bg="#FCE6CC")
+    canevas15=tk.Canvas(width=100,height=100,bg="#EFB9F5")
     canevas15.grid(row=7,column=5)
-    canevas16=tk.Canvas(width=100,height=100,bg="#FCE6CC")
+    canevas16=tk.Canvas(width=100,height=100,bg="#EFB9F5")
     canevas16.grid(row=7,column=6)
     bouton1=tk.Button(fenetre,text='Play',height=2,width=12,bg='green',command=play)
     bouton1.grid(row=1, column=1)
@@ -136,14 +138,14 @@ fenetre=tk.Tk()
 fenetre.title("Jeu du 2048")
 fenetre.geometry('700x600')
 fenetre.minsize(665, 570)
-fenetre['bg']='#FFC584'
+fenetre['bg']='#AC61B5'
 
 #zonetexte
-affi1=tk.Label(fenetre, text="°",fg="#FFC584",bg="#FFC584",height=3,width=3)
+affi1=tk.Label(fenetre, text="°",fg="#AC61B5",bg="#AC61B5",height=3,width=3)
 affi1.grid(column=2, row=0)
-affi1=tk.Label(fenetre, text="°",fg="#FFC584",bg="#FFC584",height=3,width=3)
+affi1=tk.Label(fenetre, text="°",fg="#AC61B5",bg="#AC61B5",height=3,width=3)
 affi1.grid(column=8, row=0)
-affi1=tk.Label(fenetre, text="°",fg="#FFC584",bg="#FFC584",height=3,width=3)
+affi1=tk.Label(fenetre, text="°",fg="#AC61B5",bg="#AC61B5",height=3,width=3)
 affi1.grid(column=0, row=0)
 
 #bouton
@@ -157,37 +159,37 @@ bouton8=tk.Button(fenetre,text='Load',height=2,width=12,bg='grey',command=ouvrir
 bouton8.grid(row=3, column=9, columnspan=2)
 
 #tableau
-canevas1=tk.Canvas(width=100,height=100,bg="#FCE6CC")
+canevas1=tk.Canvas(width=100,height=100,bg="#EFB9F5")
 canevas1.grid(row=4,column=3)
-canevas2=tk.Canvas(width=100,height=100,bg="#FCE6CC")
+canevas2=tk.Canvas(width=100,height=100,bg="#EFB9F5")
 canevas2.grid(row=4,column=4)
-canevas3=tk.Canvas(width=100,height=100,bg="#FCE6CC")
+canevas3=tk.Canvas(width=100,height=100,bg="#EFB9F5")
 canevas3.grid(row=4,column=5)
-canevas4=tk.Canvas(width=100,height=100,bg="#FCE6CC")
+canevas4=tk.Canvas(width=100,height=100,bg="#EFB9F5")
 canevas4.grid(row=4,column=6)
-canevas5=tk.Canvas(width=100,height=100,bg="#FCE6CC")
+canevas5=tk.Canvas(width=100,height=100,bg="#EFB9F5")
 canevas5.grid(row=5,column=3)
-canevas6=tk.Canvas(width=100,height=100,bg="#FCE6CC")
+canevas6=tk.Canvas(width=100,height=100,bg="#EFB9F5")
 canevas6.grid(row=5,column=4)
-canevas7=tk.Canvas(width=100,height=100,bg="#FCE6CC")
+canevas7=tk.Canvas(width=100,height=100,bg="#EFB9F5")
 canevas7.grid(row=5,column=5)
-canevas8=tk.Canvas(width=100,height=100,bg="#FCE6CC")
+canevas8=tk.Canvas(width=100,height=100,bg="#EFB9F5")
 canevas8.grid(row=5,column=6)
-canevas9=tk.Canvas(width=100,height=100,bg="#FCE6CC")
+canevas9=tk.Canvas(width=100,height=100,bg="#EFB9F5")
 canevas9.grid(row=6,column=3)
-canevas10=tk.Canvas(width=100,height=100,bg="#FCE6CC")
+canevas10=tk.Canvas(width=100,height=100,bg="#EFB9F5")
 canevas10.grid(row=6,column=4)
-canevas11=tk.Canvas(width=100,height=100,bg="#FCE6CC")
+canevas11=tk.Canvas(width=100,height=100,bg="#EFB9F5")
 canevas11.grid(row=6,column=5)
-canevas12=tk.Canvas(width=100,height=100,bg="#FCE6CC")
+canevas12=tk.Canvas(width=100,height=100,bg="#EFB9F5")
 canevas12.grid(row=6,column=6)
-canevas13=tk.Canvas(width=100,height=100,bg="#FCE6CC")
+canevas13=tk.Canvas(width=100,height=100,bg="#EFB9F5")
 canevas13.grid(row=7,column=3)
-canevas14=tk.Canvas(width=100,height=100,bg="#FCE6CC")
+canevas14=tk.Canvas(width=100,height=100,bg="#EFB9F5")
 canevas14.grid(row=7,column=4)
-canevas15=tk.Canvas(width=100,height=100,bg="#FCE6CC")
+canevas15=tk.Canvas(width=100,height=100,bg="#EFB9F5")
 canevas15.grid(row=7,column=5)
-canevas16=tk.Canvas(width=100,height=100,bg="#FCE6CC")
+canevas16=tk.Canvas(width=100,height=100,bg="#EFB9F5")
 canevas16.grid(row=7,column=6)
 
 #Menu (APPARTENANT A PIOOOOOOOO !)
