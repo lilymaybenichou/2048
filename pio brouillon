@@ -1,7 +1,8 @@
 # brouillon projet
 from tkinter import Frame,Label,CENTER
 import random as R
-
+import random 
+import copy 
 
 
 print("\033[0;97m 2")
@@ -176,29 +177,258 @@ KEY_LEFT="'a'"
 KEY_RIGHT="'d'"
         
 
-# creation d un tableau debutant 
-tableau = [[0,0,2,2],[2,2,2,0],[4,0,0,4],[0,2,0,0]]
+# Ici creation du jeu 2048 avec different etapes pour le 17 avril 2023
+# On vas le faire ici en different etable etapes
+# a= etape intro vu precedement
+#b=Creation de touche pour avancer + transposer les cases notamment avec les fonctions reverse pour inverser comme vu precemment
+# c=Creation du debut du jeu c est a dire par exemple afficher deux valeur aleatoire 75% d avoir deux 2 et 25 % d avoir un 4
+# d= tour du jeu 
+# e=Additon de valeur
+# f=Fonction gagner ou perdre 
 
+
+#a
+# neanmoins pour ne pas gener la mobilite du tableau autant utiliser 
+# creation d un tableau 
+ # car 16 colonnes dans notre tableau 
+# Definiton de la taille du tableau 
+tailledutableau=4
+# permettant de modeler le tableau a notre facon 
+def display():# display a peut pres egale a la fonction print mais en mieux pour mieux afficher les chiffres par exemples
 # fonction conduisant le tableau seulement dans la console et pas dans la fenetre pour le moment
-def display():
-    for row in tableau:
-        currRow = "|"
+     largest = tableau[0][0]
+     for row in tableau:
+        for element in row:
+            if element > largest:  # complmentariter des elemnt en fonction de la largeur de notre tableau
+                largest = element
+
+    # mettre le maximum d espace pour le besoin pour les gros chiffre notament
+     numSpaces = len(str(largest))
+
+
+     for row in tableau:
+        currRow = "|" # la fonction currRow permet de mettre des barriers
         for element in row:
             #Si l elemnt est = 0 il y a de la place 
             if element == 0:
-                currRow += "|"
+                currRow += "" * numSpaces + "|"
                 #SI non nous avons la valeur 
             else:
-                currRow += str(element) + "|"
+              currRow += (""* (numSpaces - len(str(element)))) + str(element) + "|" # pour avoir plus de place pour les plus de place grand element
 
         # Afficher la ligne generatrice 
         print(currRow)
-    print()
+     print()
     
+    
+#display()
+ # a savoir si on multiplie un string avec un nombre cela cree un nouveau string 
+ # si on multiplie un espace par 4 le nouveau string sera de 4 espace 
+ # pour un grand nombre on as besoin par exemple pour ces 1 chiffres de 2 espace 
+ # pour cela on vas modifier le code a cett endroit currrow str
+
+
+#b 
+# creation d une fonction pour faire bouger une ligne a gauche par exemple 
+def transposeuneseulligne(row):
+    # permetrre a tout les elements de bouger si possible vers la gauche but rechercher 
+    for j in range (tailledutableau - 1):
+      for i in range (tailledutableau -1,0,-1):
+        # ici permettre au case vide d etre remplie du faite que elle se feront bouger vers les case libres
+        if row[i-1] ==0 : # 
+           row[i - 1] = row[i]
+           row[i] = 0
+
+    # permettre a toute les valeur de fusionner vers la gauche 
+    for i in range(tailledutableau - 1):
+        # test pour savoir si les deux valeurs sont identtique et pour le prochain 
+        if row[i] == row[i+1]:
+          row[i]*=2
+          row[i + 1] = 0 
+
+    # tous faire mettre vers la gauche encore une fois 
+    for i in range(tailledutableau -1,0,-1):
+        if row[i - 1]==0 :
+           row[i - 1] = row[i]
+           row[i]=0
+    return row 
+
+# cette fonction fusionne tous le tableau a gauche 
+def transposegauche(actuelletableau):
+    # fusionne tout les lignes a gauche du tableau 
+    for i in range(tailledutableau):
+        actuelletableau[i] = transposeuneseulligne(actuelletableau[i])
+
+    return actuelletableau
+    
+# fonction pour les differentes direction 
+def reverse(row):
+    # tous les element dans la ligne son dans une liste et leur role sera inverser 
+    new=[]
+    for i in range(tailledutableau -1,-1,-1):
+        new.append(row[i])
+    return new 
+
+# fonction pour fusionner tout les element a droite 
+def transposedroite(actuelletableau):
+    #pour toute les ligne du tableau 
+   for i in range(tailledutableau):
+       # Renverse lles lignes transpose a gauche  et les reverse en arriere
+       actuelletableau[i]= reverse(actuelletableau[i])
+       actuelletableau[i]= transposeuneseulligne(actuelletableau[i])
+       actuelletableau[i]= reverse(actuelletableau[i])
+   return actuelletableau
+
+
+# pour aller en haut
+# la fonction transpose permet de retourner le tableau en diagonale
+# creation de la fonction transpose permettant la transpose dans tout le tableau 
+# par exemple un element de la premiere colonne et de la deuxieme ligne,
+#ira dans la seconde ligne de la deuxieme colonne
+# creation de la fonction transpose 
+# pas actuellement fini
+def transpose(actuelletableau):
+    for j in range(tailledutableau): # permmenant a des element de voir si il sont dans differente diagonale 
+        for i in range(j,tailledutableau):
+            if not i == j : # pour les partagers echanger les element de la diagonale
+                bones = actuelletableau[j][i] # swap
+                actuelletableau[j][i] = actuelletableau[i][j]
+                actuelletableau[i][j] = bones
+    return actuelletableau
+
+# fonction permettant de transposer tout le tableau 
+def transposetoutenhaut(actuelletableau):
+    # transpose tout le tableau si il est gauche transpose en arriere 
+    actuelletableau = transpose(actuelletableau)
+    actuelletableau = transposegauche(actuelletableau)
+    actuelletableau = transpose(actuelletableau)
+
+    return actuelletableau
+
+# fonction pour tout mettre en bas
+def toutenbas(actuelletableau):
+    actuelletableau= transpose(actuelletableau)
+    actuelletableau= transposedroite(actuelletableau)
+    actuelletableau= transpose(actuelletableau)
+
+    return actuelletableau
+                               
+
+
+
+# c = choisir sois un 2 ou 4 sachant que il a 75% de chance d obtenir un 2 que un 4
+def deux_quatre():
+    if random.randint(1,8) == 1:
+        return 4
+    else:
+        return 2
+
+#fonction qui met une valeur dans une case vides
+def valuercasesvides():
+    rowNombre = random.randint(0,tailledutableau-1)
+    Nombrecol = random.randint(0,tailledutableau-1)
+
+# trouver un endroit vides 
+    while not tableau[rowNombre][Nombrecol] == 0:
+       rowNombre = random.randint(0,tailledutableau-1)
+       Nombrecol = random.randint(0,tailledutableau-1)
+
+# trouver la case vide avec la nouvelle valeur 
+    tableau[rowNombre][Nombrecol] = deux_quatre()
+
+# creation de fonction fin_du_jeu(si la personne a gagner)
+def gagner():
+    for row in tableau:
+        if 2048 in row:
+           return True 
+    return False
+
+# savoir si la personne a perdu  fonction game over
+def bougepas():
+    # creation de 2 copy du tableau 
+    tableaucopya= copy.deepcopy(tableau)
+    tableaucopyb= copy.deepcopy(tableau)
+    # test de reconnaisance pour savoir si on peut bouger 
+    tableaucopya = toutenbas(tableaucopya)
+    if tableaucopya == tableaucopyb:
+        tableaucopya = transposetoutenhaut(tableaucopya)
+        if tableaucopya == tableaucopyb:
+            tableaucopya = transposegauche(tableaucopya)
+            if tableaucopya == tableaucopyb:
+                tableaucopya = transposedroite(tableaucopya)
+                if tableaucopya == tableaucopyb:
+                    return True
+    return False
+# creation d un tableau vierge 
+tableau=[]
+for i in range(tailledutableau):
+    row=[]
+    for j in range(tailledutableau):
+        row.append(0)
+    tableau.append(row)
+
+# 2 valeur apparaissant n importe ou dans le tableau 
+nombreapp = 2
+while nombreapp>0:
+    rowNombre= random.randint(0, tailledutableau - 1)
+    Nombrecol=random.randint(0,  tailledutableau - 1)
+
+    if tableau[rowNombre][Nombrecol] ==0:
+       tableau[rowNombre][Nombrecol] = deux_quatre()
+       nombreapp -=1
+
+print("Bonjour je suis eder militao ")# utilison print pour les message plutot 
 display()
 
+# codage pour la determination du fin du jeu 
 
 
+gameover= False 
+
+while not gameover:
+    direct = input("vous voullez ou bouger?")
+    # si il peut enocre boujger
+    choisivaleur=True 
+    # regardons si les mouvements se realise  copy du tableau 
+    Hyutableau= copy.deepcopy(tableau) #gardant en mémoire dans un dictionnaire memo les objets déjà copiés durant la phase de copie actuelle 
+                                       # permettant de savoir si le joueur a deja appuyer sur la meme touche
+    # cette fois on vas bouger en haut a droite de gauche a droite 
+    if direct =="d":
+      tableau = transposedroite(tableau)
+    elif direct =="z":
+        tableau = transposetoutenhaut(tableau)
+    elif direct == "q":
+        tableau = transposegauche(tableau)
+    elif direct == "s":
+        tableau = toutenbas(tableau)
+    else:
+       choisivaleur=False  # cela veut dire que l utilisatuer ne peut choisir que 4 touche si il affiche 
+                       # autre chose cela veut dire que cela ne s'écutera pas 
+
+    # demander a l utilisateur de donner donner un autre touche si ca touche selectioner et pas correct
+    if not choisivaleur:
+        print("veuillez choisir un bon resultat s il vous plait ")
+    # si sa touche choisi et correct
+    else:
+       # test si ca bouge 
+       if tableau == Hyutableau:
+           # leur dire d utiliser une autre fois la touche deja utiliser par exemple
+           print("choisir Autre direction cardeja utiliser")
+       else:
+           # savoir si on as gagner comme cyril gane 
+           if gagner():
+               display()
+               print("Victory like cYRIL gane")
+               gameover=True # car le jeu ce termine apres la victoire
+           else:
+           # ajouter une nouvelle fonction 
+             valuercasesvides()
+           
+             display()
+
+           # determine pas de deplacemnt
+           if bougepas():
+               print("game over")
 
 
 
