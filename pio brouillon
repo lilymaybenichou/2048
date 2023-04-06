@@ -4,7 +4,8 @@ import random as R
 import random 
 import copy 
 
-
+# Voici differente (fonction),(pour le projet)
+# fonction chnagement de couleur du plus fonce au plus clair 
 print("\033[0;97m 2")
 print("\033[0;96m 4")
 print("\033[0;95m 8")
@@ -22,6 +23,7 @@ print("\033[0;32m 16384")
 print("\033[0;31m 32768")
 print("\033[0;30m 65536")
 
+# quelque fonction avec mat[i][j] 
 # fonction pour commencer le jeu
 def start_game():
     mat=[]
@@ -182,8 +184,8 @@ KEY_RIGHT="'d'"
 # a= etape intro vu precedement
 #b=Creation de touche pour avancer + transposer les cases notamment avec les fonctions reverse pour inverser comme vu precemment
 # c=Creation du debut du jeu c est a dire par exemple afficher deux valeur aleatoire 75% d avoir deux 2 et 25 % d avoir un 4
-# d= tour du jeu 
-# e=Additon de valeur
+ 
+# e=Additon de valeur= transpose voir etape b
 # f=Fonction gagner ou perdre 
 
 
