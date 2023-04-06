@@ -39,11 +39,7 @@ score=0
     
 
 def play():
-    # nous allons donneer le debut du jeu
-        casevid=[i for i,x in enumerate(grille) if x==0]     
-        if len(casevid)!=0:
-            grille[choice(casevid)]=choices([2,2,2,4])
-        jeu()
+    
 
 
  
@@ -52,7 +48,7 @@ def play():
 
     
 
-
+def left()
 
 
 
@@ -68,7 +64,7 @@ def play():
 
 bouton1=tk.Button(fenetre,text='Play',bg='red',command=play)
 bouton1.grid(row=1,column=0)
-bouton2=tk.Button(fenetre,text='Left',bg='red')
+bouton2=tk.Button(fenetre,text='Left',bg='red'command=left)
 bouton2.grid(row=2,column=0)
 bouton3=tk.Button(fenetre,text='Right',bg='yellow')
 bouton3.grid(row=3,column=0)
