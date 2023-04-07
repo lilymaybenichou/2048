@@ -198,14 +198,15 @@ tailledutableau=4
 # permettant de modeler le tableau a notre facon 
 def display():# display a peut pres egale a la fonction print mais en mieux pour mieux afficher les chiffres par exemples
 # fonction conduisant le tableau seulement dans la console et pas dans la fenetre pour le moment
-     largest = tableau[0][0]
+     largest = tableau[0][0] # permettant de definir que le tableau et vides au debut
      for row in tableau:
         for element in row:
             if element > largest:  # complmentariter des elemnt en fonction de la largeur de notre tableau
                 largest = element
 
     # mettre le maximum d espace pour le besoin pour les gros chiffre notament
-     numSpaces = len(str(largest))
+     numSpaces = len(str(largest)) # len et str conversion pour la reecriture 
+                                   # permet la conversion en str
 
 
      for row in tableau:
@@ -221,7 +222,8 @@ def display():# display a peut pres egale a la fonction print mais en mieux pour
         # Afficher la ligne generatrice 
         print(currRow)
      print()
-    
+# la partie vue precedement ne servira pas pour la fenetre tkinter car on as deja programme*
+# notre tableau  
     
 #display()
  # a savoir si on multiplie un string avec un nombre cela cree un nouveau string 
@@ -266,10 +268,10 @@ def transposegauche(actuelletableau):
 # fonction pour les differentes direction 
 def reverse(row):
     # tous les element dans la ligne son dans une liste et leur role sera inverser 
-    new=[]
-    for i in range(tailledutableau -1,-1,-1):
-        new.append(row[i])
-    return new 
+    new=[] # defini une nouvelle liste new
+    for i in range(tailledutableau -1,-1,-1): # 
+        new.append(row[i]) # premettant d apparaitre le row 
+    return new # retourner indefiniment la liste 
 
 # fonction pour fusionner tout les element a droite 
 def transposedroite(actuelletableau):
@@ -293,7 +295,7 @@ def transpose(actuelletableau):
     for j in range(tailledutableau): # permmenant a des element de voir si il sont dans differente diagonale 
         for i in range(j,tailledutableau):
             if not i == j : # pour les partagers echanger les element de la diagonale
-                bones = actuelletableau[j][i] # swap
+                bones = actuelletableau[j][i] # echanger les element 
                 actuelletableau[j][i] = actuelletableau[i][j]
                 actuelletableau[i][j] = bones
     return actuelletableau
@@ -313,14 +315,14 @@ def toutenbas(actuelletableau):
     actuelletableau= transposedroite(actuelletableau)
     actuelletableau= transpose(actuelletableau)
 
-    return actuelletableau
+    return actuelletableau # permet de mettre a jour son tableau a chaque fois
                                
 
 
 
 # c = choisir sois un 2 ou 4 sachant que il a 75% de chance d obtenir un 2 que un 4
 def deux_quatre():
-    if random.randint(1,8) == 1:
+    if random.randint(1,8) == 1:# on peut chances les coordonne x et y pour avoir moins ou plus de chance
         return 4
     else:
         return 2
@@ -348,7 +350,7 @@ def gagner():
 # savoir si la personne a perdu  fonction game over
 def bougepas():
     # creation de 2 copy du tableau 
-    tableaucopya= copy.deepcopy(tableau)
+    tableaucopya= copy.deepcopy(tableau) # foncction deep copy est permet de copier son tableau 
     tableaucopyb= copy.deepcopy(tableau)
     # test de reconnaisance pour savoir si on peut bouger 
     tableaucopya = toutenbas(tableaucopya)
@@ -379,12 +381,12 @@ while nombreapp>0:
        tableau[rowNombre][Nombrecol] = deux_quatre()
        nombreapp -=1
 
-print("Bonjour je suis eder militao ")# utilison print pour les message plutot 
+print("Bonjour jeux 2048s")# utilison print pour les message plutot 
 display()
 
 # codage pour la determination du fin du jeu 
 
-
+# arrete de faire
 gameover= False 
 
 while not gameover:
@@ -417,7 +419,7 @@ while not gameover:
            # leur dire d utiliser une autre fois la touche deja utiliser par exemple
            print("choisir Autre direction cardeja utiliser")
        else:
-           # savoir si on as gagner comme cyril gane 
+           # savoir si on as gagner 
            if gagner():
                display()
                print("Victory like cYRIL gane")
