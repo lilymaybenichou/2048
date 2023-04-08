@@ -6,7 +6,7 @@ import copy
 
 # Voici differente (fonction),(pour le projet)
 # fonction chnagement de couleur du plus fonce au plus clair 
-print("\033[0;97m 2")
+print("\033[0;97m 2") # marche a 100% reste juste de le faire sur une fenetre tkinter
 print("\033[0;96m 4")
 print("\033[0;95m 8")
 print("\033[0;94m 16")
@@ -438,7 +438,7 @@ while not arrete2048:
 
 
 # pour pouvoir recommence le jeu il faudrait cree la fonction restat premetant de rejouer 
-def restart():# 0% ne marche pas 
+def restart():# 0% ne marche pas , ne pas prendre la fonction restart en consideration
     open()
 
 
