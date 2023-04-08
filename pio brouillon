@@ -328,12 +328,12 @@ def deux_quatre():
     else:
         return 2 # PLus de chance d obtenir un deux
 
-#fonction detectant les cases vides 
+#fonction ajoutant des valeurs dans des cases vide (2,4,8,16 etc) 
 def valuercasesvides():
-    lignealeatoire = random.randint(0,tailledutableau-1)
-    colonnelibre = random.randint(0,tailledutableau-1)
+    lignealeatoire = random.randint(0,tailledutableau-1) # ajoute des valeur dans une ligne aleatoire
+    colonnelibre = random.randint(0,tailledutableau-1) # ajoute des valeur dans une colonne aleatoire 
 
-# trouver un endroit vides 
+# permet de remplir les espaces pour ne plus avoir de vide
     while not tableau[lignealeatoire][colonnelibre] == 0:
        lignealeatoire = random.randint(0,tailledutableau-1)
        colonnelibre = random.randint(0,tailledutableau-1)
