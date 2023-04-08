@@ -34,21 +34,7 @@ fenetre.bind_all('<Right>',press)
     
     
 
-grille=[0]*16
-score=0
-    
 
-def play():
-    
-
-
- 
-
-    
-
-    
-
-def left()
 
 
 
@@ -62,9 +48,9 @@ def left()
 
     
 
-bouton1=tk.Button(fenetre,text='Play',bg='red',command=play)
+bouton1=tk.Button(fenetre,text='Play',bg='red')
 bouton1.grid(row=1,column=0)
-bouton2=tk.Button(fenetre,text='Left',bg='red'command=left)
+bouton2=tk.Button(fenetre,text='Left',bg='red')
 bouton2.grid(row=2,column=0)
 bouton3=tk.Button(fenetre,text='Right',bg='yellow')
 bouton3.grid(row=3,column=0)
