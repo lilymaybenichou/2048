@@ -9,8 +9,8 @@ from random import *
 from time import* 
 import random
 
-
-
+fenetre=tk.Tk()
+fenetre['bg']="red"
 
 def fermer_fenetre():
     fenetre.destroy()
