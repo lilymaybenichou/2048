@@ -161,7 +161,8 @@ def avis():
  
 
     
-    
+def restart(): 
+    pass
 
     
     
@@ -188,7 +189,7 @@ mon_menu.add_cascade(label="Option",menu=option)
 mon_menu.add_cascade(label="Aide",menu= aide)
 mon_menu.add_cascade(label="Exit",menu=exit)
 mon_menu.add_cascade(label="Note",menu=notezlejeu)
-mon_menu.add_cascade(label="Rejouer",menu=rejouer)
+mon_menu.add_cascade(label="Rejouer",menu=rejouer,command=restart)
 
 fenetre.config(menu=mon_menu)
 
