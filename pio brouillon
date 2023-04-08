@@ -323,9 +323,9 @@ def toutenbas(actuelletableau):
 # c = choisir sois un 2 ou 4 sachant que il a 75% de chance d obtenir un 2 que un 4
 def deux_quatre():
     if random.randint(1,8) == 1:# on peut chances les coordonne x et y pour avoir moins ou plus de chance
-        return 4
+        return 4 # 1 chance sur 8 de nous retourner un 4
     else:
-        return 2
+        return 2 # PLus de chance d obtenir un deux
 
 #fonction qui met une valeur dans une case vides
 def valuercasesvides():
@@ -347,7 +347,7 @@ def gagner():
            return True 
     return False
 
-# savoir si la personne a perdu  fonction game over
+# savoir si la personne a perdu  fonction game over d ou elle ne peut pas bouger
 def bougepas():
     # creation de 2 copy du tableau 
     tableaucopya= copy.deepcopy(tableau) # foncction deep copy est permet de copier son tableau 
@@ -382,14 +382,14 @@ while nombreapp>0:
        nombreapp -=1
 
 print("Bonjour jeux 2048s")# utilison print pour les message plutot 
-display()
+display()# plus efficace que le print 
 
 # codage pour la determination du fin du jeu 
 
 # arrete de faire
-gameover= False 
+arrete2048= False 
 
-while not gameover:
+while not arrete2048:
     direct = input("vous voullez ou bouger?")
     # si il peut enocre boujger
     choisivaleur=True 
@@ -423,7 +423,7 @@ while not gameover:
            if gagner():
                display()
                print("Victory like cYRIL gane")
-               gameover=True # car le jeu ce termine apres la victoire
+               arrete2048=True # car le jeu ce termine apres la victoire
            else:
            # ajouter une nouvelle fonction 
              valuercasesvides()
