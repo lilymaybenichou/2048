@@ -4,7 +4,22 @@ import random as R
 import random 
 import copy 
 
+
+
 # Voici differente (fonction),(pour le projet)
+#def press(event): # ne pas utiliser cette fonction
+   # print(event.keysym)
+#def release(event):
+   # print(event.keysym)
+
+#denetre=brucelee
+#fenetre.title("Jeu du 2048")
+#fenetre.geometry('500x450')
+#fenetre['bg']='black'
+#fenetre.bind_all('<Up>',press)
+#fenetre.bind_all('<Down>',press)
+#fenetre.bind_all('<Left>',press)
+#fenetre.bind_all('<Right>',press)
 # fonction chnagement de couleur du plus fonce au plus clair 
 print("\033[0;97m 2") # marche a 100% reste juste de le faire sur une fenetre tkinter
 print("\033[0;96m 4")
