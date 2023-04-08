@@ -16,7 +16,7 @@ def fermer_fenetre():
     fenetre.destroy()
 
 
-
+tailledutableau=4
 
 
 # Pris de Amin     
@@ -64,9 +64,95 @@ def play(): #Marche (100%) pris de Amin
     debut1.grid(row=int(hasardrow1),column=int(hasardcolumn1))
     debut2=tk.Label(fenetre, text=V2,bg=color2,fg=texte2,height=3,width=6,font=("Helvetica", 20),bd=2)
     debut2.grid(row=int(hasardrow2),column=int(hasardcolumn2))
+  
 
+
+
+
+#b (pour info i=ligne , j= colonne)
+# creation d une fonction pour faire bouger une ligne a gauche par exemple 
+def transposeuneseulligne(row):
+    # permetrre a tout les elements de bouger si possible vers la gauche but rechercher 
+    for j in range (tailledutableau - 1):
+      for i in range (tailledutableau -1,0,-1):
+        # ici permettre au case vide d etre remplie du faite que elle se feront bouger vers les case libres
+        if row[i-1] ==0 : # 
+           row[i - 1] = row[i]
+           row[i] = 0
+
+    # permettre a toute les valeur de fusionner vers la gauche 
+    for i in range(tailledutableau - 1):
+        # test pour savoir si les deux valeurs sont identtique et pour le prochain 
+        if row[i] == row[i+1]:
+          row[i]*=2
+          row[i + 1] = 0 
+
+    # tous faire mettre vers la gauche encore une fois 
+    for i in range(tailledutableau -1,0,-1):
+        if row[i - 1]==0 :
+           row[i - 1] = row[i]
+           row[i]=0
+    return row 
+
+# cette fonction fusionne tous le tableau a gauche 
+def transposegauche(actuelletableau):
+    # fusionne tout les lignes a gauche du tableau 
+    for i in range(tailledutableau):
+        actuelletableau[i] = transposeuneseulligne(actuelletableau[i])
+
+    return actuelletableau
     
+# fonction pour les differentes direction 
+def reverse(row):
+    # tous les element dans la ligne son dans une liste et leur role sera inverser 
+    new=[] # defini une nouvelle liste new
+    for i in range(tailledutableau -1,-1,-1): # taille du tableau = 4 
+        new.append(row[i]) # premettant d apparaitre le row 
+    return new # retourner indefiniment la liste 
 
+# fonction pour fusionner tout les element a droite 
+def transposedroite(actuelletableau):
+    #pour toute les ligne du tableau 
+   for i in range(tailledutableau):
+       # Renverse lles lignes transpose a gauche  et les reverse en arriere
+       actuelletableau[i]= reverse(actuelletableau[i])
+       actuelletableau[i]= transposeuneseulligne(actuelletableau[i])
+       actuelletableau[i]= reverse(actuelletableau[i])
+   return actuelletableau
+
+
+# pour aller en haut
+# la fonction transpose permet de retourner le tableau a travers une diagonale
+# creation de la fonction transpose permettant la transpose dans tout le tableau 
+# par exemple un element de la premiere ligne et de la deuxieme colonne,
+#ira dans la deuxieme ligne de la premiere colonne
+# creation de la fonction transpose 
+# pas actuellement fini
+def transpose(actuelletableau):
+    for j in range(tailledutableau): # permmenant a des element de voir si il sont dans differente diagonale 
+        for i in range(j,tailledutableau):
+            if not i == j : # pour les partagers echanger les element de la diagonale
+                bones = actuelletableau[j][i] # echanger les element 
+                actuelletableau[j][i] = actuelletableau[i][j]
+                actuelletableau[i][j] = bones # j ai choisi le bones par hasard pour definir
+    return actuelletableau                    # actuelletableau[i][j]
+
+# fonction permettant de transposer tout le tableau (on utilisera la fonction transpose gauche)
+def transposetoutenhaut(actuelletableau):
+    # transpose tout le tableau si il est gauche transpose en arriere 
+    actuelletableau = transpose(actuelletableau)
+    actuelletableau = transposegauche(actuelletableau)
+    actuelletableau = transpose(actuelletableau)
+
+    return actuelletableau
+
+# fonction pour tout mettre en bas (on utilisera la fonction transpose droite)
+def toutenbas(actuelletableau):
+    actuelletableau= transpose(actuelletableau)
+    actuelletableau= transposedroite(actuelletableau)
+    actuelletableau= transpose(actuelletableau)
+
+    return actuelletableau # permet de mettre a jour son tableau a chaque fois
 
 
 
@@ -82,13 +168,13 @@ def play(): #Marche (100%) pris de Amin
 
 bouton1=tk.Button(fenetre,text='Play',bg='red',command=play)
 bouton1.grid(row=1,column=0)
-bouton2=tk.Button(fenetre,text='Left',bg='red')
+bouton2=tk.Button(fenetre,text='Left',bg='red',command=transposegauche("actuelletableau"))
 bouton2.grid(row=2,column=0)
-bouton3=tk.Button(fenetre,text='Right',bg='yellow')
+bouton3=tk.Button(fenetre,text='Right',bg='yellow',command=transposedroite("actuelletableau"))
 bouton3.grid(row=3,column=0)
-bouton4=tk.Button(fenetre,text='Down',bg='black',fg='red')
+bouton4=tk.Button(fenetre,text='Down',bg='black',fg='red',command=toutenbas("actuelletableau"))
 bouton4.grid(row=4,column=0)
-bouton5=tk.Button(fenetre,text='Up',bg='green')
+bouton5=tk.Button(fenetre,text='Up',bg='green',command=transposetoutenhaut("actuelletableau"))
 bouton5.grid(row=5,column=0)
 canevas=tk.Canvas(width=100,height=100,bg="white")
 canevas.grid(row=1,column=1)
@@ -161,7 +247,7 @@ def avis():
  
 
     
-def restart(): 
+def restart(): # marche pas demander amin 
     pass
 
     
