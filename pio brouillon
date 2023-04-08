@@ -179,15 +179,16 @@ KEY_LEFT="'a'"
 KEY_RIGHT="'d'"
         
 
-# Ici creation du jeu 2048 avec different etapes pour le 17 avril 2023
+# Ici creation du jeu 2048 avec different etapes pour la semaine du  17 avril 2023
 # On vas le faire ici en different etable etapes
 # a= etape intro vu precedement
 #b=Creation de touche pour avancer + transposer les cases notamment avec les fonctions reverse pour inverser comme vu precemment
 # c=Creation du debut du jeu c est a dire par exemple afficher deux valeur aleatoire 75% d avoir deux 2 et 25 % d avoir un 4
- 
+# d = essayer de mettre des couleur ( a voir au faite de l anvecement du projet pas obligatoire)
 # e=Additon de valeur= transpose voir etape b
 # f=Fonction gagner ou perdre 
-
+# bonus : faire la fonction restart (pas besoin de le faire si amine ou lily 
+# l a fait)
 
 #a
 # neanmoins pour ne pas gener la mobilite du tableau autant utiliser 
@@ -232,7 +233,7 @@ def display():# display a peut pres egale a la fonction print mais en mieux pour
  # pour cela on vas modifier le code a cett endroit currrow str
 
 
-#b 
+#b (pour info i=ligne , j= colonne)
 # creation d une fonction pour faire bouger une ligne a gauche par exemple 
 def transposeuneseulligne(row):
     # permetrre a tout les elements de bouger si possible vers la gauche but rechercher 
@@ -269,7 +270,7 @@ def transposegauche(actuelletableau):
 def reverse(row):
     # tous les element dans la ligne son dans une liste et leur role sera inverser 
     new=[] # defini une nouvelle liste new
-    for i in range(tailledutableau -1,-1,-1): # 
+    for i in range(tailledutableau -1,-1,-1): # taille du tableau = 4 
         new.append(row[i]) # premettant d apparaitre le row 
     return new # retourner indefiniment la liste 
 
@@ -285,10 +286,10 @@ def transposedroite(actuelletableau):
 
 
 # pour aller en haut
-# la fonction transpose permet de retourner le tableau en diagonale
+# la fonction transpose permet de retourner le tableau a travers une diagonale
 # creation de la fonction transpose permettant la transpose dans tout le tableau 
-# par exemple un element de la premiere colonne et de la deuxieme ligne,
-#ira dans la seconde ligne de la deuxieme colonne
+# par exemple un element de la premiere ligne et de la deuxieme colonne,
+#ira dans la deuxieme ligne de la premiere colonne
 # creation de la fonction transpose 
 # pas actuellement fini
 def transpose(actuelletableau):
@@ -297,10 +298,10 @@ def transpose(actuelletableau):
             if not i == j : # pour les partagers echanger les element de la diagonale
                 bones = actuelletableau[j][i] # echanger les element 
                 actuelletableau[j][i] = actuelletableau[i][j]
-                actuelletableau[i][j] = bones
-    return actuelletableau
+                actuelletableau[i][j] = bones # j ai choisi le bones par hasard pour definir
+    return actuelletableau                    # actuelletableau[i][j]
 
-# fonction permettant de transposer tout le tableau 
+# fonction permettant de transposer tout le tableau (on utilisera la fonction transpose gauche)
 def transposetoutenhaut(actuelletableau):
     # transpose tout le tableau si il est gauche transpose en arriere 
     actuelletableau = transpose(actuelletableau)
@@ -309,7 +310,7 @@ def transposetoutenhaut(actuelletableau):
 
     return actuelletableau
 
-# fonction pour tout mettre en bas
+# fonction pour tout mettre en bas (on utilisera la fonction transpose droite)
 def toutenbas(actuelletableau):
     actuelletableau= transpose(actuelletableau)
     actuelletableau= transposedroite(actuelletableau)
@@ -327,23 +328,23 @@ def deux_quatre():
     else:
         return 2 # PLus de chance d obtenir un deux
 
-#fonction qui met une valeur dans une case vides
+#fonction detectant les cases vides 
 def valuercasesvides():
-    rowNombre = random.randint(0,tailledutableau-1)
-    Nombrecol = random.randint(0,tailledutableau-1)
+    lignealeatoire = random.randint(0,tailledutableau-1)
+    colonnelibre = random.randint(0,tailledutableau-1)
 
 # trouver un endroit vides 
-    while not tableau[rowNombre][Nombrecol] == 0:
-       rowNombre = random.randint(0,tailledutableau-1)
-       Nombrecol = random.randint(0,tailledutableau-1)
+    while not tableau[lignealeatoire][colonnelibre] == 0:
+       lignealeatoire = random.randint(0,tailledutableau-1)
+       colonnelibre = random.randint(0,tailledutableau-1)
 
 # trouver la case vide avec la nouvelle valeur 
-    tableau[rowNombre][Nombrecol] = deux_quatre()
+    tableau[lignealeatoire][colonnelibre] = deux_quatre()
 
 # creation de fonction fin_du_jeu(si la personne a gagner)
 def gagner():
     for row in tableau:
-        if 2048 in row:
+        if 2048 in row: # apparation 2048 = fin de jeu 
            return True 
     return False
 
@@ -363,48 +364,49 @@ def bougepas():
                 if tableaucopya == tableaucopyb:
                     return True
     return False
-# creation d un tableau vierge 
+# creation d un tableau vierge  ( sois le tableau du debut totalement vide )
 tableau=[]
 for i in range(tailledutableau):
     row=[]
     for j in range(tailledutableau):
-        row.append(0)
+        row.append(0) # tout le tableau au debut a 0 (on le rempliera avec la fonction suivante)
     tableau.append(row)
 
 # 2 valeur apparaissant n importe ou dans le tableau 
-nombreapp = 2
-while nombreapp>0:
-    rowNombre= random.randint(0, tailledutableau - 1)
-    Nombrecol=random.randint(0,  tailledutableau - 1)
+deuxvaleurdudebut = 2 # le 2 ici signifie les 2 valeurs qui vont apparaitre dans le tableau au debut du jeu
+while deuxvaleurdudebut >0:
+    lignealeatoire= random.randint(0, tailledutableau - 1)# choisi dans le tableau une ligne aleatoire
+    colonnelibre=random.randint(0,  tailledutableau - 1)# choisi dans le tableau une colonne aleatoire
 
-    if tableau[rowNombre][Nombrecol] ==0:
-       tableau[rowNombre][Nombrecol] = deux_quatre()
-       nombreapp -=1
-
+    if tableau[lignealeatoire][colonnelibre] ==0: # si une ligne et colonne == 0
+       tableau[lignealeatoire][colonnelibre] = deux_quatre() # appariton de 
+       deuxvaleurdudebut -=1                                         # un 2 et un 2 ou un 2 et un 4
+# permettant aussi l apparation au debut du jeu de 2 valeur a 2 differents endroit
 print("Bonjour jeux 2048s")# utilison print pour les message plutot 
-display()# plus efficace que le print 
+display()# Pour afficher le tableau mieux vos utiliser le display() car ce dernier permet 
+         # de afficher plus rapidement et plus efficacement un tableau de valeur
 
 # codage pour la determination du fin du jeu 
 
-# arrete de faire
+# arrete de faire (sois arrete le jeu l utilisateur ne peut plus jouer )
 arrete2048= False 
 
 while not arrete2048:
-    direct = input("vous voullez ou bouger?")
-    # si il peut enocre boujger
+    direct = input("Quel direction choisissez vous Monsieur\Madame ?")
+    # si il peut encore bouger 
     choisivaleur=True 
     # regardons si les mouvements se realise  copy du tableau 
     Hyutableau= copy.deepcopy(tableau) #gardant en mémoire dans un dictionnaire memo les objets déjà copiés durant la phase de copie actuelle 
                                        # permettant de savoir si le joueur a deja appuyer sur la meme touche
     # cette fois on vas bouger en haut a droite de gauche a droite 
     if direct =="d":
-      tableau = transposedroite(tableau)
+      tableau = transposedroite(tableau) # direction vers la droite
     elif direct =="z":
-        tableau = transposetoutenhaut(tableau)
+        tableau = transposetoutenhaut(tableau) # direction vers le haut 
     elif direct == "q":
-        tableau = transposegauche(tableau)
+        tableau = transposegauche(tableau) # direction vers la gauche
     elif direct == "s":
-        tableau = toutenbas(tableau)
+        tableau = toutenbas(tableau) #direction vers le bas
     else:
        choisivaleur=False  # cela veut dire que l utilisatuer ne peut choisir que 4 touche si il affiche 
                        # autre chose cela veut dire que cela ne s'écutera pas 
@@ -422,7 +424,7 @@ while not arrete2048:
            # savoir si on as gagner 
            if gagner():
                display()
-               print("Victory like cYRIL gane")
+               print("Félicitation pour votre victoire")
                arrete2048=True # car le jeu ce termine apres la victoire
            else:
            # ajouter une nouvelle fonction 
