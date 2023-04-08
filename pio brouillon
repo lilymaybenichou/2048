@@ -434,10 +434,12 @@ while not arrete2048:
 
            # determine pas de deplacemnt
            if bougepas():
-               print("game over")
+               print("Desole vous avez perdu la partie veuilez recommencer le jeu")
 
 
-
+# pour pouvoir recommence le jeu il faudrait cree la fonction restat premetant de rejouer 
+def restart():# 0% ne marche pas 
+    open()
 
 
 
