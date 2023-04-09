@@ -62,7 +62,6 @@ def play(): #Marche (100%) # menu pris de amin
     debut2=tk.Label(fenetre, text=V2,bg=color2,fg=texte2,height=3,width=6,font=("Helvetica", 20),bd=2)
     debut2.grid(row=int(hasardrow2),column=int(hasardcolumn2))
     
-    
 
 
 
@@ -71,13 +70,13 @@ def play(): #Marche (100%) # menu pris de amin
 
 bouton1=tk.Button(fenetre,text='Play',bg='red',command=play)
 bouton1.grid(row=1,column=0)
-bouton2=tk.Button(fenetre,text='Left',bg='red')
+bouton2=tk.Button(fenetre,text='Left',bg='red',command=transposegauche('actuelletableau'))
 bouton2.grid(row=2,column=0)
-bouton3=tk.Button(fenetre,text='Right',bg='yellow')
+bouton3=tk.Button(fenetre,text='Right',bg='yellow',command=transposedroite('actuelletableau'))
 bouton3.grid(row=3,column=0)
-bouton4=tk.Button(fenetre,text='Down',bg='black',fg='red')
+bouton4=tk.Button(fenetre,text='Down',bg='black',fg='red',command=toutenbas('actuelletableau'))
 bouton4.grid(row=4,column=0)
-bouton5=tk.Button(fenetre,text='Up',bg='green')
+bouton5=tk.Button(fenetre,text='Up',bg='green',command=transposetoutenhaut('actuelletableau'))
 bouton5.grid(row=5,column=0)
 canevas=tk.Canvas(width=100,height=100,bg="white")
 canevas.grid(row=1,column=1)
