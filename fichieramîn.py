@@ -59,6 +59,7 @@ def avis(): #Pris de Pio
 from random import*
 
 def play(): #Marche (100%)
+    global label
     V=["2","2","2","2","2","2","2","4","2"]
     N=["2","2","4","2","2","2","2","2","2"]
     color1=""
@@ -91,10 +92,18 @@ def play(): #Marche (100%)
     hasardrow2=randint(4,7)
     hasardcolumn2=randint(3,6)
 
-    debut1=tk.Label(fenetre, text=V1,bg=color1,fg=texte1,height=3,width=6,font=("Helvetica", 20),bd=2)
-    debut1.grid(row=int(hasardrow1),column=int(hasardcolumn1))
-    debut2=tk.Label(fenetre, text=V2,bg=color2,fg=texte2,height=3,width=6,font=("Helvetica", 20),bd=2)
-    debut2.grid(row=int(hasardrow2),column=int(hasardcolumn2))
+    label=tk.Label(fenetre, text=V1,bg=color1,fg=texte1,height=3,width=6,font=("Helvetica", 20),bd=2)
+    label.grid(row=int(hasardrow1),column=int(hasardcolumn1))
+    label=tk.Label(fenetre, text=V2,bg=color2,fg=texte2,height=3,width=6,font=("Helvetica", 20),bd=2)
+    label.grid(row=int(hasardrow2),column=int(hasardcolumn2))
+
+    #t1 = debut1.cget("text")
+    #t2 = debut2.cget("text")
+    #if t1=="2" and t2=="2":
+        #print("4")
+    #else:
+        #print("2,2")
+
 
     bouton1=tk.Button(fenetre,text='Try Again',height=2,width=12,bg='Blue',command=tryagain)
     bouton1.grid(row=1, column=1)
@@ -136,7 +145,14 @@ def tryagain(): #Marche pas (100%)
     bouton1.grid(row=1, column=1)
 
 def left(): #Marche pas (0%)
-    pass
+    if label.grid(column=5):
+        label.grid(column=4)
+    elif label.grid(column=6):
+        label.grid(collumn=4)
+    elif label.grid(column=7):
+        label.grid(collumn=4)
+    else:
+        label.grid()
 
 def right(): #Marche pas (0%)
     pass
@@ -231,9 +247,9 @@ mon_menu.add_cascade(label="Retry",menu=rejouer)
 fenetre.config(menu=mon_menu)
 
 #touche (source d'utilisation : https://infoforall.fr/python/python-act150.html)
-fenetre.bind('Left', left)
-fenetre.bind('Right', right)
-fenetre.bind('Up', up)
-fenetre.bind('Down', down)
-fenetre.bind('Enter', play)
+fenetre.bind('<Left>', left)
+fenetre.bind('<Right>', right)
+fenetre.bind('<Up>', up)
+fenetre.bind('<Down>', down)
+fenetre.bind('<Enter>', play)
 fenetre.bind('e', exit)
