@@ -15,8 +15,9 @@ fenetre['bg']="red"
 def fermer_fenetre():
     fenetre.destroy()
 
-
 tailledutableau=4
+
+
 
 val_num = {
   "number": [2,4,8,16,32,64,128,256,512,1024,2048],
@@ -61,15 +62,18 @@ def play(): #Marche (100%) # menu pris de amin
     debut1.grid(row=int(hasardrow1),column=int(hasardcolumn1))
     debut2=tk.Label(fenetre, text=V2,bg=color2,fg=texte2,height=3,width=6,font=("Helvetica", 20),bd=2)
     debut2.grid(row=int(hasardrow2),column=int(hasardcolumn2))
-    
+ 
+
+
+
 
     
 
-bouton1=tk.Button(fenetre,text='Play',bg='red')
+bouton1=tk.Button(fenetre,text='Play',bg='red',command=play)
 bouton1.grid(row=1,column=0)
-bouton2=tk.Button(fenetre,text='Left',bg='red')
+bouton2=tk.Button(fenetre,text='Left',bg='red',command=move_left)
 bouton2.grid(row=2,column=0)
-bouton3=tk.Button(fenetre,text='Right',bg='yellow')
+bouton3=tk.Button(fenetre,text='Right',bg='yellow',command=move_right)
 bouton3.grid(row=3,column=0)
 bouton4=tk.Button(fenetre,text='Down',bg='black')
 bouton4.grid(row=4,column=0)
@@ -177,6 +181,25 @@ mon_menu.add_cascade(label="Note",menu=notezlejeu)
 mon_menu.add_cascade(label="Rejouer",menu=rejouer,command=restart)
 
 fenetre.config(menu=mon_menu)
+
+
+# fonction pour savoire la victoire ou non
+def check_win():
+    global tableau
+    
+    for i in range(tailledutableau):
+        for j in range(tailledutableau):
+            if tableau[i][j] == 2048:
+                return True
+    return False
+
+
+
+
+
+
+
+
 
 fenetre.mainloop() 
 
