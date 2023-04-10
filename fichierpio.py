@@ -63,10 +63,9 @@ def play(): #Marche (100%) # menu pris de amin
     debut2.grid(row=int(hasardrow2),column=int(hasardcolumn2))
     
 
-
     
 
-bouton1=tk.Button(fenetre,text='Play',bg='red',command=play)
+bouton1=tk.Button(fenetre,text='Play',bg='red')
 bouton1.grid(row=1,column=0)
 bouton2=tk.Button(fenetre,text='Left',bg='red')
 bouton2.grid(row=2,column=0)
