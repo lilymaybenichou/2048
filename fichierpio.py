@@ -15,54 +15,7 @@ fenetre['bg']="red"
 def fermer_fenetre():
     fenetre.destroy()
 
-tailledutableau=4
 
-
-
-val_num = {
-  "number": [2,4,8,16,32,64,128,256,512,1024,2048],
-  "number_color":["#000000","#1A1A1A","#333333","#4D4D4D","#666666","#808080","#9A9A9A","#B3B3B3","#CDCDCD","#E6E6E6","#FFFFFF"],
-  "colors_case": ["#FFE6E6","#FFB3B3","#FF8080","#FF4D4D","#FF1A1A","#FF0000","#E60000","#B30000","#800000","#4D0000","#1A0000"]
-}
-
-def play(): #Marche (100%) # menu pris de amin
-    V=["2","2","2","2","2","2","2","4","2"]
-    N=["2","2","4","2","2","2","2","2","2"]
-    color1=""
-    color2=""
-    texte1=""
-    texte2=""
-    V1=choice(V)
-    V2=choice(N)
-    B1=choice(V)
-    B2=choice(N)
-    if B1=='4':
-        texte1=val_num["number_color"][1]
-    else:
-        texte1=val_num["number_color"][0]
-    if B2=='4':
-        texte2=val_num["number_color"][1]
-    else:
-        texte2=val_num["number_color"][0]
-    if V1=='4':
-        color1=val_num["colors_case"][1]
-    else:
-        color1=val_num["colors_case"][0]
-    if V2=='4':
-        color2=val_num["colors_case"][1]
-    else:
-        color2=val_num["colors_case"][0]
-
-    hasardrow1=randint(1,4)
-    hasardcolumn1=randint(1,4)
-    hasardrow2=randint(1,4)
-    hasardcolumn2=randint(1,4)
-
-    debut1=tk.Label(fenetre, text=V1,bg=color1,fg=texte1,height=3,width=6,font=("Helvetica", 20),bd=2)
-    debut1.grid(row=int(hasardrow1),column=int(hasardcolumn1))
-    debut2=tk.Label(fenetre, text=V2,bg=color2,fg=texte2,height=3,width=6,font=("Helvetica", 20),bd=2)
-    debut2.grid(row=int(hasardrow2),column=int(hasardcolumn2))
- 
 
 
 
