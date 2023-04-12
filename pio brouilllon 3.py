@@ -17,7 +17,7 @@ fenetre["bg"]="red"
 # creation d un grille pour le jeu
 grille = []
 for i in range(4):
-    grille.append([0] * 4)
+    grille.append([0] * 4) # la grille ici permettra de definir 
 
 # Fonction pour ajouter un nombre aléatoire dans la grille
 def ajouter_nombre():
@@ -41,7 +41,7 @@ def afficher_grille():
             else:
                 label = tk.Label(fenetre, text=str(grille[i][j]), font=("Helvetica", 20), width=4, height=2, bg="white")
                 label.grid(row=i, column=j)
-    score_label.config(text="Score : " + str(score))
+    score_label.config(text="Score : " + str(score))# permettant de affihcer le score 
 # Fonction pour déplacer les nombres vers la gauche
 def deplacer_gauche():
     global grille, score
