@@ -14,8 +14,13 @@ fenetre['bg']="red"
 
 grille=['4x4']
 
-def play():
-    global grille 
+fenetre.geometry("1000x1000")
+
+label1 = tk.Label(fenetre, text="Welcome to the 2048 Game ", font = ("helvetica", "30"),fg="blue") # création d'un widget
+
+
+label1.grid(column=0, row=0) # positionnement du premier widget
+
     
 
 
@@ -28,7 +33,7 @@ bouton2=tk.Button(fenetre,text='Left',bg='red')
 bouton2.grid(row=2,column=0)
 bouton3=tk.Button(fenetre,text='Right',bg='yellow')
 bouton3.grid(row=3,column=0)
-bouton4=tk.Button(fenetre,text='Down',bg='black')
+bouton4=tk.Button(fenetre,text='Down',bg='blue')
 bouton4.grid(row=4,column=0)
 bouton5=tk.Button(fenetre,text='Up',bg='green')
 bouton5.grid(row=5,column=0)
@@ -103,8 +108,6 @@ def avis():
 
 
     
-def restart(): # marche pas demander amin 
-    pass
 
   
     
@@ -131,20 +134,12 @@ mon_menu.add_cascade(label="Option",menu=option)
 mon_menu.add_cascade(label="Aide",menu= aide)
 mon_menu.add_cascade(label="Exit",menu=exit)
 mon_menu.add_cascade(label="Note",menu=notezlejeu)
-mon_menu.add_cascade(label="Rejouer",menu=rejouer,command=restart)
+mon_menu.add_cascade(label="Rejouer",menu=rejouer)
 
 fenetre.config(menu=mon_menu)
 
 
-# fonction pour savoire la victoire ou non
-def check_win():
-    global tableau
-    
-    for i in range(tailledutableau):
-        for j in range(tailledutableau):
-            if tableau[i][j] == 2048:
-                return True
-    return False
+
 
 
 
