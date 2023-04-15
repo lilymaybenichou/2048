@@ -27,7 +27,7 @@ def affichage():
     """ Modifie le texte d'un label. """
     global cpt
     cpt += 1
-    label.config(text="tu as cliqué " + str(cpt)+ " fois")
+    label.config(text="tu as cliqué une fois sur le bouton play " + str(cpt)+ " fois")
 
 cpt = 0
 
