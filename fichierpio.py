@@ -12,21 +12,21 @@ import random
 fenetre=tk.Tk()
 fenetre['bg']="red"
 
-def fermer_fenetre():
-    fenetre.destroy()
+grille=['4x4']
 
-
-
+def play():
+    global grille 
+    
 
 
 
     
 
-bouton1=tk.Button(fenetre,text='Play',bg='red',command=play)
+bouton1=tk.Button(fenetre,text='Play',bg='red')
 bouton1.grid(row=1,column=0)
-bouton2=tk.Button(fenetre,text='Left',bg='red',command=move_left)
+bouton2=tk.Button(fenetre,text='Left',bg='red')
 bouton2.grid(row=2,column=0)
-bouton3=tk.Button(fenetre,text='Right',bg='yellow',command=move_right)
+bouton3=tk.Button(fenetre,text='Right',bg='yellow')
 bouton3.grid(row=3,column=0)
 bouton4=tk.Button(fenetre,text='Down',bg='black')
 bouton4.grid(row=4,column=0)
