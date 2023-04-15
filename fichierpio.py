@@ -32,7 +32,7 @@ def affichage():
 cpt = 0
 
 label = tk.Label(fenetre, text="texte avant de cliquer sur le bouton",
-                  padx=20, pady=20, font = ("helvetica", "7") 
+                  padx=20, pady=20, font = ("helvetica", "7") , fg="red" ,bg="blue"
                 )
 label.grid(row=9, column=0)
 
