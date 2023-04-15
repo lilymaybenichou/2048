@@ -9,8 +9,31 @@ from tkinter import Widget, filedialog
 fenetre = tk.Tk()
 fenetre.title("2048")
 score = 0
-fenetre.geometry("400x400")
+fenetre.geometry("1000x1000")
 fenetre["bg"]="red"
+
+label1 = tk.Label(fenetre, text="Welcome to the 2048 Game ", font = ("helvetica", "30"),fg="blue") # création d'un widget
+
+
+label1.grid(column=6, row=6)
+
+#Les Differentes fonctions 
+
+def affichage():
+    """ Modifie le texte d'un label. """
+    global cpt
+    cpt += 1
+    label.config(text="tu as cliqué une fois sur le bouton play " + str(cpt)+ " fois")
+
+cpt = 0
+
+label = tk.Label(fenetre, text="texte avant de cliquer sur le bouton",
+                  padx=20, pady=20, font = ("helvetica", "7") , fg="red" ,bg="blue"
+                )
+label.grid(row=0, column=6)
+
+
+
 
 
 
@@ -24,7 +47,7 @@ def ajouter_nombre():
     global grille
     x = random.randint(0, 3)
     y = random.randint(0, 3)
-    while grille[x][y] != 0:
+    while grille[x][y] != 0: # x= row , y=column
         x = random.randint(0, 3)
         y = random.randint(0, 3)
     grille[x][y] = random.choice([2,4])
@@ -59,7 +82,8 @@ def deplacer_gauche():
             if grille[i][j] != 0 and grille[i][j] == grille[i][j-1]:
                 grille[i][j-1] *= 2
                 grille[i][j] = 0
-                score += grille[i][j-1]
+                score += grille[i][j-1] # score pour augmenter le score on additionne en 
+                # fonction de ce qui se passe sur la grille 
     ajouter_nombre()
     afficher_grille()
 # Fonction pour déplacer les nombres vers la droite
@@ -80,7 +104,8 @@ def deplacer_droite():
                 grille[i][j+1] = 2
                 grille[i][j] = 0
                 score += grille[i][j+1]
-    ajouter_nombre()
+    ajouter_nombre()  # ajout different nombre dans la grille 
+    # affiche grille permet permet de faire le changement sur la grille
     afficher_grille()
 
 # Fonction pour déplacer les nombres vers le haut
@@ -110,14 +135,15 @@ def deplacer_bas():
     for i in range(2, -1, -1):
         for j in range(4):
             if grille[i][j] != 0:
-                k = i
-                while k < 3 and grille[k+1][j] == 0:
+                k = i # k=i
+                while k < 3 and grille[k+1][j] == 0: # si k est different de i on ajoute
+                    # on ajoute +1
                     k += 1
                 if k != i:
                     grille[k][j] = grille[i][j]
                     grille[i][j] = 0
-    for i in range(2, -1, -1):
-        for j in range(4):
+    for i in range(2, -1, -1): # on decale la grille 
+        for j in range(4): # 
             if grille[i][j] != 0 and grille[i][j] == grille[i+1][j]:
                 grille[i+1][j] *= 2
                 grille[i][j] = 0
@@ -129,7 +155,7 @@ def deplacer_bas():
 score_label = tk.Label(fenetre, text="Score : " + str(score), font=("Helvetica", 20))
 score_label.grid(row=4, column=0, columnspan=4)
 # LEs different bouton de controle
-bouton_play=tk.Button(fenetre,text="Play",font=("Helvetica",20),fg="grey",bg="black")
+bouton_play=tk.Button(fenetre,text="Play",font=("Helvetica",20),fg="grey",bg="black",command=affichage)
 bouton_play.grid(row=5,column=4)
 gauche_button = tk.Button(fenetre, text="Left", command=deplacer_gauche, font=("Helvetica", 20),fg="red")
 gauche_button.grid(row=5, column=0)
