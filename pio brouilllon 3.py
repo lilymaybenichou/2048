@@ -20,7 +20,7 @@ label1.grid(column=6, row=6)
 #Les Differentes fonctions 
 
 def affichage():
-    """ Modifie le texte d'un label. """
+    # modifie le texte en label 
     global cpt
     cpt += 1
     label.config(text="tu as cliqué une fois sur le bouton play " + str(cpt)+ " fois")
@@ -50,7 +50,9 @@ def ajouter_nombre():
     while grille[x][y] != 0: # x= row , y=column
         x = random.randint(0, 3)
         y = random.randint(0, 3)
-    grille[x][y] = random.choice([2,4])
+    grille[x][y] = random.choice([2,2])
+
+               
 
 
 # Fonction pour afficher la grille
