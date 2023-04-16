@@ -50,7 +50,7 @@ def ajouter_nombre():
     while grille[x][y] != 0: # x= row , y=column
         x = random.randint(0, 3)
         y = random.randint(0, 3)
-    grille[x][y] = random.choice([2,2])
+    grille[x][y] = random.choice([2,4])
 
                
 
@@ -152,6 +152,9 @@ def deplacer_bas():
                 score += grille[i+1][j]
     ajouter_nombre()
     afficher_grille()
+
+
+# code pour deplacer les nombres trouver sur le site
 
 # Affiche le score
 score_label = tk.Label(fenetre, text="Score : " + str(score), font=("Helvetica", 20))
