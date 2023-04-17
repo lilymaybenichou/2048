@@ -1,5 +1,3 @@
-import tkinter as tk 
-import webbrowser
 import tkinter as tk
 import random
 from tkinter import *
@@ -13,10 +11,12 @@ fenetre = tk.Tk()
 fenetre.title("2048")
 score = 0
 fenetre.geometry("1000x1000")
-fenetre["bg"]="dodgerBlue4"
+fenetre["bg"]="red"
 
-label1 = tk.Label(fenetre, text="Welcome to the 2048 Game ", font = ("helvetica", "30"),fg='black',bg='DodgerBlue4') # création d'un widget
-label1.grid(column=0, row=10,columnspan=6)
+label1 = tk.Label(fenetre, text="Welcome to the 2048 Game ", font = ("helvetica", "30"),fg="blue") # création d'un widget
+
+
+label1.grid(column=6, row=6)
 
 #Les Differentes fonctions 
 
@@ -29,7 +29,7 @@ def affichage():
 cpt = 0
 
 label = tk.Label(fenetre, text="texte avant de cliquer sur le bouton",
-                  padx=20, pady=20, font = ("TimesNewRoman", "15") , fg="White" ,bg="DodgerBlue4"
+                  padx=20, pady=20, font = ("helvetica", "7") , fg="red" ,bg="blue"
                 )
 label.grid(row=0, column=6)
 
@@ -114,7 +114,7 @@ def deplacer_droite():
 # Fonction pour déplacer les nombres vers le haut
 def deplacer_haut():
     global grille, score
-    for i in range(1, 4):
+    for i in range(1,4):
         for j in range(4):
             if grille[i][j] != 0:
                 k = i
@@ -156,21 +156,18 @@ def deplacer_bas():
     
 
 # Affiche le score
-score_label = tk.Label(fenetre, text="Score : " + str(score), font=("Helvetica", 20),bg='DodgerBlue4')
-score_label.grid( column=0,row=4,columnspan=1)
-
-
-
+score_label = tk.Label(fenetre, text="Score : " + str(score), font=("Helvetica", 20))
+score_label.grid(row=4, column=0, columnspan=4)
 # LEs different bouton de controle
-bouton_play=tk.Button(fenetre,text="Play",font=("Helvetica",20),command=affichage,bg="DodgerBlue3")
+bouton_play=tk.Button(fenetre,text="Play",font=("Helvetica",20),fg="grey",bg="black",command=affichage)
 bouton_play.grid(row=5,column=4)
-gauche_button = tk.Button(fenetre, text="Left", command=deplacer_gauche, font=("Helvetica", 20),bg="DodgerBlue3")
+gauche_button = tk.Button(fenetre, text="Left", command=deplacer_gauche, font=("Helvetica", 20),fg="red")
 gauche_button.grid(row=5, column=0)
-droite_button = tk.Button(fenetre, text="Right", command=deplacer_droite, font=("Helvetica", 20),bg="DodgerBlue3")
+droite_button = tk.Button(fenetre, text="Right", command=deplacer_droite, font=("Helvetica", 20),fg="yellow")
 droite_button.grid(row=5, column=1)
-haut_button = tk.Button(fenetre, text="UP", command=deplacer_haut, font=("Helvetica", 20),bg="DodgerBlue3")
+haut_button = tk.Button(fenetre, text="UP", command=deplacer_haut, font=("Helvetica", 20),fg="blue")
 haut_button.grid(row=5, column=2)
-bas_button = tk.Button(fenetre, text="Down", command=deplacer_bas, font=("Helvetica", 20),bg="DodgerBlue3")
+bas_button = tk.Button(fenetre, text="Down", command=deplacer_bas, font=("Helvetica", 20),fg="green")
 bas_button.grid(row=5, column=3)
 
 # Ajout de deux nombres aléatoires dans la grille
@@ -186,12 +183,14 @@ def save():
 def fermer_fenetre():
     fenetre.destroy()
 def help():
+    import tkinter as tk 
     fenetre2=tk.Tk()
     fenetre2.title("help 2048")
     fenetre2.geometry("800x800")
     label=tk.Label(fenetre2,fg="black",text="Sur une grille de 16 cases on fait bouger les tuiles pour obtenir le score maximum jusqu'a ce que toute les tuiles sont gelée")
     label.pack()
     fenetre2.mainloop()
+import webbrowser
 def partage():
     webbrowser.open("https://www.instagram.com/?hl=fr")
 

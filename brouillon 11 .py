@@ -3,7 +3,7 @@ from tkinter import*
 fenetre1= tk.Tk()
 fenetre1.title("bonjour")
 fenetre1.geometry("800x500")
-# Definir l image 
+# Definir l'image 
 bg= PhotoImage(file="image/OIP.jpg")
 #Label 
 my_label= Label(fenetre1, image=bg)
