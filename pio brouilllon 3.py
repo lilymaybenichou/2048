@@ -2,6 +2,7 @@ import tkinter as tk
 import random
 from tkinter import *
 from tkinter import Widget, filedialog
+from PIL import ImageTk , Image
 
 #nouveau brouillon 
 # pour info ce brouillon a ete rediger que pour le code pas pour interface grafique
