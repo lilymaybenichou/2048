@@ -17,7 +17,7 @@ fenetre["bg"]="dodgerBlue4" # couleur de la fenetre
 
 # Pour afficher un label de bienvenue 
 label1 = tk.Label(fenetre, text="Welcome to the 2048 Game ", font = ("helvetica", "30"),fg='black',bg='DodgerBlue4') # création d'un widget
-label1.grid(column=0, row=10,columnspan=6)
+label1.grid(column=0,row=10,columnspan=6)
 
 #Les Differentes fonctions 
 
@@ -94,8 +94,8 @@ def deplacer_gauche(): # marche 100%
                 grille[i][j] = 0
                 score += grille[i][j-1] # score pour augmenter le score on additionne en 
                 # fonction de ce qui se passe sur la grille 
-    ajouter_nombre()
-    afficher_grille()
+    ajouter_nombre() #*
+    afficher_grille() #*
 # Fonction pour déplacer les nombres vers la droite
 def deplacer_droite(): 
     global grille, score
@@ -114,9 +114,8 @@ def deplacer_droite():
                 grille[i][j+1] *= 2
                 grille[i][j] = 0
                 score += grille[i][j+1]
-    ajouter_nombre()  # ajout different nombre dans la grille 
-    # affiche grille permet permet de faire le changement sur la grille
-    afficher_grille()
+    ajouter_nombre() #*
+    afficher_grille() #*
 
 # Fonction pour déplacer les nombres vers le haut
 def deplacer_haut():
@@ -136,8 +135,8 @@ def deplacer_haut():
                 grille[i-1][j] *= 2
                 grille[i][j] = 0
                 score += grille[i-1][j]
-    ajouter_nombre()
-    afficher_grille()
+    ajouter_nombre() #*
+    afficher_grille() #*
     
 # Fonction pour déplacer les nombres vers le bas
 def deplacer_bas():
@@ -158,8 +157,8 @@ def deplacer_bas():
                 grille[i+1][j] *= 2
                 grille[i][j] = 0
                 score += grille[i+1][j]
-    ajouter_nombre()
-    afficher_grille()
+    ajouter_nombre()# *ajoute un nombre aleatoire dans une colonne ou ligne aleatoire de la grille
+    afficher_grille() # *permet de l afficher dans la grille
     
 
 # Affiche le score
@@ -180,6 +179,7 @@ haut_button.grid(row=5, column=2)
 bas_button = tk.Button(fenetre, text="Down", command=deplacer_bas, font=("Helvetica", 20),bg="DodgerBlue3")
 bas_button.grid(row=5, column=3)
 
+
 # Ajout de deux nombres aléatoires dans la grille
 ajouter_nombre()
 ajouter_nombre()
@@ -194,17 +194,13 @@ def fermer_fenetre():
     fenetre.destroy()
 def help():
     fenetre2=tk.Tk()
-    fenetre2.title("help 2048")
-    fenetre2.geometry("800x800")
+    fenetre2.title("Help 2048")
+    fenetre2.geometry("800x200")
     label=tk.Label(fenetre2,fg="black",text="Sur une grille de 16 cases on fait bouger les tuiles pour obtenir le score maximum jusqu'a ce que toute les tuiles sont gelée")
     label.pack()
     fenetre2.mainloop()
 def partage():
     webbrowser.open("https://www.instagram.com/?hl=fr")
-
-
-
-
 
 
 def avis():
@@ -226,7 +222,13 @@ def avis():
     app4.pack()
     app5.pack()
 
-
+def difficile():
+    fenetre2=tk.Tk()
+    fenetre2['bg']="navy"
+    fenetre2.title("Fenetre difficulé ")
+    fenetre2.geometry("400x400")
+    label2=tk.Label(fenetre2,text="Vous ne pouvez pas modifier la difficulté",bg="black",fg="white")
+    label2.pack()
 
 
 # Menu 
@@ -235,13 +237,12 @@ mon_menu= tk.Menu(fenetre)
 exit=tk.Menu(mon_menu,tearoff=0)
 exit.add_command(label="Etes vous sur de vouloir quitter le jeu ",command=fermer_fenetre)
 aide=tk.Menu(mon_menu,tearoff=0)
-aide.add_command(label="regle du jeu",command=help)
+aide.add_command(label="Règle du jeu",command=help)
 fichier= tk.Menu(mon_menu,tearoff=0)
 fichier.add_command(label="Enregistrer sous",command=save)
 fichier.add_command(label="Partager score",command=partage)
 option = tk.Menu(mon_menu,tearoff=0)
-option.add_command(label="changer qlqc")
-option.add_command(label=" difficulte ")
+option.add_command(label=" Difficulté ",command=difficile)
 notezlejeu= tk.Menu(mon_menu,tearoff=0)
 notezlejeu.add_command(label="note",command=avis)
 rejouer= tk.Menu(mon_menu,tearoff=0)
