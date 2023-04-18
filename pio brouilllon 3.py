@@ -157,7 +157,7 @@ def deplacer_bas():
 
 # Affiche le score
 score_label = tk.Label(fenetre, text="Score : " + str(score), font=("Helvetica", 20),bg='DodgerBlue4')
-score_label.grid( column=0,row=4,columnspan=1)
+score_label.grid( column=0,row=4,columnspan=3 )
 
 
 
