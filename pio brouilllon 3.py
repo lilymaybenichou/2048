@@ -4,7 +4,7 @@ import tkinter as tk
 import random
 from tkinter import *
 from tkinter import Widget, filedialog
-from PIL import ImageTk , Image
+import copy
 
 #nouveau brouillon 
 # pour info ce brouillon a ete rediger que pour le code pas pour interface grafique
@@ -225,10 +225,53 @@ def avis():
 def difficile():
     fenetre2=tk.Tk()
     fenetre2['bg']="navy"
-    fenetre2.title("Fenetre difficulé ")
+    fenetre2.title("Fenetre difficulté ")
     fenetre2.geometry("400x400")
     label2=tk.Label(fenetre2,text="Vous ne pouvez pas modifier la difficulté",bg="black",fg="white")
     label2.pack()
+
+# savoir si la personne a perdu  fonction game over d ou elle ne peut pas bouger
+def bougepas():
+    # creation de 2 copy du tableau 
+    tableaucopya= copy.deepcopy(grille) # foncction deep copy est permet de copier son tableau 
+    tableaucopyb= copy.deepcopy(grille)
+    # test de reconnaisance pour savoir si on peut bouger 
+    tableaucopya = deplacer_bas(tableaucopya)
+    if tableaucopya == tableaucopyb:
+        tableaucopya = deplacer_haut(tableaucopya)
+        if tableaucopya == tableaucopyb:
+            tableaucopya = deplacer_gauche(tableaucopya)
+            if tableaucopya == tableaucopyb:
+                tableaucopya = deplacer_droite(tableaucopya)
+                if tableaucopya == tableaucopyb:
+                    return True
+    return False
+# arrete de faire (sois arrete le jeu l utilisateur ne peut plus jouer )
+arrete2048=False
+
+while not arrete2048:
+    if tableau == Hyutableau:
+           # leur dire d utiliser une autre fois la touche deja utiliser par exemple
+           print("choisir Autre direction cardeja utiliser")
+       else:
+           # savoir si on as gagner 
+           if gagner():
+               display()
+               print("Félicitation pour votre victoire")
+               arrete2048=True # car le jeu ce termine apres la victoire
+           else:
+           # ajouter une nouvelle fonction 
+             valuercasesvides()
+           
+             display()
+
+           # determine pas de deplacemnt
+           if bougepas():
+               print("Desole vous avez perdu la partie veuilez recommencer le jeu")
+
+
+
+
 
 
 # Menu 

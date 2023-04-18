@@ -220,6 +220,27 @@ def avis():
     app5.pack()
 
 
+def gagner():
+    for row in grille:
+         if 2048 in row: # apparation 2048 = fin de jeu 
+           return True 
+    return False
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 # Menu 
