@@ -66,23 +66,23 @@ def ajouter_nombre(): # ajout d'un nombre aleatoire au fil de la partie
 # Fonction pour afficher la grille
 def afficher_grille():
     global grille, score # definir le score pour que le score evolue
-    for i in range(4):
-        for j in range(4):
+    for i in range(4): # (4)
+        for j in range(4): #(4)
             if grille[i][j] == 0: # # Comme la grille =0  creation de label 
-                label = tk.Label(fenetre, text="", font=("Helvetica", 20), width=4, height=2, bg="gray")
-                label.grid(row=i, column=j)
-            else:
+                label = tk.Label(fenetre, text="", font=("Helvetica", 20), width=4, height=2, bg="gray")# definir le label avec 4 barre grise
+                label.grid(row=i, column=j) # definir que i = row et column = j 
+            else:# sinon si grille[i][j] !=0 alors le else s execute
                 label = tk.Label(fenetre, text=str(grille[i][j]), font=("Helvetica", 20), width=4, height=2, bg="white")
                 label.grid(row=i, column=j)
-    score_label.config(text="Score : " + str(score))# permettant de affihcer le score 
+    score_label.config(text="Score : " + str(score))# permettant de affihcer le score et son evolution grace au str
 # Fonction pour déplacer les nombres vers la gauche
 def deplacer_gauche(): # marche 100%
-    global grille, score
-    for i in range(4):
-        for j in range(1, 4):
-            if grille[i][j] != 0:
-                k = j
-                while k > 0 and grille[i][k-1] == 0:
+    global grille, score # definir le score 
+    for i in range(4): #  on prent les ligne ici i sont les ligne
+        for j in range(1, 4): # dans les colonnes de 1 a 4
+            if grille[i][j] != 0: # si la grille n est pas egale a zero
+                k = j # k=column
+                while k > 0 and grille[i][k-1] == 0: # sinon si k pas egal a zeo et grille de ligne de k-1 est egal a zero
                     k -= 1
                 if k != j:
                     grille[i][k] = grille[i][j]
