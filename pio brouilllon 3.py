@@ -69,7 +69,7 @@ def afficher_grille():
                 label.grid(row=i, column=j)
     score_label.config(text="Score : " + str(score))# permettant de affihcer le score 
 # Fonction pour déplacer les nombres vers la gauche
-def deplacer_gauche():
+def deplacer_gauche(): # marche 100%
     global grille, score
     for i in range(4):
         for j in range(1, 4):
@@ -90,7 +90,7 @@ def deplacer_gauche():
     ajouter_nombre()
     afficher_grille()
 # Fonction pour déplacer les nombres vers la droite
-def deplacer_droite():
+def deplacer_droite(): 
     global grille, score
     for i in range(4):
         for j in range(2, -1, -1):
@@ -104,7 +104,7 @@ def deplacer_droite():
     for i in range(4):
         for j in range(2, -1, -1):
             if grille[i][j] != 0 and grille[i][j] == grille[i][j+1]:
-                grille[i][j+1] = 2
+                grille[i][j+1] *= 2
                 grille[i][j] = 0
                 score += grille[i][j+1]
     ajouter_nombre()  # ajout different nombre dans la grille 
@@ -126,7 +126,7 @@ def deplacer_haut():
     for i in range(1, 4):
         for j in range(4):
             if grille[i][j] != 0 and grille[i][j] == grille[i-1][j]:
-                grille[i-1][j]= 2
+                grille[i-1][j] *= 2
                 grille[i][j] = 0
                 score += grille[i-1][j]
     ajouter_nombre()
