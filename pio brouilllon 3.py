@@ -11,15 +11,17 @@ from PIL import ImageTk , Image
 # Pour afficher le jeu
 fenetre = tk.Tk()
 fenetre.title("2048")
-score = 0
+score = 0 # definir le score = 0 pour le commencement du jeu 
 fenetre.geometry("1000x1000")
-fenetre["bg"]="dodgerBlue4"
+fenetre["bg"]="dodgerBlue4" # couleur de la fenetre 
 
+# Pour afficher un label de bienvenue 
 label1 = tk.Label(fenetre, text="Welcome to the 2048 Game ", font = ("helvetica", "30"),fg='black',bg='DodgerBlue4') # création d'un widget
 label1.grid(column=0, row=10,columnspan=6)
 
 #Les Differentes fonctions 
 
+# Fonction en lien avec le bouton play 
 def affichage():
     # modifie le texte en label 
     global cpt
@@ -39,29 +41,34 @@ label.grid(row=0, column=6)
 
 
 # creation d un grille pour le jeu
-grille = []
-for i in range(4):
-    grille.append([0] * 4) # la grille ici permettra de definir 
+grille = [] # une matrice vide 
+for i in range(4): # 4 ligne
+    grille.append([0] * 4) # la grille ici permettra de definir on affiche au debut une grille vide
+    # avec les colonnes vides 
 
 # Fonction pour ajouter un nombre aléatoire dans la grille
-def ajouter_nombre():
-    global grille
-    x = random.randint(0, 3)
-    y = random.randint(0, 3)
-    while grille[x][y] != 0: # x= row , y=column
-        x = random.randint(0, 3)
-        y = random.randint(0, 3)
-    grille[x][y] = random.choice([2,4])
+def ajouter_nombre(): # ajout d'un nombre aleatoire au fil de la partie
+    global grille # la fonction global permet de indiquer que la variable utilise a l interieur de la fonction et la meme que celle utiliser a exterieur 
+    x = random.randint(0, 3) # ajoute dans une ligne aleatoire  
+    y = random.randint(0, 3) # ajoute dans une colonne aleatoire
+    while grille[x][y] != 0: # x= row , y=column ;pas egal a 0 = il y a de la place 
+        x = random.randint(0, 3) # ajoute dans une ligne aleatoire
+        y = random.randint(0, 3) # ajoute dans une colonne aleatoire
+    grille[x][y] = random.choice([2,4]) # choisi dans la grille peut importe les lignes et les colonnes
+    # soit 2,2 ou un 2,4
+# la fonction ajouter_nombre permet de ajouter 2 nombres dans une ligne ou colonnes aleatoires tirees
+# au sort 
+
 
                
 
 
 # Fonction pour afficher la grille
 def afficher_grille():
-    global grille, score
+    global grille, score # definir le score pour que le score evolue
     for i in range(4):
         for j in range(4):
-            if grille[i][j] == 0:
+            if grille[i][j] == 0: # # Comme la grille =0  creation de label 
                 label = tk.Label(fenetre, text="", font=("Helvetica", 20), width=4, height=2, bg="gray")
                 label.grid(row=i, column=j)
             else:
