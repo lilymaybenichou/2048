@@ -18,11 +18,11 @@ fenetre["bg"]="dodgerBlue4" # couleur de la fenetre
 
 # Pas obligatoire de mettre une image en arrière plan 
 # Chargement de l'image
-bg_image = PhotoImage(file="P.png")
+#bg_image = PhotoImage(file="P.png")
 
 # Création d'un Label avec l'image en arrière-plan
-background_label = Label(fenetre, image=bg_image)
-background_label.place(relwidth=1, relheight=1)
+#background_label = Label(fenetre, image=bg_image)
+#background_label.place(relwidth=1, relheight=1)
 
 
 
@@ -227,6 +227,10 @@ def help():
     fenetre2.mainloop()
 def partage():
     webbrowser.open("https://www.instagram.com/?hl=fr")
+def partage2():
+    webbrowser.open("https://fr-fr.facebook.com/")
+def partage3():
+    webbrowser.open("https://twitter.com/?lang=fr")
 
 
 def avis():
@@ -305,7 +309,9 @@ aide=tk.Menu(mon_menu,tearoff=0)
 aide.add_command(label="Règle du jeu",command=help)
 fichier= tk.Menu(mon_menu,tearoff=0)
 fichier.add_command(label="Enregistrer sous",command=save)
-fichier.add_command(label="Partager score",command=partage)
+fichier.add_command(label="Partager score (Instagram)",command=partage)
+fichier.add_command(label="Partager le score (Facebook)",command=partage2)
+fichier.add_command(label="Partger le score(Twitter)",command=partage3)
 option = tk.Menu(mon_menu,tearoff=0)
 option.add_command(label=" Difficulté ",command=difficile)
 notezlejeu= tk.Menu(mon_menu,tearoff=0)
