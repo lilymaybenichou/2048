@@ -80,8 +80,8 @@ def ajouter_nombre(): # ajout d'un nombre aleatoire au fil de la partie
         x = random.randint(0, 3) # ajoute dans une ligne aleatoire
         y = random.randint(0, 3) # ajoute dans une colonne aleatoire
     grille[x][y] = random.choice([2,4]) # choisi dans la grille peut importe les lignes et les colonnes
-    # soit 2,2 ou un 2,4
-# la fonction ajouter_nombre permet de ajouter 2 nombres dans une ligne ou colonnes aleatoires tirees
+    
+# la fonction ajouter_nombre permet de ajouter 1 nombres dans une ligne ou colonnes aleatoires tirees
 # au sort 
 
 #Pour Conclure la fonction ajouter_nombre():
@@ -106,7 +106,7 @@ def afficher_grille(grille, score, fenetre):
             else:
                 label = Label(fenetre, text=grille[i][j], font=("Helvetica", 20), width=4, height=2, bg="white")
                 label.grid(row=i, column=j)
-    score_label = Label(fenetre, text=score, font=("Helvetica", 16))
+    score_label = Label(fenetre, text=score, font=("Helvetica", 20))
     score_label.grid(row=4, column=0, columnspan=4)
    
 
