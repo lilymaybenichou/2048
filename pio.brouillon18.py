@@ -96,17 +96,19 @@ def ajouter_nombre(): # ajout d'un nombre aleatoire au fil de la partie
 
 
 # Fonction pour afficher la grille
-def afficher_grille():
-    global grille, score 
-    for i in range(4): 
-        for j in range(4): 
-            if grille[i][j] == 0: 
-                label = tk.Label(fenetre, text="", font=("Helvetica", 20), width=4, height=2, bg="gray")
-                label.grid(row=i, column=j) 
-            else:
-                label = tk.Label(fenetre, text=str(grille[i][j]), font=("Helvetica", 20), width=4, height=2, bg="white")
+
+def afficher_grille(grille, score, fenetre):
+    for i in range(4):
+        for j in range(4):
+            if grille[i][j] == 0:
+                label = Label(fenetre, text=0, font=("Helvetica", 20), width=4, height=2, bg="gray")
                 label.grid(row=i, column=j)
-    score_label.config(text="Score : " + str(score))
+            else:
+                label = Label(fenetre, text=grille[i][j], font=("Helvetica", 20), width=4, height=2, bg="white")
+                label.grid(row=i, column=j)
+    score_label = Label(fenetre, text=score, font=("Helvetica", 16))
+    score_label.grid(row=4, column=0, columnspan=4)
+   
 
 
 # Conclusion: la fonction affiche grille permet d afficher la grille dans la fenetre , la grille est 
@@ -139,7 +141,7 @@ def deplacer_bas():
                 grille[i][j] = 0
                 score += grille[i+1][j]
     ajouter_nombre()
-    afficher_grille() 
+    afficher_grille(grille,score,fenetre) 
 
 #Conclusion: ici la fonction permet de deplacer les nombres vers le bas 
 #* 
@@ -177,7 +179,7 @@ def deplacer_haut():
                 grille[i][j] = 0
                 score += grille[i-1][j]
     ajouter_nombre() 
-    afficher_grille()
+    afficher_grille(grille,score,fenetre)
 
 # Conclusion : ici cette focntion permet de deplacer tout les nombres vers le haut 
 #la 1ere boucle for ici parcourt les lignes de la deuxieme a la quatrieme ligne tandis que la 2eme boucle for ici parcourt chaque colonne 
@@ -209,7 +211,7 @@ def deplacer_gauche():
                 score += grille[i][j-1] 
                 
     ajouter_nombre() 
-    afficher_grille() 
+    afficher_grille(grille,score,fenetre) 
 
 # Conclusion: la fonction ici permet de deplacer les nombres vers la gauche 
 # la premiere boucle for voyage a travers chaque ligne tandis que la seconde avance a travers chaque colonne de la deuxieme a la quatrieme
@@ -246,7 +248,7 @@ def deplacer_droite():
                 grille[i][j] = 0
                 score += grille[i][j+1]
     ajouter_nombre() 
-    afficher_grille() 
+    afficher_grille(grille,score,fenetre) 
 
 #Conclusion :cette fonction permet de deplacer les nombres vers la droite ,
 # la premiere boucle permet a la fonction de voyager a chaque ligne tandis que la  deuxieme boucle permet
@@ -264,8 +266,11 @@ def deplacer_droite():
 
 
 # Affiche le score
-score_label = tk.Label(fenetre, text="Score : " + str(score), font=("Helvetica", 20),bg='DodgerBlue4')
-score_label.grid( column=0,row=4,columnspan=3 )
+# Affichage du score
+score_label = Label(fenetre, text="Score : ", font=("Helvetica", 20))
+score_label.grid(row=4, column=0)
+score_value = Label(fenetre, text=score, font=("Helvetica", 20))
+score_value.grid(row=4, column=1, columnspan=3)
 
 
 
@@ -285,7 +290,7 @@ bas_button.grid(row=5, column=3)
 # Ajout de deux nombres aléatoires dans la grille
 ajouter_nombre()
 ajouter_nombre()
-afficher_grille()
+afficher_grille(grille,score,fenetre)
 
 
 # configuration des options dans le menu 
