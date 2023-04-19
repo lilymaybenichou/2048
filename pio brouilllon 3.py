@@ -15,6 +15,25 @@ score = 0 # definir le score = 0 pour le commencement du jeu
 fenetre.geometry("1000x1000")
 fenetre["bg"]="dodgerBlue4" # couleur de la fenetre 
 
+
+# Pas obligatoire de mettre une image en arrière plan 
+# Chargement de l'image
+bg_image = PhotoImage(file="P.png")
+
+# Création d'un Label avec l'image en arrière-plan
+background_label = Label(fenetre, image=bg_image)
+background_label.place(relwidth=1, relheight=1)
+
+
+
+
+
+
+
+
+
+
+
 # Pour afficher un label de bienvenue 
 label1 = tk.Label(fenetre, text="Welcome to the 2048 Game ", font = ("helvetica", "30"),fg='black',bg='DodgerBlue4') # création d'un widget
 label1.grid(column=0,row=10,columnspan=6)
