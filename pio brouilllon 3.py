@@ -40,11 +40,11 @@ label.grid(row=0, column=6)
 
 
 
-# creation d un grille pour le jeu
-grille = [] # une matrice vide 
-for i in range(4): # 4 ligne
-    grille.append([0] * 4) # la grille ici permettra de definir on affiche au debut une grille vide
-    # avec les colonnes vides 
+# creation d un grille pour le jeu 4x4 soit 16 cases au debut toute les valeurs sont egales a 0
+grille = [] # une liste egal a 0 soit une liste nulle 
+for i in range(4): # la boucle ici permet ajouter ici 4 petite liste 
+    grille.append([0] * 4) # la fonction append permet d ajouter des 0 au petite liste donc elle sont
+    # egal a zero
 
 # Fonction pour ajouter un nombre aléatoire dans la grille
 def ajouter_nombre(): # ajout d'un nombre aleatoire au fil de la partie
@@ -58,6 +58,13 @@ def ajouter_nombre(): # ajout d'un nombre aleatoire au fil de la partie
     # soit 2,2 ou un 2,4
 # la fonction ajouter_nombre permet de ajouter 2 nombres dans une ligne ou colonnes aleatoires tirees
 # au sort 
+
+#Pour Conclure la fonction ajouter_nombre():
+#Plus Précisement cette fonction permet ajouter soit un 2 ou un 4 dans une grille de jeu 
+# global grille (deja definit en commentaire )
+# la fonction ici donne grace a la fontion random randint donne 2 nombre soit un 2 ou 4 dans la grille 
+# ici on cherche a ce que a ce que certain endroit de la grille ne sont pas vides pour ajouter des nombres
+# ensuite on ajoute soit un deux ou quatre 
 
 
                
@@ -76,26 +83,26 @@ def afficher_grille():
                 label.grid(row=i, column=j)
     score_label.config(text="Score : " + str(score))# permettant de affihcer le score et son evolution grace au str
 # Fonction pour déplacer les nombres vers la gauche
-def deplacer_gauche(): # marche 100%
-    global grille, score # definir le score 
-    for i in range(4): #  on prent les ligne ici i sont les ligne
-        for j in range(1, 4): # dans les colonnes de 1 a 4
-            if grille[i][j] != 0: # si la grille n est pas egale a zero
-                k = j # k=column
-                while k > 0 and grille[i][k-1] == 0: # sinon si k pas egal a zeo et grille de ligne de k-1 est egal a zero
-                    k -= 1
-                if k != j:
-                    grille[i][k] = grille[i][j]
-                    grille[i][j] = 0
+def deplacer_gauche(): 
+    global grille, score  
+    for i in range(4): 
+        for j in range(1, 4): 
+            if grille[i][j] != 0: 
+                k = j 
+                while k > 0 and grille[i][k-1] == 0: 
+                    k -= 1 
+                if k != j: 
+                    grille[i][k] = grille[i][j] 
+                    grille[i][j] = 0 
     for i in range(4):
         for j in range(1, 4):
             if grille[i][j] != 0 and grille[i][j] == grille[i][j-1]:
                 grille[i][j-1] *= 2
                 grille[i][j] = 0
-                score += grille[i][j-1] # score pour augmenter le score on additionne en 
-                # fonction de ce qui se passe sur la grille 
-    ajouter_nombre() #*
-    afficher_grille() #*
+                score += grille[i][j-1] 
+                
+    ajouter_nombre() 
+    afficher_grille() 
 # Fonction pour déplacer les nombres vers la droite
 def deplacer_droite(): 
     global grille, score
@@ -114,12 +121,12 @@ def deplacer_droite():
                 grille[i][j+1] *= 2
                 grille[i][j] = 0
                 score += grille[i][j+1]
-    ajouter_nombre() #*
-    afficher_grille() #*
+    ajouter_nombre() 
+    afficher_grille() 
 
 # Fonction pour déplacer les nombres vers le haut
 def deplacer_haut():
-    global grille, score
+    global grille, score 
     for i in range(1, 4):
         for j in range(4):
             if grille[i][j] != 0:
@@ -132,7 +139,7 @@ def deplacer_haut():
     for i in range(1, 4):
         for j in range(4):
             if grille[i][j] != 0 and grille[i][j] == grille[i-1][j]:
-                grille[i-1][j] *= 2
+                grille[i-1][j] *= 2 
                 grille[i][j] = 0
                 score += grille[i-1][j]
     ajouter_nombre() #*
@@ -141,24 +148,24 @@ def deplacer_haut():
 # Fonction pour déplacer les nombres vers le bas
 def deplacer_bas():
     global grille, score
-    for i in range(2, -1, -1):
-        for j in range(4):
-            if grille[i][j] != 0:
-                k = i # k=i
-                while k < 3 and grille[k+1][j] == 0: # si k est different de i on ajoute
-                    # on ajoute +1
+    for i in range(2, -1, -1): 
+        for j in range(4): 
+            if grille[i][j] != 0: 
+                k = i 
+                while k < 3 and grille[k+1][j] == 0: 
+                   
                     k += 1
                 if k != i:
                     grille[k][j] = grille[i][j]
                     grille[i][j] = 0
-    for i in range(2, -1, -1): # on decale la grille 
-        for j in range(4): # 
+    for i in range(2, -1, -1): 
+        for j in range(4):  
             if grille[i][j] != 0 and grille[i][j] == grille[i+1][j]:
                 grille[i+1][j] *= 2
                 grille[i][j] = 0
                 score += grille[i+1][j]
-    ajouter_nombre()# *ajoute un nombre aleatoire dans une colonne ou ligne aleatoire de la grille
-    afficher_grille() # *permet de l afficher dans la grille
+    ajouter_nombre()
+    afficher_grille() 
     
 
 # Affiche le score
@@ -248,28 +255,6 @@ def bougepas():
     return False
 # arrete de faire (sois arrete le jeu l utilisateur ne peut plus jouer )
 arrete2048=False
-
-while not arrete2048:
-    if tableau == Hyutableau:
-           # leur dire d utiliser une autre fois la touche deja utiliser par exemple
-           print("choisir Autre direction cardeja utiliser")
-       else:
-           # savoir si on as gagner 
-           if gagner():
-               display()
-               print("Félicitation pour votre victoire")
-               arrete2048=True # car le jeu ce termine apres la victoire
-           else:
-           # ajouter une nouvelle fonction 
-             valuercasesvides()
-           
-             display()
-
-           # determine pas de deplacemnt
-           if bougepas():
-               print("Desole vous avez perdu la partie veuilez recommencer le jeu")
-
-
 
 
 
