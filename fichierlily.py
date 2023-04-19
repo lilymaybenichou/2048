@@ -188,5 +188,16 @@ tuile16.create_text(60, 60, text= str(grille1[3][3]),fill="black",font=('Helveti
 tuile16.grid(column=4,row=3)
 
 
+def appui_clavier(event):
+        if event.keysym == "Left":
+              mouvemement("gauche")
+        elif event.keysym == "Right":
+               mouvemement("droite")
+        elif event.keysym == "Up":
+               mouvemement("haut")
+        elif event.keysym == "Down":
+               mouvemement("bas")
+
+fenetre.bind("<KeyPress>",appui_clavier)
 fenetre.mainloop()
                 
