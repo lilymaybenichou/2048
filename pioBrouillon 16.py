@@ -161,8 +161,8 @@ def deplacer_haut():
                 grille[i-1][j] *= 2 
                 grille[i][j] = 0
                 score += grille[i-1][j]
-    ajouter_nombre() 
-    afficher_grille() 
+    ajouter_nombre() #*
+    afficher_grille() #*
     
 # Fonction pour déplacer les nombres vers le bas
 def deplacer_bas():
@@ -227,7 +227,10 @@ def help():
     fenetre2.mainloop()
 def partage():
     webbrowser.open("https://www.instagram.com/?hl=fr")
-
+def partage2():
+    webbrowser.open("https://fr-fr.facebook.com/")
+def partage3():
+    webbrowser.open("https://twitter.com/?lang=fr")
 
 
 def avis():
@@ -260,17 +263,17 @@ def difficile():
 # savoir si la personne a perdu  fonction game over d ou elle ne peut pas bouger
 #def bougepas():
     # creation de 2 copy du tableau 
-    #tableaucopya= copy.deepcopy(grille) # foncction deep copy est permet de copier son tableau 
-    #tableaucopyb= copy.deepcopy(grille)
+   # tableaucopya= copy.deepcopy(grille) # foncction deep copy est permet de copier son tableau 
+  #  tableaucopyb= copy.deepcopy(grille)
     # test de reconnaisance pour savoir si on peut bouger 
-    #tableaucopya = deplacer_bas(tableaucopya)
-    #if tableaucopya == tableaucopyb:
+  #  tableaucopya = deplacer_bas(tableaucopya)
+  #  if tableaucopya == tableaucopyb:
    #     tableaucopya = deplacer_haut(tableaucopya)
-  #      if tableaucopya == tableaucopyb:
-  #          tableaucopya = deplacer_gauche(tableaucopya)
-   #         if tableaucopya == tableaucopyb:
-   #             tableaucopya = deplacer_droite(tableaucopya)
-   #             if tableaucopya == tableaucopyb:
+   #     if tableaucopya == tableaucopyb:
+    #        tableaucopya = deplacer_gauche(tableaucopya)
+    #        if tableaucopya == tableaucopyb:
+    #            tableaucopya = deplacer_droite(tableaucopya)
+    #            if tableaucopya == tableaucopyb:
     #                return True
    # return False
 # arrete de faire (sois arrete le jeu l utilisateur ne peut plus jouer )
@@ -281,19 +284,19 @@ def difficile():
 # Fonction pour savoir si on as gagner ou non  
 #def gagner():
    # for row in grille:
-       # if 2048 in row: 
-            #return True
-    #return False 
+      #  if 2048 in row: 
+     #       return True
+ #   return False 
 
 #while not arrete2048:
         # savoir si on as gagner 
-    #if gagner():
-            #print()
-            #print("Félicitation pour votre victoire")
-            #arrete2048=True # car le jeu ce termine apres la victoire
+  #  if gagner():
+         #   print()
+         #   print("Félicitation pour votre victoire")
+          #  arrete2048=True # car le jeu ce termine apres la victoire
         # determine pas de deplacemnt
 #else:
-            #print("Desole vous avez perdu la partie veuilez recommencer le jeu")
+       #     print("Desole vous avez perdu la partie veuilez recommencer le jeu")
 
 
 
@@ -307,6 +310,8 @@ aide.add_command(label="Règle du jeu",command=help)
 fichier= tk.Menu(mon_menu,tearoff=0)
 fichier.add_command(label="Enregistrer sous",command=save)
 fichier.add_command(label="Partager score (Instagram)",command=partage)
+fichier.add_command(label="Partager le score (Facebook)",command=partage2)
+fichier.add_command(label="Partger le score(Twitter)",command=partage3)
 option = tk.Menu(mon_menu,tearoff=0)
 option.add_command(label=" Difficulté ",command=difficile)
 notezlejeu= tk.Menu(mon_menu,tearoff=0)
