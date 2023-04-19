@@ -18,8 +18,7 @@ def grille_depart():
     i=randrange(0,2)
     z=choice(nbliste)
     L[y][i]=z 
-    L_numpy = np.array(L) 
-    return L_numpy
+    return L
 #grille_depart()
 
 def finjeu (grille):
@@ -34,7 +33,7 @@ def finjeu (grille):
         return True
 
 grille1=grille_depart()
-
+print(grille1)
 
 #finjeu(grille1)
 
@@ -76,8 +75,7 @@ def mouvemement(direction):
                                                         grille1[y-1][i]=grille1[y-1][i]*2
                                                         grille1[y][i]=0
                                                         break
-        elif direction=="gauche":
-               
+        elif direction=="gauche"
                 for j in range(4):
                         # Déplace les tuiles vers la gauche
                         for i in range(1, 4):
