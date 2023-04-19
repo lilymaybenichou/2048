@@ -100,70 +100,10 @@ def afficher_grille():
             else:# sinon si grille[i][j] !=0 alors le else s execute
                 label = tk.Label(fenetre, text=str(grille[i][j]), font=("Helvetica", 20), width=4, height=2, bg="white")
                 label.grid(row=i, column=j)
-    score_label.config(text="Score : " + str(score))# permettant de affihcer le score et son evolution grace au str
-# Fonction pour déplacer les nombres vers la gauche
-def deplacer_gauche(): 
-    global grille, score  
-    for i in range(4): 
-        for j in range(1, 4): 
-            if grille[i][j] != 0: 
-                k = j 
-                while k > 0 and grille[i][k-1] == 0: 
-                    k -= 1 
-                if k != j: 
-                    grille[i][k] = grille[i][j] 
-                    grille[i][j] = 0 
-    for i in range(4):
-        for j in range(1, 4):
-            if grille[i][j] != 0 and grille[i][j] == grille[i][j-1]:
-                grille[i][j-1] *= 2
-                grille[i][j] = 0
-                score += grille[i][j-1] 
-                
-    ajouter_nombre() 
-    afficher_grille() 
-# Fonction pour déplacer les nombres vers la droite
-def deplacer_droite(): 
-    global grille, score
-    for i in range(4):
-        for j in range(2, -1, -1):
-            if grille[i][j] != 0:
-                k = j
-                while k < 3 and grille[i][k+1] == 0:
-                    k += 1
-                if k != j:
-                    grille[i][k] = grille[i][j]
-                    grille[i][j] = 0
-    for i in range(4):
-        for j in range(2, -1, -1):
-            if grille[i][j] != 0 and grille[i][j] == grille[i][j+1]:
-                grille[i][j+1] *= 2
-                grille[i][j] = 0
-                score += grille[i][j+1]
-    ajouter_nombre() 
-    afficher_grille() 
+    score_label.config(text="Score : " + str(score))
 
-# Fonction pour déplacer les nombres vers le haut
-def deplacer_haut():
-    global grille, score 
-    for i in range(1, 4):
-        for j in range(4):
-            if grille[i][j] != 0:
-                k = i
-                while k > 0 and grille[k-1][j] == 0:
-                    k -= 1
-                if k != i:
-                    grille[k][j] = grille[i][j]
-                    grille[i][j] = 0
-    for i in range(1, 4):
-        for j in range(4):
-            if grille[i][j] != 0 and grille[i][j] == grille[i-1][j]:
-                grille[i-1][j] *= 2 
-                grille[i][j] = 0
-                score += grille[i-1][j]
-    ajouter_nombre() #*
-    afficher_grille() #*
-    
+
+
 # Fonction pour déplacer les nombres vers le bas
 def deplacer_bas():
     global grille, score
@@ -185,7 +125,102 @@ def deplacer_bas():
                 score += grille[i+1][j]
     ajouter_nombre()
     afficher_grille() 
+
+
+# Fonction pour déplacer les nombres vers le haut
+def deplacer_haut():
+    global grille, score 
+    for i in range(1, 4):
+        for j in range(4):
+            if grille[i][j] != 0:
+                k = i
+                while k > 0 and grille[k-1][j] == 0:
+                    k -= 1
+                if k != i:
+                    grille[k][j] = grille[i][j]
+                    grille[i][j] = 0
+    for i in range(1, 4):
+        for j in range(4):
+            if grille[i][j] != 0 and grille[i][j] == grille[i-1][j]:
+                grille[i-1][j] *= 2 
+                grille[i][j] = 0
+                score += grille[i-1][j]
+    ajouter_nombre() #*
+    afficher_grille() #*
+
+
+
+
     
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# Fonction pour déplacer les nombres vers la gauche
+def deplacer_gauche(): 
+    global grille, score  
+    for i in range(4): 
+        for j in range(1, 4): 
+            if grille[i][j] != 0: 
+                k = j 
+                while k > 0 and grille[i][k-1] == 0: 
+                    k -= 1 
+                if k != j: 
+                    grille[i][k] = grille[i][j] 
+                    grille[i][j] = 0 
+    for i in range(4):
+        for j in range(1, 4):
+            if grille[i][j] != 0 and grille[i][j] == grille[i][j-1]:
+                grille[i][j-1] *= 2
+                grille[i][j] = 0
+                score += grille[i][j-1] 
+                
+    ajouter_nombre() 
+    afficher_grille() 
+
+
+
+
+
+
+
+# Fonction pour déplacer les nombres vers la droite
+def deplacer_droite(): 
+    global grille, score
+    for i in range(4):
+        for j in range(2, -1, -1):
+            if grille[i][j] != 0:
+                k = j
+                while k < 3 and grille[i][k+1] == 0:
+                    k += 1
+                if k != j:
+                    grille[i][k] = grille[i][j]
+                    grille[i][j] = 0
+    for i in range(4):
+        for j in range(2, -1, -1):
+            if grille[i][j] != 0 and grille[i][j] == grille[i][j+1]:
+                grille[i][j+1] *= 2
+                grille[i][j] = 0
+                score += grille[i][j+1]
+    ajouter_nombre() 
+    afficher_grille() 
+
+
+    
+
 
 # Affiche le score
 score_label = tk.Label(fenetre, text="Score : " + str(score), font=("Helvetica", 20),bg='DodgerBlue4')
