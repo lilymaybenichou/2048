@@ -269,8 +269,7 @@ def deplacer_droite():
 # Affichage du score
 score_label = Label(fenetre, text="Score : ", font=("Helvetica", 20))
 score_label.grid(row=4, column=0)
-score_value = Label(fenetre, text=score, font=("Helvetica", 20))
-score_value.grid(row=4, column=1, columnspan=3)
+
 
 
 
