@@ -45,15 +45,14 @@ grille1=[[2, 0, 0, 0], [2, 0, 0, 0],[4, 0, 0, 0],[4, 0, 0, 0]]
 
 #finjeu(grille1)
 
-def joueur_tuile(grille):
+def joueur_tuile():
     x=randint(0,3)
     y=randint(0,3)
     nbliste=[2,2,2,2,2,2,2,2,2,4]
-    while grille[x][y]!=0:
+    while grille1[x][y]!=0:
         x=randint(0,3)
         y=randint(0,3)
-    grille[x][y]=choice(nbliste)
-    return grille
+    grille1[x][y]=choice(nbliste)
 
 #joueur_tuile(grille1)
 
@@ -105,7 +104,7 @@ def mouvemement(direction,grille):
                         for j in range (1,3):
                                 if grille[j-1][i]==0:
                                         grille[j-1][i],grille[j][i]=grille[j][i],grille[j-1][i]
-        if direction=="left":
+        if direction=="gauche":
                for i in range(len(grille)):
                         for j in range(1,len(grille[i])):
                                 if grille[i][j]!=0:
@@ -160,7 +159,7 @@ def mouvemement(direction,grille):
                         for j in range(0,3):
                                 if grille[i][j+1]==0 :
                                         grille[i][j+1],grille[i][j]=grille[i][j],grille[i][j+1]
-        return grille
+
 
 
 
