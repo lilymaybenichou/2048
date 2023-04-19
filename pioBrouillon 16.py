@@ -366,7 +366,7 @@ mon_menu.add_cascade(label="Aide",menu= aide)
 mon_menu.add_cascade(label="Exit",menu=exit)
 mon_menu.add_cascade(label="Note",menu=notezlejeu)
 mon_menu.add_cascade(label="Rejouer",menu=rejouer)
-mon_menu.add_cascade(label="Sauvegarder",menu=Sauvegarder)
+mon_menu.add_cascade(label="Charger une Partie",menu=Sauvegarder)
 
 fenetre.config(menu=mon_menu)
 
