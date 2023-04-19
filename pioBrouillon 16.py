@@ -216,6 +216,8 @@ afficher_grille()
 
 def save():
     ouvrir_fichier= filedialog.asksaveasfile(title="partie a sauvegarder")
+def load():
+    ouvrir_fichier=filedialog.asksaveasfile(title=" partie a reprendre")
 def fermer_fenetre():
     fenetre.destroy()
 def help():
@@ -319,7 +321,7 @@ notezlejeu.add_command(label="note",command=avis)
 rejouer= tk.Menu(mon_menu,tearoff=0)
 rejouer.add_command(label="Restart")
 Sauvegarder=tk.Menu(mon_menu,tearoff=0) 
-Sauvegarder.add_command(label="Sauvegarder")
+Sauvegarder.add_command(label="Charger une Partie",command=load)
 mon_menu.add_cascade(label="Fichier",menu=fichier)
 mon_menu.add_cascade(label="Option",menu=option)
 mon_menu.add_cascade(label="Aide",menu= aide)
