@@ -298,7 +298,7 @@ def difficile():
          #   print()
          #   print("Félicitation pour votre victoire")
           #  arrete2048=True # car le jeu ce termine apres la victoire
-        # determine pas de deplacemnt
+        # determine pas de deplacement
 #else:
        #     print("Desole vous avez perdu la partie veuilez recommencer le jeu")
 
@@ -316,7 +316,7 @@ fichier.add_command(label="Enregistrer sous",command=save)
 fichier.add_command(label="Partager score (Instagram)",command=partage)
 fichier.add_command(label="Partager le score (Facebook)",command=partage2)
 fichier.add_command(label="Partager le score(Twitter)",command=partage3)
-fichier.add_command(label="Partager le score(Snapchat)",comand=partage4)
+fichier.add_command(label="Partager le score(Snapchat)",command=partage4)
 option = tk.Menu(mon_menu,tearoff=0)
 option.add_command(label=" Difficulté ",command=difficile)
 notezlejeu= tk.Menu(mon_menu,tearoff=0)
