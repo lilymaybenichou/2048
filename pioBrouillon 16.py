@@ -215,9 +215,9 @@ afficher_grille()
 # configuration des options dans le menu 
 
 def save():
-    ouvrir_fichier= filedialog.asksaveasfile(title="partie a sauvegarder")
+    ouvrir_fichier= filedialog.asksaveasfile(title="Partie a sauvegarder")
 def load():
-    ouvrir_fichier=filedialog.asksaveasfile(title=" partie a reprendre")
+    ouvrir_fichier=filedialog.asksaveasfile(title=" Partie a reprendre")
 def fermer_fenetre():
     fenetre.destroy()
 def help():
@@ -233,6 +233,8 @@ def partage2():
     webbrowser.open("https://fr-fr.facebook.com/")
 def partage3():
     webbrowser.open("https://twitter.com/?lang=fr")
+def partage4():
+    webbrowser.open("https://www.snapchat.com/fr-FR")
 
 
 def avis():
@@ -313,7 +315,8 @@ fichier= tk.Menu(mon_menu,tearoff=0)
 fichier.add_command(label="Enregistrer sous",command=save)
 fichier.add_command(label="Partager score (Instagram)",command=partage)
 fichier.add_command(label="Partager le score (Facebook)",command=partage2)
-fichier.add_command(label="Partger le score(Twitter)",command=partage3)
+fichier.add_command(label="Partager le score(Twitter)",command=partage3)
+fichier.add_command(label="Partager le score(Snapchat)",comand=partage4)
 option = tk.Menu(mon_menu,tearoff=0)
 option.add_command(label=" Difficulté ",command=difficile)
 notezlejeu= tk.Menu(mon_menu,tearoff=0)
