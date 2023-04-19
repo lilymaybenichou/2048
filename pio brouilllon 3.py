@@ -258,6 +258,24 @@ arrete2048=False
 
 
 
+# Fonction pour savoir si on as gagner ou non  
+def gagner():
+    for row in grille:
+        if 2048 in row: 
+            return True
+    return False 
+
+while not arrete2048:
+        # savoir si on as gagner 
+    if gagner():
+            print()
+            print("Félicitation pour votre victoire")
+            arrete2048=True # car le jeu ce termine apres la victoire
+        # determine pas de deplacemnt
+else:
+            print("Desole vous avez perdu la partie veuilez recommencer le jeu")
+
+
 
 # Menu 
 
