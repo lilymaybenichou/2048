@@ -99,13 +99,6 @@ def mouvemement(direction):
                                                         break
 
 
-def update_board():
-    for row in range(4):
-        for col in range(4):
-            cell = tuiles[row][col]
-            cell.config(text=str(grille1[row][col]) if grille1[row][col] else "",
-                        bg=dico_couleur.get(grille1[row][col], "white"))
-#affichage tkinter
 
 fenetre=tk.Tk()
 fenetre.title("2048")
@@ -135,29 +128,17 @@ for j in range(0,4):
               tuiles[j][i]=tuile
 
 #Butons
-update_board()
 joueur_tuile()
-update_board()
+
 #Tuiles
 
 
 def appui_clavier(event):
-        if event.keysym == "Left":
-              mouvemement("gauche")
-              joueur_tuile()
-              update_board()
-        elif event.keysym == "Right":
-               mouvemement("droite")
-               joueur_tuile()
-               update_board()
-        elif event.keysym == "Up":
-               mouvemement("haut")
-               joueur_tuile()
-               update_board()
-        elif event.keysym == "Down":
-               mouvemement("bas")
-               joueur_tuile()
-               update_board()
+    key = event.keysym.lower()
+    if key in ["left", "right", "up", "down"]:
+        mouvemement(key)
+        joueur_tuile()
+
 
 fenetre.bind("<KeyPress>",appui_clavier)
 fenetre.mainloop()
