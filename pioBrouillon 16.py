@@ -64,6 +64,12 @@ grille = [] # une liste egal a 0 soit une liste nulle
 for i in range(4): # la boucle ici permet ajouter ici 4 petite liste 
     grille.append([0] * 4) # la fonction append permet d ajouter des 0 au petite liste donc elle sont
     # egal a zero
+    #grille = matrice [0,0,0,0
+     #                 0,0,0,0
+    #                  0,0,0,0
+    #                  0,0,0,0]
+
+
 
 # Fonction pour ajouter un nombre aléatoire dans la grille
 def ajouter_nombre(): # ajout d'un nombre aleatoire au fil de la partie
@@ -91,16 +97,25 @@ def ajouter_nombre(): # ajout d'un nombre aleatoire au fil de la partie
 
 # Fonction pour afficher la grille
 def afficher_grille():
-    global grille, score # definir le score pour que le score evolue
-    for i in range(4): # (4)
-        for j in range(4): #(4)
-            if grille[i][j] == 0: # # Comme la grille =0  creation de label 
-                label = tk.Label(fenetre, text="", font=("Helvetica", 20), width=4, height=2, bg="gray")# definir le label avec 4 barre grise
-                label.grid(row=i, column=j) # definir que i = row et column = j 
-            else:# sinon si grille[i][j] !=0 alors le else s execute
+    global grille, score 
+    for i in range(4): 
+        for j in range(4): 
+            if grille[i][j] == 0: 
+                label = tk.Label(fenetre, text="", font=("Helvetica", 20), width=4, height=2, bg="gray")
+                label.grid(row=i, column=j) 
+            else:
                 label = tk.Label(fenetre, text=str(grille[i][j]), font=("Helvetica", 20), width=4, height=2, bg="white")
                 label.grid(row=i, column=j)
     score_label.config(text="Score : " + str(score))
+
+
+# Conclusion: la fonction affiche grille permet d afficher la grille dans la fenetre , la grille est 
+# stocker dans une variable globale et le score aussi *
+# la boucle for ici permet de se promener dans la grille et verifie si la valeur et egale a zéro 
+# si la ligne precedente est vrai alors il y a la creation d un label  totalement vide avec de la couleur qui est
+# du gris si ce n est pas le cas alors elle cree un label avec comme fond du une couleur blanche 
+# et la valeur 
+# score_label affiche le score actuel a cote du text "Score"
 
 
 
@@ -126,6 +141,22 @@ def deplacer_bas():
     ajouter_nombre()
     afficher_grille() 
 
+#Conclusion: ici la fonction permet de deplacer les nombres vers le bas 
+#* 
+#ici il y a l utilisation d une double boucle soit for i in range et ensuite la boucle for j in range
+#Cela permet de voyager a travers les differentes cases du tableau 
+# la premiere boucle for parcout les lignes de de la troisime a la premiere tandis que la deuxieme parcourt chaque colonne
+#si une case n est pas egal a zero et donc elle n est pas vide , la fonction cherche et trouve la premiere
+# case vide et en dessous de elle et elle regarde toutes les cases en dessous de elles dans la meme colonnes
+#Si il y a une case vide trouver par la fonction alors alors la fonction deplace une case non vide vers
+# la case vide sinon elle ne fait rien 
+#lors de la seconde boucle imbriquée , la fonction voyage a travers chaque case et signale les cases(ici 2 cases) avec
+# le meme nombres qui sont a coté  .  Si c est le cas alors la case qui est dessous est multiplier par deux 
+#et la case du haut est remplacer par un zero  le score augmente a la valeur de la case du bas qui est multiplier par deux 
+# A la fin , la fonction appel 2 autres fonctions soit la fonctions ici ajouter_nombre() et la 
+# la fonction afficher_grille() pour mettre a jour la grille 
+
+
 
 # Fonction pour déplacer les nombres vers le haut
 def deplacer_haut():
@@ -145,28 +176,17 @@ def deplacer_haut():
                 grille[i-1][j] *= 2 
                 grille[i][j] = 0
                 score += grille[i-1][j]
-    ajouter_nombre() #*
-    afficher_grille() #*
+    ajouter_nombre() 
+    afficher_grille()
 
-
-
-
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+# Conclusion : ici cette focntion permet de deplacer tout les nombres vers le haut 
+#la 1ere boucle for ici parcourt les lignes de la deuxieme a la quatrieme ligne tandis que la 2eme boucle for ici parcourt chaque colonne 
+# de la matrice  si la case contient une nombre pas egal a zero alors la fonction cherche la permiere 
+# case vide en dessous de cette case et deplace le nombre 
+# la deuxieme boucle double boucle (=boucle imbriquées) for permet la verification de si deux nombres 
+# sont a coté dans une colonne (car elle le deplace vers le haut et si c est le cas alors )=
+# il y a une addition et on deplace le resultat de l addition dans la case vide en dessous de l additon
+# ensuite il y a la mise a jour 
 
 
 # Fonction pour déplacer les nombres vers la gauche
@@ -190,6 +210,16 @@ def deplacer_gauche():
                 
     ajouter_nombre() 
     afficher_grille() 
+
+# Conclusion: la fonction ici permet de deplacer les nombres vers la gauche 
+# la premiere boucle for voyage a travers chaque ligne tandis que la seconde avance a travers chaque colonne de la deuxieme a la quatrieme
+# si une case contient un nombre pas egal a zero alors la fonction cherhcera la permiere case vide 
+# a gauche de cette case et elle y de placera le nombre 
+# la deuxime boucle for permet la verification pour savoir si deux nombres identique sont cote a cote 
+# si elle est verifier et vrai alors elle les additonen et deplace le resulat dans la case vide 
+# a gauche des deux nombres identiques cote a cote additionner 
+# ensuite la fonction ajoute un nombre aleatoire a la grille , affiche la grille et met 
+# a jour le score 
 
 
 
@@ -217,6 +247,17 @@ def deplacer_droite():
                 score += grille[i][j+1]
     ajouter_nombre() 
     afficher_grille() 
+
+#Conclusion :cette fonction permet de deplacer les nombres vers la droite ,
+# la premiere boucle permet a la fonction de voyager a chaque ligne tandis que la  deuxieme boucle permet
+# de parcourir de la troisieme a la premiere colonne , si la case a un nombre qui n est pas egal a zéro 
+# alors la fonction cherche la premiere case vide a droite de cette case et deplace le nombre 
+# la deuxieme boucle permet la verification pour savoir si deux nombres sont identiques et cote 
+# a cote si c est le cas elle sont toutes les deux additionners et le resultat et deplacer dans une 
+# case vide a droite 
+# a la fin la fonction ajoute ensuite un nombre aleatoire et met a jour le score et affiche la nouvelle
+# grille qui es mis a jour
+
 
 
     
