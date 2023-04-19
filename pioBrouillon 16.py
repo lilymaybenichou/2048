@@ -252,7 +252,7 @@ afficher_grille()
 def save():
     ouvrir_fichier= filedialog.asksaveasfile(title="Partie a sauvegarder")
 def load():
-    ouvrir_fichier=filedialog.asksaveasfile(title=" Partie a reprendre")
+    ouvrir_fichier=filedialog.askopenfile(title=" Partie a reprendre")
 def fermer_fenetre():
     fenetre.destroy()
 def help():
@@ -302,7 +302,7 @@ def difficile():
 # savoir si la personne a perdu  fonction game over d ou elle ne peut pas bouger
 #def bougepas():
     # creation de 2 copy du tableau 
-   # tableaucopya= copy.deepcopy(grille) # foncction deep copy est permet de copier son tableau 
+   # tableaucopya= copy.deepcopy(grille) # fonction deep copy est permet de copier son tableau 
   #  tableaucopyb= copy.deepcopy(grille)
     # test de reconnaisance pour savoir si on peut bouger 
   #  tableaucopya = deplacer_bas(tableaucopya)
