@@ -81,6 +81,7 @@ Dernierement on affiche un score a la fin grace a score_label et score_label.gri
 # Source:
 - Pour le changement des couleurs des différentes cases en fonctions du chiffre(nombre)
 #https://medium.com/@jofre44/game-app-with-python-and-tkinter-let-s-play-2048-e9e25223a711
+- Pour le background
 #https://www.wikipython.com/tkinter-ttk-tix/summary-information/colors/
 
 
