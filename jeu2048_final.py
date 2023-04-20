@@ -338,7 +338,8 @@ labelfin.grid(row=6, column=2)
 
 # ici le code permet de afficher 2 chiffres lorsque l'on appuye sur le bouton play 
 affichagegrille(grille,score,fenetre)
-
+# ici le bouton play est détruit une fois après sont utilisation grace a la method after()
+# pour que le bouton play ne sois pas utiliser 2 fois 
 def fonctionlieeaplay():
   ajoutenombre()
   ajoutenombre()
