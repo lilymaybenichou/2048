@@ -108,7 +108,11 @@ def affichagegrille(grille, score, fenetre):
                         )
         label.grid(row=0, column=6)
    
-
+# Fonction pour savoir si on as gagner ou non  
+def gagner():
+    for row in grille:
+        if 2048 in row: 
+            return True
 
 # Conclusion: la fonction affiche grille permet d afficher la grille dans la fenetre , la grille est 
 # stocker dans une variable globale et le score aussi *
@@ -285,7 +289,57 @@ def transposedroite():
 score_label = Label(fenetre, text="Score : ", font=("Helvetica", 20))
 score_label.grid(row=4, column=0)
 
+labelfin = Label(fenetre)
+labelfin.grid(row=6, column=2)
 
+
+#tentative echoué de la fonction game over, dans un premier temps on regarde si tout les cases sont remplis en parcourant la grille, lorsque une case
+#est rempli on fais +1 a cs et si cs = 16 ça veut dire que tout les cases sont remplis donc on passe au test d'assemblage entre une case et les cases qui les entourent
+#ensuite on regarde si pour tout les cases la valeur a droite a gauche en haut et en bas correspond a celle de la case pour les combiner, si ce n'est pas
+#le cas pour tout les cases on peut directement renvoyez game over
+#def gameover():
+    #cs=0
+    #for i in range(3):
+        #for j in range(3):
+            #if grille[i][j] != 0:
+                #cs=cs+1
+                #if cs==16:
+                    #return(testaddition())
+
+#def testaddition():
+    #add=0
+    #for i in range(3):
+        #for j in range(3):
+            #if i==3 and j==3:
+                #if grille[i][j]!=grille[i-1][j] or grille[i][j]!=grille[i][j-1]:
+                    #add=add+1
+            #if i==0 and j==0:
+                #if grille[i][j]!=grille[i+1][j] or grille[i][j]!=grille[i][j+1]:
+                    #add=add+1
+            #if i==0 and j==3:
+                #if grille[i][j]!=grille[i+1][j] or grille[i][j]!=grille[i][j-1]:
+                    #add=add+1
+            #if i==3 and j==0:
+                #if grille[i][j]!=grille[i][j+1] or grille[i][j]!=grille[i-1][j]:
+                    #add=add+1
+            #if (i==3 and j==2) or (i==3 and j==1):
+                #if grille[i][j]!=grille[i-1][j] or grille[i][j]!=grille[i][j-1] or grille[i][j]!=grille[i][j+1]:
+                    #add=add+1
+            #if (i==0 and j==2) or (i==0 and j==1):
+                #if grille[i][j]!=grille[i+1][j] or grille[i][j]!=grille[i][j-1] or grille[i][j]!=grille[i][j+1]:
+                    #add=add+1
+            #if (i==2 and j==3) or (i==1 and j==3):
+                #if grille[i][j]!=grille[1][j-1] or grille[i][j]!=grille[i-1][j] or grille[i][j]!=grille[i+1][j]:
+                    #add=add+1
+            #if (i==2 and j==0) or (i==1 and j==0):
+                #if grille[i][j]!=grille[1][j+1] or grille[i][j]!=grille[i-1][j] or grille[i][j]!=grille[i+1][j]:
+                    #add=add+1
+            #else:
+                #if grille[i][j]!=grille[1][j+1] or grille[i][j]!=grille[i][j-1] or grille[i][j]!=grille[i+1][j] or grille[i][j]!=grille[i-1][j]:
+                    #add=add+1
+            #if add==16:
+                #labelfin=tk.Label(fenetre,fg="black",text="Game OVER")
+                #labelfin.pack()
 
 
 # LEs different bouton de controle
@@ -379,14 +433,6 @@ def difficile():
 #arrete2048=False
 
 
-
-# Fonction pour savoir si on as gagner ou non  
-def gagner():
-    for row in grille:
-        if 2048 in row: 
-            return True
-
-
 #while not arrete2048:
         # savoir si on as gagner 
   #  if gagner():
@@ -432,3 +478,4 @@ fenetre.config(menu=mon_menu)
 
 # Lancement de la boucle principale
 fenetre.mainloop()
+
