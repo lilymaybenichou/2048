@@ -87,7 +87,7 @@ Dernierement on affiche un score a la fin grace a score_label et score_label.gri
 #https://medium.com/@jofre44/game-app-with-python-and-tkinter-let-s-play-2048-e9e25223a711
 - Pour le background
 #https://www.wikipython.com/tkinter-ttk-tix/summary-information/colors/
--La Methode After(,.destroy) permettant ici de supprimer le bouton play une fois après sont utilisation
+- La Methode After(,.destroy) permettant ici de supprimer le bouton play une fois après sont utilisation
 #https://www.geeksforgeeks.org/destroy-method-in-tkinter-python/
 
 
