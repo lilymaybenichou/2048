@@ -336,11 +336,13 @@ labelfin.grid(row=6, column=2)
                 #labelfin=tk.Label(fenetre,fg="black",text="Game OVER")
                 #labelfin.pack()
 
+  
+affichagegrille(grille,score,fenetre)
 
 def fonctionlieeaplay():
+  ajoutenombre()
+  ajoutenombre()
   affichagegrille(grille,score,fenetre)
-  ajoutenombre()
-  ajoutenombre()
   
 # LEs different bouton de controle
 bouton_play=tk.Button(fenetre,text="Play",font=("Helvetica",20),bg="DodgerBlue3",command=fonctionlieeaplay)

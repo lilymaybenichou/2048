@@ -336,9 +336,18 @@ labelfin.grid(row=6, column=2)
                 #labelfin=tk.Label(fenetre,fg="black",text="Game OVER")
                 #labelfin.pack()
 
+# ici le code permet de afficher 2 chiffres lorsque l'on appuye sur le bouton play 
+affichagegrille(grille,score,fenetre)
+
+def fonctionlieeaplay():
+  ajoutenombre()
+  ajoutenombre()
+  affichagegrille(grille,score,fenetre)
+
+
 
 # LEs different bouton de controle
-bouton_play=tk.Button(fenetre,text="Play",font=("Helvetica",20),command=affichage,bg="DodgerBlue3")
+bouton_play=tk.Button(fenetre,text="Play",font=("Helvetica",20),command=fonctionlieeaplay,bg="DodgerBlue3")
 bouton_play.grid(row=5,column=4)
 gauche_button = tk.Button(fenetre, text="Left", command=transposegauche, font=("Helvetica", 20),bg="DodgerBlue3")
 gauche_button.grid(row=5, column=0)
@@ -350,10 +359,6 @@ bas_button = tk.Button(fenetre, text="Down", command=transposebas, font=("Helvet
 bas_button.grid(row=5, column=3)
 
 
-# Ajout de deux nombres aléatoires dans la grille
-ajoutenombre()
-ajoutenombre()
-affichagegrille(grille,score,fenetre)
 
 
 # configuration des options dans le menu 
