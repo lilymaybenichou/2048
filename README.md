@@ -85,5 +85,6 @@ Dernierement on affiche un score a la fin grace a score_label et score_label.gri
 #https://www.wikipython.com/tkinter-ttk-tix/summary-information/colors/
 
 
+
  
 
