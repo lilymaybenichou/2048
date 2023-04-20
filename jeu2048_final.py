@@ -383,16 +383,16 @@ def partage4():
 
 def avis():
     fenetre6=tk.Tk()
-    fenetre6['bg']="orange"
+    fenetre6['bg']="firebrick1"
     fenetre6.title("Note du jeu 2048")
     fenetre6.geometry("1000x1000")
     label9=tk.Label(fenetre6,text="Notez le jeu 2048 les etoiles dependent de votre appreciation.")
     label9.pack()
-    app1=tk.Button(fenetre6,text="1 etoile",fg="yellow",bg="green")
-    app2=tk.Button(fenetre6,text="2 etoile",fg="yellow",bg="green")
-    app3=tk.Button(fenetre6,text="3 etoile",fg="yellow",bg="green")
-    app4=tk.Button(fenetre6,text="4etoile",fg="yellow",bg="green")
-    app5=tk.Button(fenetre6,text="5etoile",fg="yellow",bg="green")
+    app1=tk.Button(fenetre6,text="1 etoile",fg="black",bg="gold")
+    app2=tk.Button(fenetre6,text="2 etoile",fg="black",bg="gold")
+    app3=tk.Button(fenetre6,text="3 etoile",fg="black",bg="gold")
+    app4=tk.Button(fenetre6,text="4etoile",fg="black",bg="gold")
+    app5=tk.Button(fenetre6,text="5etoile",fg="black",bg="gold")
     
     app1.pack()
     app2.pack()
