@@ -45,14 +45,8 @@ def affichage():
     # modifie le texte en label 
     global cpt
     cpt += 1
-    label.config(text="tu as cliqué une fois sur le bouton play " + str(cpt)+ " fois")
 
 cpt = 0
-
-label = tk.Label(fenetre, text="texte avant de cliquer sur le bouton",
-                  padx=20, pady=20, font = ("TimesNewRoman", "15") , fg="White" ,bg="DodgerBlue4"
-                )
-label.grid(row=0, column=6)
 
 
 
@@ -108,6 +102,11 @@ def affichagegrille(grille, score, fenetre):
                 label.grid(row=i, column=j)
     score_label = Label(fenetre, text=score, font=("Helvetica", 20))
     score_label.grid(row=4, column=0, columnspan=4)
+    if gagner():
+        label = tk.Label(fenetre, text="WIN!",
+                        padx=20, pady=20, font = ("TimesNewRoman", "15") , fg="White" ,bg="DodgerBlue4"
+                        )
+        label.grid(row=0, column=6)
    
 
 
@@ -142,6 +141,11 @@ def transposebas():
                 score += grille[i+1][j]
     ajoutenombre()
     affichagegrille(grille,score,fenetre) 
+    if gagner():
+        label = tk.Label(fenetre, text="WIN!",
+                        padx=20, pady=20, font = ("TimesNewRoman", "15") , fg="White" ,bg="DodgerBlue4"
+                        )
+        label.grid(row=0, column=6)
 
 #Conclusion: ici la fonction permet de deplacer les nombres vers le bas 
 #* 
@@ -180,6 +184,11 @@ def transposehaut():
                 score += grille[i-1][j]
     ajoutenombre() 
     affichagegrille(grille,score,fenetre)
+    if gagner():
+        label = tk.Label(fenetre, text="WIN!",
+                        padx=20, pady=20, font = ("TimesNewRoman", "15") , fg="White" ,bg="DodgerBlue4"
+                        )
+        label.grid(row=0, column=6)
 
 # Conclusion : ici cette focntion permet de deplacer tout les nombres vers le haut 
 #la 1ere boucle for ici parcourt les lignes de la deuxieme a la quatrieme ligne tandis que la 2eme boucle for ici parcourt chaque colonne 
@@ -212,6 +221,12 @@ def transposegauche():
                 
     ajoutenombre() 
     affichagegrille(grille,score,fenetre) 
+    if gagner():
+        label = tk.Label(fenetre, text="WIN!",
+                        padx=20, pady=20, font = ("TimesNewRoman", "15") , fg="White" ,bg="DodgerBlue4"
+                        )
+        label.grid(row=0, column=6)
+
 
 # Conclusion: la fonction ici permet de deplacer les nombres vers la gauche 
 # la premiere boucle for voyage a travers chaque ligne tandis que la seconde avance a travers chaque colonne de la deuxieme a la quatrieme
@@ -366,11 +381,11 @@ def difficile():
 
 
 # Fonction pour savoir si on as gagner ou non  
-#def gagner():
-   # for row in grille:
-      #  if 2048 in row: 
-     #       return True
- #   return False 
+def gagner():
+    for row in grille:
+        if 2048 in row: 
+            return True
+
 
 #while not arrete2048:
         # savoir si on as gagner 
