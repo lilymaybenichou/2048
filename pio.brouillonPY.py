@@ -343,6 +343,7 @@ def fonctionlieeaplay():
   ajoutenombre()
   ajoutenombre()
   affichagegrille(grille,score,fenetre)
+  bouton_play.after(1,bouton_play.destroy)
   
 # LEs different bouton de controle
 bouton_play=tk.Button(fenetre,text="Play",font=("Helvetica",20),bg="DodgerBlue3",command=fonctionlieeaplay)
