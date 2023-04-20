@@ -343,6 +343,7 @@ def fonctionlieeaplay():
   ajoutenombre()
   ajoutenombre()
   affichagegrille(grille,score,fenetre)
+  bouton_play.after(1,bouton_play.destroy)
 
 
 
