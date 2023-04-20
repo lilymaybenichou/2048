@@ -368,6 +368,7 @@ def help():
     fenetre2=tk.Tk()
     fenetre2.title("Help 2048")
     fenetre2.geometry("800x200")
+    fenetre2['bg']="LemonChiffon2"
     label=tk.Label(fenetre2,fg="black",text="Sur une grille de 16 cases on fait bouger les tuiles pour obtenir le score maximum jusqu'a ce que toute les tuiles sont gelée")
     label.pack()
     fenetre2.mainloop()
@@ -401,11 +402,11 @@ def avis():
     app5.pack()
 
 def difficile():
-    fenetre2=tk.Tk()
-    fenetre2['bg']="navy"
-    fenetre2.title("Fenetre difficulté ")
-    fenetre2.geometry("400x400")
-    label2=tk.Label(fenetre2,text="Vous ne pouvez pas modifier la difficulté",bg="black",fg="white")
+    fenetre7=tk.Tk()
+    fenetre7['bg']="alice blue"
+    fenetre7.title("Fenetre difficulté ")
+    fenetre7.geometry("400x400")
+    label2=tk.Label(fenetre7,text="Vous ne pouvez pas modifier la difficulté du jeu 2048",bg="khaki",fg="blue")
     label2.pack()
 
 # savoir si la personne a perdu  fonction game over d ou elle ne peut pas bouger
