@@ -7,8 +7,7 @@ from tkinter import Widget, filedialog
 import copy
 
 #nouveau brouillon 
-# pour info ce brouillon a ete rediger que pour le code pas pour interface grafique
-# Pour afficher le jeu
+
 fenetre = tk.Tk()
 fenetre.title("2048")
 score = 0 # definir le score = 0 pour le commencement du jeu 
