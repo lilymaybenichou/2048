@@ -6,8 +6,6 @@ from tkinter import *
 from tkinter import Widget, filedialog
 import copy
 
-#nouveau brouillon 
-# pour info ce brouillon a ete rediger que pour le code pas pour interface grafique
 # Pour afficher le jeu
 fenetre = tk.Tk()
 fenetre.title("2048")
@@ -16,37 +14,25 @@ fenetre.geometry("1000x1000")
 fenetre["bg"]="dodgerBlue4" # couleur de la fenetre 
 
 
-# Pas obligatoire de mettre une image en arrière plan 
-# Chargement de l'image
-#bg_image = PhotoImage(file="P.png")
-
-# Création d'un Label avec l'image en arrière-plan
-#background_label = Label(fenetre, image=bg_image)
-#background_label.place(relwidth=1, relheight=1)
 
 
 #dictionnaire des couleurs des tuiles
+
+
 tile_colors = {
-    2: "#EEE4DA",
-    4: "#EDE0C8",
-    8: "#F2B179",
-    16: "#F59563",
-    32: "#F67C5F",
-    64: "#F65E3B",
-    128: "#EDCF72",
-    256: "#EDCC61",
-    512: "#EDC850",
-    1024: "#EDC53F",
-    2048: "#EDC22E"
+    2: "#fcefe6",
+    4: "#f2f8cb",
+    8: "#f5b682", 
+    16: "#f29446", 
+    32: "#ff775c", 
+    64: "#e64c2e", 
+    128: "#ede291", 
+    256: "#fce130", 
+    512: "#ffdb4a", 
+    1024: "#f0b922", 
+    2048: "#fad74d"
 }
-
-
-
-
-
-
-
-
+#https://medium.com/@jofre44/game-app-with-python-and-tkinter-let-s-play-2048-e9e25223a711
 
 
 # Pour afficher un label de bienvenue 
@@ -81,27 +67,23 @@ for i in range(4): # la boucle ici permet ajouter ici 4 petite liste
 
 
 # Fonction pour ajouter un nombre aléatoire dans la grille
-def ajoutenombre(): # ajout d'un nombre aleatoire au fil de la partie
-    global grille # la fonction global permet de indiquer que la variable utilise a l interieur de la fonction et la meme que celle utiliser a exterieur 
-    x = random.randint(0, 3) # ajoute dans une ligne aleatoire  
-    y = random.randint(0, 3) # ajoute dans une colonne aleatoire
-    while grille[x][y] != 0: # x= row , y=column ;pas egal a 0 = il y a de la place 
-        x = random.randint(0, 3) # ajoute dans une ligne aleatoire
-        y = random.randint(0, 3) # ajoute dans une colonne aleatoire
-    grille[x][y] = random.choice([2,4]) # choisi dans la grille peut importe les lignes et les colonnes
+def ajoutenombre(): 
+    global grille 
+    x = random.randint(0, 3)  
+    y = random.randint(0, 3) 
+    while grille[x][y] != 0: 
+        x = random.randint(0, 3)
+        y = random.randint(0, 3)
+    grille[x][y] = random.choice([2,4]) 
     
 # la fonction ajouter_nombre permet de ajouter 1 nombres dans une ligne ou colonnes aleatoires tirees
 # au sort 
-
 #Pour Conclure la fonction ajouter_nombre():
 #Plus Précisement cette fonction permet ajouter soit un 2 ou un 4 dans une grille de jeu 
 # global grille (deja definit en commentaire )
 # la fonction ici donne grace a la fontion random randint donne 2 nombre soit un 2 ou 4 dans la grille 
 # ici on cherche a ce que a ce que certain endroit de la grille ne sont pas vides pour ajouter des nombres
 # ensuite on ajoute soit un deux ou quatre 
-
-
-               
 
 
 # Fonction pour afficher la grille
@@ -259,10 +241,6 @@ def transposegauche():
 
 
 
-
-
-
-
 # Fonction pour déplacer les nombres vers la droite
 def transposedroite(): 
     global grille, score
@@ -321,6 +299,8 @@ labelfin.grid(row=6, column=2)
                 #if cs==16:
                     #return(testaddition())
 
+
+#amin
 #def testaddition():
     #add=0
     #for i in range(3):
@@ -446,19 +426,6 @@ def difficile():
    # return False
 # arrete de faire (sois arrete le jeu l utilisateur ne peut plus jouer )
 #arrete2048=False
-
-
-#while not arrete2048:
-        # savoir si on as gagner 
-  #  if gagner():
-         #   print()
-         #   print("Félicitation pour votre victoire")
-          #  arrete2048=True # car le jeu ce termine apres la victoire
-        # determine pas de deplacement
-#else:
-       #     print("Desole vous avez perdu la partie veuilez recommencer le jeu")
-
-
 
 # Menu 
 
