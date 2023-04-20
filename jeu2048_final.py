@@ -6,8 +6,6 @@ from tkinter import *
 from tkinter import Widget, filedialog
 import copy
 
-#nouveau brouillon 
-# pour info ce brouillon a ete rediger que pour le code pas pour interface grafique
 # Pour afficher le jeu
 fenetre = tk.Tk()
 fenetre.title("2048")
@@ -16,22 +14,25 @@ fenetre.geometry("1000x1000")
 fenetre["bg"]="dodgerBlue4" # couleur de la fenetre 
 
 
-# Pas obligatoire de mettre une image en arrière plan 
-# Chargement de l'image
-#bg_image = PhotoImage(file="P.png")
-
-# Création d'un Label avec l'image en arrière-plan
-#background_label = Label(fenetre, image=bg_image)
-#background_label.place(relwidth=1, relheight=1)
 
 
+#dictionnaire des couleurs des tuiles
 
 
-
-
-
-
-
+tile_colors = {
+    2: "#fcefe6",
+    4: "#f2f8cb",
+    8: "#f5b682", 
+    16: "#f29446", 
+    32: "#ff775c", 
+    64: "#e64c2e", 
+    128: "#ede291", 
+    256: "#fce130", 
+    512: "#ffdb4a", 
+    1024: "#f0b922", 
+    2048: "#fad74d"
+}
+#https://medium.com/@jofre44/game-app-with-python-and-tkinter-let-s-play-2048-e9e25223a711
 
 
 # Pour afficher un label de bienvenue 
@@ -45,14 +46,8 @@ def affichage():
     # modifie le texte en label 
     global cpt
     cpt += 1
-    label.config(text="tu as cliqué une fois sur le bouton play " + str(cpt)+ " fois")
 
 cpt = 0
-
-label = tk.Label(fenetre, text="texte avant de cliquer sur le bouton",
-                  padx=20, pady=20, font = ("TimesNewRoman", "15") , fg="White" ,bg="DodgerBlue4"
-                )
-label.grid(row=0, column=6)
 
 
 
@@ -72,18 +67,17 @@ for i in range(4): # la boucle ici permet ajouter ici 4 petite liste
 
 
 # Fonction pour ajouter un nombre aléatoire dans la grille
-def ajoutenombre(): # ajout d'un nombre aleatoire au fil de la partie
-    global grille # la fonction global permet de indiquer que la variable utilise a l interieur de la fonction et la meme que celle utiliser a exterieur 
-    x = random.randint(0, 3) # ajoute dans une ligne aleatoire  
-    y = random.randint(0, 3) # ajoute dans une colonne aleatoire
-    while grille[x][y] != 0: # x= row , y=column ;pas egal a 0 = il y a de la place 
-        x = random.randint(0, 3) # ajoute dans une ligne aleatoire
-        y = random.randint(0, 3) # ajoute dans une colonne aleatoire
-    grille[x][y] = random.choice([2,4]) # choisi dans la grille peut importe les lignes et les colonnes
+def ajoutenombre(): 
+    global grille 
+    x = random.randint(0, 3)  
+    y = random.randint(0, 3) 
+    while grille[x][y] != 0: 
+        x = random.randint(0, 3)
+        y = random.randint(0, 3)
+    grille[x][y] = random.choice([2,4]) 
     
 # la fonction ajouter_nombre permet de ajouter 1 nombres dans une ligne ou colonnes aleatoires tirees
 # au sort 
-
 #Pour Conclure la fonction ajouter_nombre():
 #Plus Précisement cette fonction permet ajouter soit un 2 ou un 4 dans une grille de jeu 
 # global grille (deja definit en commentaire )
@@ -92,24 +86,30 @@ def ajoutenombre(): # ajout d'un nombre aleatoire au fil de la partie
 # ensuite on ajoute soit un deux ou quatre 
 
 
-               
-
-
 # Fonction pour afficher la grille
 
 def affichagegrille(grille, score, fenetre):
     for i in range(4):
         for j in range(4):
             if grille[i][j] == 0:
-                label = Label(fenetre, text=0, font=("Helvetica", 20), width=4, height=2, bg="gray")
+                label = Label(fenetre, text=0, font=("Helvetica", 20), width=4, height=2, bg="white")
                 label.grid(row=i, column=j)
             else:
-                label = Label(fenetre, text=grille[i][j], font=("Helvetica", 20), width=4, height=2, bg="white")
+                label = Label(fenetre, text=grille[i][j], font=("Helvetica", 20), width=4, height=2, bg=tile_colors.get(grille[i][j]))
                 label.grid(row=i, column=j)
     score_label = Label(fenetre, text=score, font=("Helvetica", 20))
     score_label.grid(row=4, column=0, columnspan=4)
+    if gagner():
+        label = tk.Label(fenetre, text="WIN!",
+                        padx=20, pady=20, font = ("TimesNewRoman", "15") , fg="White" ,bg="DodgerBlue4"
+                        )
+        label.grid(row=0, column=6)
    
-
+# Fonction pour savoir si on as gagner ou non  
+def gagner():
+    for row in grille:
+        if 2048 in row: 
+            return True
 
 # Conclusion: la fonction affiche grille permet d afficher la grille dans la fenetre , la grille est 
 # stocker dans une variable globale et le score aussi *
@@ -142,6 +142,11 @@ def transposebas():
                 score += grille[i+1][j]
     ajoutenombre()
     affichagegrille(grille,score,fenetre) 
+    if gagner():
+        label = tk.Label(fenetre, text="WIN!",
+                        padx=20, pady=20, font = ("TimesNewRoman", "15") , fg="White" ,bg="DodgerBlue4"
+                        )
+        label.grid(row=0, column=6)
 
 #Conclusion: ici la fonction permet de deplacer les nombres vers le bas 
 #* 
@@ -180,6 +185,11 @@ def transposehaut():
                 score += grille[i-1][j]
     ajoutenombre() 
     affichagegrille(grille,score,fenetre)
+    if gagner():
+        label = tk.Label(fenetre, text="WIN!",
+                        padx=20, pady=20, font = ("TimesNewRoman", "15") , fg="White" ,bg="DodgerBlue4"
+                        )
+        label.grid(row=0, column=6)
 
 # Conclusion : ici cette focntion permet de deplacer tout les nombres vers le haut 
 #la 1ere boucle for ici parcourt les lignes de la deuxieme a la quatrieme ligne tandis que la 2eme boucle for ici parcourt chaque colonne 
@@ -212,6 +222,12 @@ def transposegauche():
                 
     ajoutenombre() 
     affichagegrille(grille,score,fenetre) 
+    if gagner():
+        label = tk.Label(fenetre, text="WIN!",
+                        padx=20, pady=20, font = ("TimesNewRoman", "15") , fg="White" ,bg="DodgerBlue4"
+                        )
+        label.grid(row=0, column=6)
+
 
 # Conclusion: la fonction ici permet de deplacer les nombres vers la gauche 
 # la premiere boucle for voyage a travers chaque ligne tandis que la seconde avance a travers chaque colonne de la deuxieme a la quatrieme
@@ -222,10 +238,6 @@ def transposegauche():
 # a gauche des deux nombres identiques cote a cote additionner 
 # ensuite la fonction ajoute un nombre aleatoire a la grille , affiche la grille et met 
 # a jour le score 
-
-
-
-
 
 
 
@@ -270,7 +282,59 @@ def transposedroite():
 score_label = Label(fenetre, text="Score : ", font=("Helvetica", 20))
 score_label.grid(row=4, column=0)
 
+labelfin = Label(fenetre)
+labelfin.grid(row=6, column=2)
 
+
+#tentative echoué de la fonction game over, dans un premier temps on regarde si tout les cases sont remplis en parcourant la grille, lorsque une case
+#est rempli on fais +1 a cs et si cs = 16 ça veut dire que tout les cases sont remplis donc on passe au test d'assemblage entre une case et les cases qui les entourent
+#ensuite on regarde si pour tout les cases la valeur a droite a gauche en haut et en bas correspond a celle de la case pour les combiner, si ce n'est pas
+#le cas pour tout les cases on peut directement renvoyez game over
+#def gameover():
+    #cs=0
+    #for i in range(3):
+        #for j in range(3):
+            #if grille[i][j] != 0:
+                #cs=cs+1
+                #if cs==16:
+                    #return(testaddition())
+
+
+#amin
+#def testaddition():
+    #add=0
+    #for i in range(3):
+        #for j in range(3):
+            #if i==3 and j==3:
+                #if grille[i][j]!=grille[i-1][j] or grille[i][j]!=grille[i][j-1]:
+                    #add=add+1
+            #if i==0 and j==0:
+                #if grille[i][j]!=grille[i+1][j] or grille[i][j]!=grille[i][j+1]:
+                    #add=add+1
+            #if i==0 and j==3:
+                #if grille[i][j]!=grille[i+1][j] or grille[i][j]!=grille[i][j-1]:
+                    #add=add+1
+            #if i==3 and j==0:
+                #if grille[i][j]!=grille[i][j+1] or grille[i][j]!=grille[i-1][j]:
+                    #add=add+1
+            #if (i==3 and j==2) or (i==3 and j==1):
+                #if grille[i][j]!=grille[i-1][j] or grille[i][j]!=grille[i][j-1] or grille[i][j]!=grille[i][j+1]:
+                    #add=add+1
+            #if (i==0 and j==2) or (i==0 and j==1):
+                #if grille[i][j]!=grille[i+1][j] or grille[i][j]!=grille[i][j-1] or grille[i][j]!=grille[i][j+1]:
+                    #add=add+1
+            #if (i==2 and j==3) or (i==1 and j==3):
+                #if grille[i][j]!=grille[1][j-1] or grille[i][j]!=grille[i-1][j] or grille[i][j]!=grille[i+1][j]:
+                    #add=add+1
+            #if (i==2 and j==0) or (i==1 and j==0):
+                #if grille[i][j]!=grille[1][j+1] or grille[i][j]!=grille[i-1][j] or grille[i][j]!=grille[i+1][j]:
+                    #add=add+1
+            #else:
+                #if grille[i][j]!=grille[1][j+1] or grille[i][j]!=grille[i][j-1] or grille[i][j]!=grille[i+1][j] or grille[i][j]!=grille[i-1][j]:
+                    #add=add+1
+            #if add==16:
+                #labelfin=tk.Label(fenetre,fg="black",text="Game OVER")
+                #labelfin.pack()
 
 
 # LEs different bouton de controle
@@ -363,27 +427,6 @@ def difficile():
 # arrete de faire (sois arrete le jeu l utilisateur ne peut plus jouer )
 #arrete2048=False
 
-
-
-# Fonction pour savoir si on as gagner ou non  
-#def gagner():
-   # for row in grille:
-      #  if 2048 in row: 
-     #       return True
- #   return False 
-
-#while not arrete2048:
-        # savoir si on as gagner 
-  #  if gagner():
-         #   print()
-         #   print("Félicitation pour votre victoire")
-          #  arrete2048=True # car le jeu ce termine apres la victoire
-        # determine pas de deplacement
-#else:
-       #     print("Desole vous avez perdu la partie veuilez recommencer le jeu")
-
-
-
 # Menu 
 
 mon_menu= tk.Menu(fenetre)
@@ -417,3 +460,4 @@ fenetre.config(menu=mon_menu)
 
 # Lancement de la boucle principale
 fenetre.mainloop()
+
