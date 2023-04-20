@@ -25,6 +25,21 @@ fenetre["bg"]="dodgerBlue4" # couleur de la fenetre
 #background_label.place(relwidth=1, relheight=1)
 
 
+#dictionnaire des couleurs des tuiles
+tile_colors = {
+    2: "#EEE4DA",
+    4: "#EDE0C8",
+    8: "#F2B179",
+    16: "#F59563",
+    32: "#F67C5F",
+    64: "#F65E3B",
+    128: "#EDCF72",
+    256: "#EDCC61",
+    512: "#EDC850",
+    1024: "#EDC53F",
+    2048: "#EDC22E"
+}
+
 
 
 
@@ -95,10 +110,10 @@ def affichagegrille(grille, score, fenetre):
     for i in range(4):
         for j in range(4):
             if grille[i][j] == 0:
-                label = Label(fenetre, text=0, font=("Helvetica", 20), width=4, height=2, bg="gray")
+                label = Label(fenetre, text=0, font=("Helvetica", 20), width=4, height=2, bg="white")
                 label.grid(row=i, column=j)
             else:
-                label = Label(fenetre, text=grille[i][j], font=("Helvetica", 20), width=4, height=2, bg="white")
+                label = Label(fenetre, text=grille[i][j], font=("Helvetica", 20), width=4, height=2, bg=tile_colors.get(grille[i][j]))
                 label.grid(row=i, column=j)
     score_label = Label(fenetre, text=score, font=("Helvetica", 20))
     score_label.grid(row=4, column=0, columnspan=4)
