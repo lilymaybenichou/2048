@@ -72,7 +72,7 @@ for i in range(4): # la boucle ici permet ajouter ici 4 petite liste
 
 
 # Fonction pour ajouter un nombre aléatoire dans la grille
-def ajouter_nombre(): # ajout d'un nombre aleatoire au fil de la partie
+def ajoutenombre(): # ajout d'un nombre aleatoire au fil de la partie
     global grille # la fonction global permet de indiquer que la variable utilise a l interieur de la fonction et la meme que celle utiliser a exterieur 
     x = random.randint(0, 3) # ajoute dans une ligne aleatoire  
     y = random.randint(0, 3) # ajoute dans une colonne aleatoire
@@ -97,7 +97,7 @@ def ajouter_nombre(): # ajout d'un nombre aleatoire au fil de la partie
 
 # Fonction pour afficher la grille
 
-def afficher_grille(grille, score, fenetre):
+def affichagegrille(grille, score, fenetre):
     for i in range(4):
         for j in range(4):
             if grille[i][j] == 0:
@@ -122,7 +122,7 @@ def afficher_grille(grille, score, fenetre):
 
 
 # Fonction pour déplacer les nombres vers le bas
-def deplacer_bas():
+def transposebas():
     global grille, score
     for i in range(2, -1, -1): 
         for j in range(4): 
@@ -140,8 +140,8 @@ def deplacer_bas():
                 grille[i+1][j] *= 2
                 grille[i][j] = 0
                 score += grille[i+1][j]
-    ajouter_nombre()
-    afficher_grille(grille,score,fenetre) 
+    ajoutenombre()
+    affichagegrille(grille,score,fenetre) 
 
 #Conclusion: ici la fonction permet de deplacer les nombres vers le bas 
 #* 
@@ -161,7 +161,7 @@ def deplacer_bas():
 
 
 # Fonction pour déplacer les nombres vers le haut
-def deplacer_haut():
+def transposehaut():
     global grille, score 
     for i in range(1, 4):
         for j in range(4):
@@ -178,8 +178,8 @@ def deplacer_haut():
                 grille[i-1][j] *= 2 
                 grille[i][j] = 0
                 score += grille[i-1][j]
-    ajouter_nombre() 
-    afficher_grille(grille,score,fenetre)
+    ajoutenombre() 
+    affichagegrille(grille,score,fenetre)
 
 # Conclusion : ici cette focntion permet de deplacer tout les nombres vers le haut 
 #la 1ere boucle for ici parcourt les lignes de la deuxieme a la quatrieme ligne tandis que la 2eme boucle for ici parcourt chaque colonne 
@@ -192,7 +192,7 @@ def deplacer_haut():
 
 
 # Fonction pour déplacer les nombres vers la gauche
-def deplacer_gauche(): 
+def transposegauche(): 
     global grille, score  
     for i in range(4): 
         for j in range(1, 4): 
@@ -210,8 +210,8 @@ def deplacer_gauche():
                 grille[i][j] = 0
                 score += grille[i][j-1] 
                 
-    ajouter_nombre() 
-    afficher_grille(grille,score,fenetre) 
+    ajoutenombre() 
+    affichagegrille(grille,score,fenetre) 
 
 # Conclusion: la fonction ici permet de deplacer les nombres vers la gauche 
 # la premiere boucle for voyage a travers chaque ligne tandis que la seconde avance a travers chaque colonne de la deuxieme a la quatrieme
@@ -230,7 +230,7 @@ def deplacer_gauche():
 
 
 # Fonction pour déplacer les nombres vers la droite
-def deplacer_droite(): 
+def transposedroite(): 
     global grille, score
     for i in range(4):
         for j in range(2, -1, -1):
@@ -247,8 +247,8 @@ def deplacer_droite():
                 grille[i][j+1] *= 2
                 grille[i][j] = 0
                 score += grille[i][j+1]
-    ajouter_nombre() 
-    afficher_grille(grille,score,fenetre) 
+    ajoutenombre() 
+    affichagegrille(grille,score,fenetre) 
 
 #Conclusion :cette fonction permet de deplacer les nombres vers la droite ,
 # la premiere boucle permet a la fonction de voyager a chaque ligne tandis que la  deuxieme boucle permet
@@ -276,20 +276,20 @@ score_label.grid(row=4, column=0)
 # LEs different bouton de controle
 bouton_play=tk.Button(fenetre,text="Play",font=("Helvetica",20),command=affichage,bg="DodgerBlue3")
 bouton_play.grid(row=5,column=4)
-gauche_button = tk.Button(fenetre, text="Left", command=deplacer_gauche, font=("Helvetica", 20),bg="DodgerBlue3")
+gauche_button = tk.Button(fenetre, text="Left", command=transposegauche, font=("Helvetica", 20),bg="DodgerBlue3")
 gauche_button.grid(row=5, column=0)
-droite_button = tk.Button(fenetre, text="Right", command=deplacer_droite, font=("Helvetica", 20),bg="DodgerBlue3")
+droite_button = tk.Button(fenetre, text="Right", command=transposedroite, font=("Helvetica", 20),bg="DodgerBlue3")
 droite_button.grid(row=5, column=1)
-haut_button = tk.Button(fenetre, text="UP", command=deplacer_haut, font=("Helvetica", 20),bg="DodgerBlue3")
+haut_button = tk.Button(fenetre, text="UP", command=transposehaut, font=("Helvetica", 20),bg="DodgerBlue3")
 haut_button.grid(row=5, column=2)
-bas_button = tk.Button(fenetre, text="Down", command=deplacer_bas, font=("Helvetica", 20),bg="DodgerBlue3")
+bas_button = tk.Button(fenetre, text="Down", command=transposebas, font=("Helvetica", 20),bg="DodgerBlue3")
 bas_button.grid(row=5, column=3)
 
 
 # Ajout de deux nombres aléatoires dans la grille
-ajouter_nombre()
-ajouter_nombre()
-afficher_grille(grille,score,fenetre)
+ajoutenombre()
+ajoutenombre()
+affichagegrille(grille,score,fenetre)
 
 
 # configuration des options dans le menu 
