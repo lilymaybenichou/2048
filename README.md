@@ -8,6 +8,8 @@ JEU 2048:
 Le jeu du 2048 est composée de différentes parti , ici nous allons le documenter plus spécifiquement en 3 partie,La Première parties détaillera L'Interface Graphique et son utilisation , La Seconde partie 
 présentera plus en détail le code et son utilisation tandis que la 3eme et dernière parti présentera 
 les différentes sources utilisé pour la réalisation de ce code .
+(Pour information , la documentation ici ne résume que le code dans ça globalité et seul les points 
+important son abordés )
 
 # 1ere partie l'Interface Graphique:
 
@@ -77,5 +79,9 @@ la deuxieme boucle permet la verification pour savoir si deux nombres sont ident
 Dernierement on affiche un score a la fin grace a score_label et score_label.grid
 
 # Source:
+- Pour le changement des couleurs des différentes cases en fonctions du chiffre(nombre)
+#https://medium.com/@jofre44/game-app-with-python-and-tkinter-let-s-play-2048-e9e25223a711
+
+
  
 
