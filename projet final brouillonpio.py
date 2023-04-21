@@ -427,7 +427,9 @@ def avisecrit():
     fenetre0['bg']="RoyalBlue2"
     edit=tk.Entry(fenetre0)
     edit.pack() 
-    
+
+def  recommencer():
+    del affichagegrille(grille,score,fenetre)
 
 
 
@@ -469,7 +471,7 @@ notezlejeu= tk.Menu(mon_menu,tearoff=0)
 notezlejeu.add_command(label="Note",command=avis)
 notezlejeu.add_command(label="Appréciation Ecrite",command=avisecrit)
 rejouer= tk.Menu(mon_menu,tearoff=0)
-rejouer.add_command(label="Restart")
+rejouer.add_command(label="Restart",command=recommencer)
 Sauvegarder=tk.Menu(mon_menu,tearoff=0) 
 Sauvegarder.add_command(label="Charger une Partie",command=load)
 mon_menu.add_cascade(label="Fichier",menu=fichier)
