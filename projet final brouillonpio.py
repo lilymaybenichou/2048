@@ -60,7 +60,7 @@ for i in range(4): # la boucle ici permet ajouter ici 4 petite liste
     grille.append([0] * 4) # la fonction append permet d ajouter des 0 au petite liste donc elle sont
     # egal a zero
     #grille = matrice [0,0,0,0
-    #                  0,0,0,0
+     #                 0,0,0,0
     #                  0,0,0,0
     #                  0,0,0,0]
 
@@ -336,9 +336,24 @@ labelfin.grid(row=6, column=2)
                 #labelfin=tk.Label(fenetre,fg="black",text="Game OVER")
                 #labelfin.pack()
 
+# ici le code permet de afficher 2 chiffres lorsque l'on appuye sur le bouton play 
+affichagegrille(grille,score,fenetre)
+# ici le bouton play est détruit une fois après sont utilisation grace a la method after()
+# pour que le bouton play ne sois pas utiliser 2 fois 
+def fonctionlieeaplay():
+  ajoutenombre()
+  ajoutenombre()
+  affichagegrille(grille,score,fenetre)
+  bouton_play.after(1,bouton_play.destroy)
+
+
+
+
+
+
 
 # LEs different bouton de controle
-bouton_play=tk.Button(fenetre,text="Play",font=("Helvetica",20),command=affichage,bg="DodgerBlue3")
+bouton_play=tk.Button(fenetre,text="Play",font=("Helvetica",20),command=fonctionlieeaplay,bg="DodgerBlue3")
 bouton_play.grid(row=5,column=4)
 gauche_button = tk.Button(fenetre, text="Left", command=transposegauche, font=("Helvetica", 20),bg="DodgerBlue3")
 gauche_button.grid(row=5, column=0)
@@ -350,10 +365,6 @@ bas_button = tk.Button(fenetre, text="Down", command=transposebas, font=("Helvet
 bas_button.grid(row=5, column=3)
 
 
-# Ajout de deux nombres aléatoires dans la grille
-ajoutenombre()
-ajoutenombre()
-affichagegrille(grille,score,fenetre)
 
 
 # configuration des options dans le menu 
@@ -368,6 +379,7 @@ def help():
     fenetre2=tk.Tk()
     fenetre2.title("Help 2048")
     fenetre2.geometry("800x200")
+    fenetre2['bg']="LemonChiffon2"
     label=tk.Label(fenetre2,fg="black",text="Sur une grille de 16 cases on fait bouger les tuiles pour obtenir le score maximum jusqu'a ce que toute les tuiles sont gelée")
     label.pack()
     fenetre2.mainloop()
@@ -381,57 +393,49 @@ def partage4():
     webbrowser.open("https://www.snapchat.com/fr-FR")
 
 
-def affiche_autre6():
-        zoneaffi['text']=edit.get()
-def affiche_bouton1():
-        zoneaffi['text']="vous avez cliquer sur le bouton 1"
-def affiche_bouton2():
-        zoneaffi['text']="vous avez cliquer sur le bouton 2"
-def affiche_bouton3():
-        zoneaffi['text']="vous avez cliquer sur le bouton 3"
-def affiche_bouton4():
-        zoneaffi['text']="vous avez cliquer sur le bouton 4"
-def affiche_bouton5():
-        zoneaffi['text']="vous avez cliquer sur le bouton 5"
-
-
 def avis():
-    global zoneaffi,edit
     fenetre6=tk.Tk()
-    fenetre6['bg']="orange"
+    fenetre6['bg']="firebrick1"
     fenetre6.title("Note du jeu 2048")
     fenetre6.geometry("1000x1000")
-    edit=tk.Entry(fenetre6)
-    edit.pack()
-    zoneaffi=tk.Label(fenetre,text="zone affichage",bg="red")
-    zoneaffi.pack()
-    app1=tk.Button(fenetre6,text="1 etoile",fg="yellow",bg="green")
-    app2=tk.Button(fenetre6,text="2 etoile",fg="yellow",bg="green")
-    app3=tk.Button(fenetre6,text="3 etoile",fg="yellow",bg="green")
-    app4=tk.Button(fenetre6,text="4etoile",fg="yellow",bg="green")
-    app5=tk.Button(fenetre6,text="5etoile",fg="yellow",bg="green")
-    app6=tk.Button(fenetre6,text="autre avis",fg="yellow",bg="green",command=affiche_autre6)
+    label9=tk.Label(fenetre6,text="Notez le jeu 2048 les etoiles dependent de votre appreciation.")
+    label9.pack()
+    app1=tk.Button(fenetre6,text="1 etoile",fg="black",bg="gold")
+    app2=tk.Button(fenetre6,text="2 etoile",fg="black",bg="gold")
+    app3=tk.Button(fenetre6,text="3 etoile",fg="black",bg="gold")
+    app4=tk.Button(fenetre6,text="4etoile",fg="black",bg="gold")
+    app5=tk.Button(fenetre6,text="5etoile",fg="black",bg="gold")
     
     app1.pack()
     app2.pack()
     app3.pack()
     app4.pack()
     app5.pack()
-    app6.pack()
-
-
-
-
-
-
 
 def difficile():
-    fenetre2=tk.Tk()
-    fenetre2['bg']="navy"
-    fenetre2.title("Fenetre difficulté ")
-    fenetre2.geometry("400x400")
-    label2=tk.Label(fenetre2,text="Vous ne pouvez pas modifier la difficulté",bg="black",fg="white")
+    fenetre7=tk.Tk()
+    fenetre7['bg']="alice blue"
+    fenetre7.title("Fenetre difficulté ")
+    fenetre7.geometry("400x400")
+    label2=tk.Label(fenetre7,text="Vous ne pouvez pas modifier la difficulté du jeu 2048",bg="khaki",fg="blue")
     label2.pack()
+
+def avisecrit():
+    fenetre0=tk.Tk()
+    fenetre0.title("Appréciation écrite")
+    fenetre0.geometry("200x200")
+    fenetre0['bg']="RoyalBlue2"
+    edit=tk.Entry(fenetre0)
+    edit.pack()
+    zoneaffi=tk.Label(fenetre0,text="zone affichage",bg="red")
+    zoneaffi.pack() 
+    zoneaffi['text']=edit.get()
+    
+
+
+
+
+
 
 # savoir si la personne a perdu  fonction game over d ou elle ne peut pas bouger
 #def bougepas():
@@ -468,7 +472,8 @@ fichier.add_command(label="Partager le score(Snapchat)",command=partage4)
 option = tk.Menu(mon_menu,tearoff=0)
 option.add_command(label=" Difficulté ",command=difficile)
 notezlejeu= tk.Menu(mon_menu,tearoff=0)
-notezlejeu.add_command(label="note",command=avis)
+notezlejeu.add_command(label="Note",command=avis)
+notezlejeu.add_command(label="Appréciation Ecrite",command=avisecrit)
 rejouer= tk.Menu(mon_menu,tearoff=0)
 rejouer.add_command(label="Restart")
 Sauvegarder=tk.Menu(mon_menu,tearoff=0) 
@@ -485,4 +490,3 @@ fenetre.config(menu=mon_menu)
 
 # Lancement de la boucle principale
 fenetre.mainloop()
-
