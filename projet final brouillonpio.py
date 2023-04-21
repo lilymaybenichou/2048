@@ -426,10 +426,8 @@ def avisecrit():
     fenetre0.geometry("200x200")
     fenetre0['bg']="RoyalBlue2"
     edit=tk.Entry(fenetre0)
-    edit.pack()
-    zoneaffi=tk.Label(fenetre0,text="zone affichage",bg="red")
-    zoneaffi.pack() 
-    zoneaffi['text']=edit.get()
+    edit.pack() 
+    
     
 
 
