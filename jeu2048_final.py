@@ -416,6 +416,14 @@ def difficile():
     label2=tk.Label(fenetre7,text="Vous ne pouvez pas modifier la difficulté du jeu 2048",bg="khaki",fg="blue")
     label2.pack()
 
+def avisecrit():
+    fenetre0=tk.Tk()
+    fenetre0.title("Appréciation écrite")
+    fenetre0.geometry("200x200")
+    fenetre0['bg']="RoyalBlue2"
+    edit=tk.Entry(fenetre0)
+    edit.pack() 
+
 # savoir si la personne a perdu  fonction game over d ou elle ne peut pas bouger
 #def bougepas():
     # creation de 2 copy du tableau 
@@ -452,7 +460,7 @@ option = tk.Menu(mon_menu,tearoff=0)
 option.add_command(label=" Difficulté ",command=difficile)
 notezlejeu= tk.Menu(mon_menu,tearoff=0)
 notezlejeu.add_command(label="Note",command=avis)
-notezlejeu.add_command(label="Appréciation")
+notezlejeu.add_command(label="Appréciation",command=avisecrit)
 rejouer= tk.Menu(mon_menu,tearoff=0)
 rejouer.add_command(label="Restart")
 Sauvegarder=tk.Menu(mon_menu,tearoff=0) 
