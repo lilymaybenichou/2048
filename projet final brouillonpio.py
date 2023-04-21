@@ -428,10 +428,6 @@ def avisecrit():
     edit=tk.Entry(fenetre0)
     edit.pack() 
     
-    
-
-
-
 
 
 
