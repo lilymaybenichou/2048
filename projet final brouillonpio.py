@@ -32,7 +32,6 @@ tile_colors = {
     1024: "#f0b922", 
     2048: "#fad74d"
 }
-#https://medium.com/@jofre44/game-app-with-python-and-tkinter-let-s-play-2048-e9e25223a711
 
 
 # Pour afficher un label de bienvenue 
@@ -429,7 +428,7 @@ def avisecrit():
     edit=tk.Entry(fenetre0)
     edit.pack() 
 
-def  recommencer():
+def  recommencer(): 
     x=grille
     y=score
     f=fenetre
