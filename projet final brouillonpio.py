@@ -367,6 +367,7 @@ bas_button.grid(row=5, column=3)
 
 
 
+
 # configuration des options dans le menu 
 
 def save():
@@ -429,7 +430,10 @@ def avisecrit():
     edit.pack() 
 
 def  recommencer():
-    del affichagegrille(grille,score,fenetre)
+    x=grille
+    y=score
+    f=fenetre
+    
 
 
 
