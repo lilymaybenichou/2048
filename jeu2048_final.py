@@ -415,8 +415,13 @@ def avisecrit():
     edit.pack() 
 
 def restart():
-    global grille 
-    grille.append([0]*4)
+    global grille,score,score_label
+    grille = [] # une liste egal a 0 soit une liste nulle 
+    for i in range(4): # la boucle ici permet ajouter ici 4 petite liste 
+        grille.append([0] * 4)
+    score=0
+    score_label = Label(fenetre, text="Score : ", font=("Helvetica", 20))
+    score_label.grid(row=4, column=0)
 
 
 
