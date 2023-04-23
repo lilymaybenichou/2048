@@ -428,8 +428,8 @@ def restart():
     for i in range(4): # la boucle ici permet ajouter ici 4 petite liste 
         grille.append([0] * 4)
     score=0
-    bouton_play=tk.Button(fenetre,text="Play",font=("Helvetica",20),command=play2,bg="DodgerBlue3")
-    bouton_play.grid(row=5,column=4)
+    bouton_play1=tk.Button(fenetre,text="Play",font=("Helvetica",20),command=play2,bg="DodgerBlue3")
+    bouton_play1.grid(row=5,column=4)
     
 
 
