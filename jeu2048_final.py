@@ -41,16 +41,6 @@ label1.grid(column=0,row=10,columnspan=6)
 
 #Les Differentes fonctions 
 
-# Fonction en lien avec le bouton play 
-def affichage():
-    # modifie le texte en label 
-    global cpt
-    cpt += 1
-
-cpt = 0
-
-
-
 
 
 
@@ -424,6 +414,12 @@ def avisecrit():
     edit=tk.Entry(fenetre0)
     edit.pack() 
 
+def restart():
+    global grille 
+    grille.append([0]*4)
+
+
+
 # savoir si la personne a perdu  fonction game over d ou elle ne peut pas bouger
 #def bougepas():
     # creation de 2 copy du tableau 
@@ -462,7 +458,7 @@ notezlejeu= tk.Menu(mon_menu,tearoff=0)
 notezlejeu.add_command(label="Note",command=avis)
 notezlejeu.add_command(label="Appréciation",command=avisecrit)
 rejouer= tk.Menu(mon_menu,tearoff=0)
-rejouer.add_command(label="Restart")
+rejouer.add_command(label="Restart",command=restart)
 Sauvegarder=tk.Menu(mon_menu,tearoff=0) 
 Sauvegarder.add_command(label="Charger une Partie",command=load)
 mon_menu.add_cascade(label="Fichier",menu=fichier)
