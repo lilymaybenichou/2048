@@ -415,7 +415,6 @@ def avisecrit():
     edit.pack() 
 
 def play2():
-  global restart
   ajoutenombre()
   ajoutenombre()
   affichagegrille(grille,score,fenetre)
@@ -429,9 +428,9 @@ def restart():
     for i in range(4):  
         grille.append([0] * 4)
     score=0
-    bouton_play1=tk.Button(fenetre,text="Play",font=("Helvetica",20),command=play2,bg="DodgerBlue3")
-    bouton_play1.grid(row=5,column=4)
-    bouton_play1.after(1,bouton_play1.destroy)
+    bouton_play6=tk.Button(fenetre,text="Play",font=("Helvetica",20),command=play2,bg="DodgerBlue3")
+    bouton_play6.grid(row=5,column=4)
+    
     
 
 
