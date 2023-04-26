@@ -378,6 +378,9 @@ def partage3():
     webbrowser.open("https://twitter.com/?lang=fr")
 def partage4():
     webbrowser.open("https://www.snapchat.com/fr-FR")
+def partage5():
+    webbrowser.open("https://www.pinterest.fr/")
+
 
 
 def avis():
@@ -465,6 +468,7 @@ fichier.add_command(label="Partager score (Instagram)",command=partage)
 fichier.add_command(label="Partager le score (Facebook)",command=partage2)
 fichier.add_command(label="Partager le score(Twitter)",command=partage3)
 fichier.add_command(label="Partager le score(Snapchat)",command=partage4)
+fichier.add_command(label="Partager le score(Pinterest)",command=partage5)
 option = tk.Menu(mon_menu,tearoff=0)
 option.add_command(label=" Difficulté ",command=difficile)
 notezlejeu= tk.Menu(mon_menu,tearoff=0)
