@@ -423,13 +423,13 @@ def play2():
 
 def restart():
     global grille,score
+    score=0
     grille = [] 
     for i in range(4):  
         grille.append([0] * 4)
-    score=0
     bouton_play6=tk.Button(fenetre,text="Play",font=("Helvetica",20),command=play2,bg="DodgerBlue3")
     bouton_play6.grid(row=5,column=4)
-
+    bouton_play6.after(5000,bouton_play6.destroy)
 
 
 # savoir si la personne a perdu  fonction game over d ou elle ne peut pas bouger
