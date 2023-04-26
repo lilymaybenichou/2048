@@ -418,7 +418,7 @@ def play2():
   ajoutenombre()
   ajoutenombre()
   affichagegrille(grille,score,fenetre)
-
+  
 
 
 def restart():
