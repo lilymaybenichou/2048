@@ -6,6 +6,7 @@ from tkinter import *
 from tkinter import Widget, filedialog
 import copy
 
+
 # Pour afficher le jeu
 fenetre = tk.Tk()
 fenetre.title("2048")
@@ -356,9 +357,15 @@ bas_button.grid(row=5, column=3)
 # configuration des options dans le menu 
 
 def save():
-    ouvrir_fichier= filedialog.asksaveasfile(title="Partie a sauvegarder")
+    files = [('All Files', '*.*'), 
+             ('Python Files', '*.py'),
+             ('Text Document', '*.txt')]
+    file = filedialog.asksaveasfile(filetypes = files, defaultextension = files)
 def load():
-    ouvrir_fichier=filedialog.askopenfile(title=" Partie a reprendre")
+    files =[('All Files', '*.*'), 
+             ('Python Files', '*.py'),
+             ('Text Document', '*.txt')]
+    file2 =filedialog.askopenfile(filetypes = files, defaultextension = files)
 def fermer_fenetre():
     fenetre.destroy()
 def help():
