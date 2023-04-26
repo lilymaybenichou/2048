@@ -16,6 +16,7 @@ fenetre["bg"]="dodgerBlue4" # couleur de la fenetre
 
 
 
+
 #dictionnaire des couleurs des tuiles
 
 
