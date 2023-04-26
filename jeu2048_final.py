@@ -414,14 +414,21 @@ def avisecrit():
     edit=tk.Entry(fenetre0)
     edit.pack() 
 
+def play2():
+  ajoutenombre()
+  ajoutenombre()
+  affichagegrille(grille,score,fenetre)
+
+
+
 def restart():
-    global grille,score,score_label
-    grille = [] # une liste egal a 0 soit une liste nulle 
-    for i in range(4): # la boucle ici permet ajouter ici 4 petite liste 
+    global grille,score
+    grille = [] 
+    for i in range(4):  
         grille.append([0] * 4)
     score=0
-    score_label = Label(fenetre, text="Score : ", font=("Helvetica", 20))
-    score_label.grid(row=4, column=0)
+    bouton_play6=tk.Button(fenetre,text="Play",font=("Helvetica",20),command=play2,bg="DodgerBlue3")
+    bouton_play6.grid(row=5,column=4)
 
 
 
