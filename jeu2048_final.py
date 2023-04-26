@@ -356,9 +356,9 @@ bas_button.grid(row=5, column=3)
 # configuration des options dans le menu 
 
 def save():
-    ouvrir_fichier= filedialog.asksaveasfile(title="Partie a sauvegarder")
+    sauvegarderfichier= filedialog.asksaveasfile(title="Partie a sauvegarder")
 def load():
-    ouvrir_fichier=filedialog.askopenfile(title=" Partie a reprendre")
+    ouvrirfichier=filedialog.askopenfile(title=" Partie a reprendre")
 def fermer_fenetre():
     fenetre.destroy()
 def help():
