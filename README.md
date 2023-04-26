@@ -93,7 +93,8 @@ Dernierement on affiche un score a la fin grace a score_label et score_label.gri
 #https://github.com/IN200/S2-python/blob/main/cours/02_interface_graphique/02_gui.ipynb
 - Documentation sur les différentes couleurs utiliser pour interface graphique :
 #https://memopy.hatenadiary.jp/entry/2017/06/11/092554
-
+- La Methode Checkbutton pour afficher des cases: 
+#https://www.tutorialspoint.com/python/tk_checkbutton.htm
 
 
  
