@@ -9,8 +9,8 @@ URL du depot du projet:https://github.com/lilymaybenichou/2048
 Documentation de l'utilisation du programme: 
 LE PROGRAMME:
 JEU 2048:
-Le jeu du 2048 est composée de différentes parti , ici nous allons le documenter plus spécifiquement en 3 partie,La Première parties détaillera L'Interface Graphique et son utilisation , La Seconde partie 
-présentera plus en détail le code et son utilisation tandis que la 3eme et dernière parti présentera 
+Le jeu du 2048 est composée de différentes parties , ici nous allons le documenter plus spécifiquement en 3 parties,La Première Parties détaillera L'Interface Graphique et son Utilisation , La Seconde Parties 
+présentera plus en détail le code et son utilisation tandis que la 3eme et dernière Parti présentera 
 les différentes sources utilisé pour la réalisation de ce code .
 (Pour information , la documentation ici ne résume que le code dans ça globalité et seul les points 
 important son abordés )
@@ -18,7 +18,7 @@ important son abordés )
 # 1ere partie l'Interface Graphique:
 
 
-Pour cette Interface graphique nous avons utiliser une fenetre tkinter dans laquelle nous avons implémenter différent boutons notamment le bouton Left,Right,Up,Down et le bouton Play (les autres boutons tel que le bouton Exit,Save et Load on été rajouter dans le menu que nous détailerons plus 
+Pour cette Interface graphique nous avons utiliser une Fenetre Tkinter dans laquelle nous avons implémenter différent boutons notamment le bouton Left,Right,Up,Down et le bouton Play (les autres boutons tel que le bouton Exit,Save et Load on été rajouter dans le menu que nous détailerons plus 
 tard). Les Différents boutons cité precédemment on un role majeur dans le jeux notament pour les 
 déplacement par exemple . Ces differents boutons ont été crée avec des paramètres notamment au niveau 
 de la couleur et de leur taille et ses boutons on été positionner au niveaux de la grille de façon a 
@@ -80,7 +80,7 @@ la deuxieme boucle permet la verification pour savoir si deux nombres sont ident
  a la fin la fonction ajoute ensuite un nombre aleatoire et met a jour le score et affiche la nouvelle
  grille qui es mis a jour
 
-Dernierement on affiche un score a la fin grace a score_label et score_label.grid
+Dernièrement on affiche un score a la fin grace a score_label et score_label.grid
 
 # Source:
 - Pour le changement des couleurs des différentes cases en fonctions du chiffre(nombre):
