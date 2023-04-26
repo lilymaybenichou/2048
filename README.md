@@ -83,13 +83,13 @@ la deuxieme boucle permet la verification pour savoir si deux nombres sont ident
 Dernierement on affiche un score a la fin grace a score_label et score_label.grid
 
 # Source:
-- Pour le changement des couleurs des différentes cases en fonctions du chiffre(nombre)
+- Pour le changement des couleurs des différentes cases en fonctions du chiffre(nombre):
 #https://medium.com/@jofre44/game-app-with-python-and-tkinter-let-s-play-2048-e9e25223a711
-- Pour le background
+- Pour le background:
 #https://www.wikipython.com/tkinter-ttk-tix/summary-information/colors/
 - La Methode After(,.destroy) permettant ici de supprimer le bouton play une fois après sont utilisation
 #https://www.geeksforgeeks.org/destroy-method-in-tkinter-python/
-- Pour la Réalisation de l'Interface avec les Boutons,Labels 
+- Pour la Réalisation de l'Interface avec les Boutons,Labels: 
 #https://github.com/IN200/S2-python/blob/main/cours/02_interface_graphique/02_gui.ipynb
 - Documentation sur les différentes couleurs utiliser pour interface graphique :
 #https://memopy.hatenadiary.jp/entry/2017/06/11/092554
