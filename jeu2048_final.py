@@ -356,9 +356,18 @@ bas_button.grid(row=5, column=3)
 # configuration des options dans le menu 
 
 def save():
-    sauvegarderfichier= filedialog.asksaveasfile(title="Partie a sauvegarder")
+    fichier=[('Tous Documents','*.')
+             ,('Fichier Python','*.py'),
+             ('Fichier Texte','*.txt')
+             ]
+    sauvegarderfichier= filedialog.asksaveasfile(title="Partie a sauvegarder",filetypes=fichier,defaultextension=fichier)
+    
 def load():
-    ouvrirfichier=filedialog.askopenfile(title=" Partie a reprendre")
+    ouvrirfichier=filedialog.askopenfile(title=" Partie a reprendre",fichiertypes=fichier2,defaultextension=fichier2)
+    fichier2=[('Tous Documents','*.')
+             ,('Fichier Python','*.py'),
+             ('Fichier Texte','*.txt')
+             ]
 def fermer_fenetre():
     fenetre.destroy()
 def help():
