@@ -17,7 +17,7 @@ important son abordés )
 
 # 1ere partie l'Interface Graphique:
 
-Pour cette Interface graphique nous avons utiliser une Fenetre Tkinter dans laquelle nous avons implémenter différents boutons notamment le bouton Left,Right,Up,Down et le Bouton Play (les autres Boutons tel que le Bouton Exit,Save et Load on été ajouter (pour plus d'homogénéité) dans le menu que nous détaillerons plus tard.)
+Pour cette Interface Graphique nous avons utiliser une Fenetre Tkinter dans laquelle nous avons implémenter différents boutons notamment le bouton Left,Right,Up,Down et le Bouton Play (les autres Boutons tel que le Bouton Exit,Save et Load on été ajouter (pour plus d'homogénéité) dans le menu que nous détaillerons plus tard.)
 Les Différents Boutons cité precédemment ont un role majeur dan l'utilisation du jeux notamment pour les 
 déplacement par exemple . Ces différents Boutons ont été crée avec différent caractères propres à chacun notamment au niveau de la couleur et de leur taille et ses boutons on été positionner au niveaux de la grille de façon à être alignéé les uns a coté des autres . Nous avons aussi crée un Menu qui contient différents Label tel que le Label pour Noter le jeu ou encore d'autres permettant de partager le score sur les réseaux sociaux. Ce Menu est pratique car il nous à permis de mettre les différents Boutons tel que le Bouton Save,Load et Exit dans le Menu permettant a l'Interface Graphique d'etre plus méticuleux .
 
@@ -41,7 +41,7 @@ déplacer a gauche a droite en haut et en bas , nous allons ici les détailler r
 
 Tout d'abord la fonction transpose bas permet de deplacer les nombres vers le bas cela ce fait du faite que ici il y a l'utilisation d une double boucle soit for i in range et ensuite la boucle for j in range
 Cela permet de voyager a travers les differentes cases du tableau : 
-la premiere boucle for parcout les lignes  de la troisime a la premiere tandis que la deuxieme boucle parcourt chaque colonne,
+la premiere boucle for parcout les lignes  de la troisième a la première tandis que la deuxieme boucle parcourt chaque colonne,
 si une case n'est pas egal a zéro et donc cette dernière n'est pas vide alors , la fonction cherche et trouve la premiere case vide et en dessous de elle et elle regarde toutes les cases en dessous de elle dans la meme colonnes
 Si il y a une case vide trouver par la fonction alors alors la fonction deplace une case non vide vers
 la case vide sinon elle ne fait rien. 
