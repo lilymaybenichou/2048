@@ -418,6 +418,7 @@ def play2():
   ajoutenombre()
   ajoutenombre()
   affichagegrille(grille,score,fenetre)
+  bouton_play.after(1,bouton_play.destroy)
   
 
 
@@ -428,8 +429,8 @@ def restart():
     for i in range(4):  
         grille.append([0] * 4)
     score=0
-    bouton_play6=tk.Button(fenetre,text="Play",font=("Helvetica",20),command=play2,bg="DodgerBlue3")
-    bouton_play6.grid(row=5,column=4)
+    bouton_play=tk.Button(fenetre,text="Play",font=("Helvetica",20),command=play2,bg="DodgerBlue3")
+    bouton_play.grid(row=5,column=4)
     
     
 
