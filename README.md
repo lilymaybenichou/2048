@@ -95,7 +95,8 @@ Dernierement on affiche un score a la fin grace a score_label et score_label.gri
 #https://memopy.hatenadiary.jp/entry/2017/06/11/092554
 - La Methode Checkbutton pour afficher des cases: 
 #https://www.tutorialspoint.com/python/tk_checkbutton.htm
-
+- La Methode webbrowser pour ouvrir un site internet (ici les réseaux sociaux):
+#https://docs.python.org/3/library/webbrowser.html
 
  
 
