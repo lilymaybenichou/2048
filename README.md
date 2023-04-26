@@ -90,8 +90,9 @@ Dernierement on affiche un score a la fin grace a score_label et score_label.gri
 - La Methode After(,.destroy) permettant ici de supprimer le bouton play une fois après sont utilisation
 #https://www.geeksforgeeks.org/destroy-method-in-tkinter-python/
 -Pour la Réalisation de l'Interface avec les Boutons,Labels 
-https://github.com/IN200/S2-python/blob/main/cours/02_interface_graphique/02_gui.ipynb
-
+#https://github.com/IN200/S2-python/blob/main/cours/02_interface_graphique/02_gui.ipynb
+-Documentation sur les différentes couleurs utiliser pour interface graphique :
+#https://memopy.hatenadiary.jp/entry/2017/06/11/092554
 
 
 
