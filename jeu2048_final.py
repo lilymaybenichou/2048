@@ -273,8 +273,7 @@ def transposedroite():
 score_label = Label(fenetre, text="Score : ", font=("Helvetica", 20))
 score_label.grid(row=4, column=0)
 
-labelfin = Label(fenetre)
-labelfin.grid(row=6, column=2)
+
 
 
 #tentative echoué de la fonction game over, dans un premier temps on regarde si tout les cases sont remplis en parcourant la grille, lorsque une case
