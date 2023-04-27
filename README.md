@@ -94,6 +94,6 @@ Dernièrement on affiche un score a la fin grace a score_label et score_label.gr
 #https://www.youtube.com/watch?v=HTJCUBp_S2I
 #https://iq.opengenus.org/2048-in-python/
 #https://openclassrooms.com/forum/sujet/exercice-intermediaire-le-2048
--Utilisation de différents Police de Charactères:
+- Utilisation de différents Police de Charactères:
 #https://www.geeksforgeeks.org/how-to-set-font-for-text-in-tkinter/
 #https://www.tutorialspoint.com/python/tk_fonts.htm
