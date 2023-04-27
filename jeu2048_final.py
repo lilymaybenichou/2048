@@ -167,12 +167,12 @@ def transposebas():
     affichagegrille(grille,score,fenetre) 
     if gagner():
         label = tk.Label(fenetre, text="WIN!",
-                        padx=20, pady=20, font = ("TimesNewRoman", "15") , fg="White" ,bg="DodgerBlue4"
+                        padx=20, pady=20, font = ("TimesNewRoman", "35") , fg="Green" ,bg="DodgerBlue4"
                         )
         label.grid(row=0, column=6)
     if perdu():
         label = tk.Label(fenetre, text="DEFEAT!",
-                        padx=20, pady=20, font = ("TimesNewRoman", "15") , fg="White" ,bg="DodgerBlue4"
+                        padx=20, pady=20, font = ("TimesNewRoman", "35") , fg="Red" ,bg="DodgerBlue4"
                         )
         label.grid(row=0, column=6)
 
@@ -215,12 +215,12 @@ def transposehaut():
     affichagegrille(grille,score,fenetre)
     if gagner():
         label = tk.Label(fenetre, text="WIN!",
-                        padx=20, pady=20, font = ("TimesNewRoman", "15") , fg="White" ,bg="DodgerBlue4"
+                        padx=20, pady=20, font = ("TimesNewRoman", "35") , fg="Green" ,bg="DodgerBlue4"
                         )
         label.grid(row=0, column=6)
     if perdu():
         label = tk.Label(fenetre, text="DEFEAT!",
-                        padx=20, pady=20, font = ("TimesNewRoman", "15") , fg="White" ,bg="DodgerBlue4"
+                        padx=20, pady=20, font = ("TimesNewRoman", "35") , fg="Red" ,bg="DodgerBlue4"
                         )
         label.grid(row=0, column=6)
 
@@ -257,12 +257,12 @@ def transposegauche():
     affichagegrille(grille,score,fenetre) 
     if gagner():
         label = tk.Label(fenetre, text="WIN!",
-                        padx=20, pady=20, font = ("TimesNewRoman", "15") , fg="White" ,bg="DodgerBlue4"
+                        padx=20, pady=20, font = ("TimesNewRoman", "35") , fg="Green" ,bg="DodgerBlue4"
                         )
         label.grid(row=0, column=6)
     if perdu(): 
         label = tk.Label(fenetre, text="DEFEAT!",
-                        padx=20, pady=20, font = ("TimesNewRoman", "15") , fg="White" ,bg="DodgerBlue4"
+                        padx=20, pady=20, font = ("TimesNewRoman", "35") , fg="Red" ,bg="DodgerBlue4"
                         )
         label.grid(row=0, column=6)
 
@@ -301,12 +301,12 @@ def transposedroite():
     affichagegrille(grille,score,fenetre) 
     if gagner():
         label = tk.Label(fenetre, text="WIN!",
-                        padx=20, pady=20, font = ("TimesNewRoman", "15") , fg="White" ,bg="DodgerBlue4"
+                        padx=20, pady=20, font = ("TimesNewRoman", "35") , fg="Green" ,bg="DodgerBlue4"
                         )
         label.grid(row=0, column=6)
     if perdu():
         label = tk.Label(fenetre, text="DEFEAT!",
-                        padx=20, pady=20, font = ("TimesNewRoman", "15") , fg="White" ,bg="DodgerBlue4"
+                        padx=20, pady=20, font = ("TimesNewRoman", "35") , fg="Red" ,bg="DodgerBlue4"
                         )
         label.grid(row=0, column=6)
 
