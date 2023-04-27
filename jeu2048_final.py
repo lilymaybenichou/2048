@@ -423,7 +423,7 @@ def load():
              ('Fichier Texte','*.txt'),
              ('Fichier Mp3','*mp3')
              ] 
-# les fonctions load et save réaliser grace à https://www.geeksforgeeks.org/python-asksaveasfile-function-in-tkinter/
+
 def fermer_fenetre():
     fenetre.destroy()
 def help():
