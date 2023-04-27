@@ -122,7 +122,7 @@ def perdu(): # verifie tout est remplie dans la grille
             if (i < 3 and grille[i][j] == grille[i+1][j]) or (j < 3 and grille[i][j] == grille[i][j+1]):
                 return False       
     return True # si on peut pas mutiplier de nombre et que il y pas de case vide olr un game over s'affiche
-#CCL:
+#CCL (la fonction perdu):
 # ici la fonction permet de savoir si le jeu et terminé et que nous avons perdu la perdu 
 # le code au debut regarde si la grille est remplie la boucle for parcourt toute les lignes de la 
 # grille et regarde si il y a un 0 . Si il y a bien un zéro dans la ligne alors il y a une cases vides 
@@ -166,7 +166,7 @@ def transposebas():
                         padx=20, pady=20, font = ("TimesNewRoman", "15") , fg="White" ,bg="DodgerBlue4"
                         )
         label.grid(row=0, column=6)
-    else: 
+    if perdu():
         label = tk.Label(fenetre, text="DEFEAT!",
                         padx=20, pady=20, font = ("TimesNewRoman", "15") , fg="White" ,bg="DodgerBlue4"
                         )
@@ -214,7 +214,7 @@ def transposehaut():
                         padx=20, pady=20, font = ("TimesNewRoman", "15") , fg="White" ,bg="DodgerBlue4"
                         )
         label.grid(row=0, column=6)
-    else: 
+    if perdu():
         label = tk.Label(fenetre, text="DEFEAT!",
                         padx=20, pady=20, font = ("TimesNewRoman", "15") , fg="White" ,bg="DodgerBlue4"
                         )
@@ -256,7 +256,7 @@ def transposegauche():
                         padx=20, pady=20, font = ("TimesNewRoman", "15") , fg="White" ,bg="DodgerBlue4"
                         )
         label.grid(row=0, column=6)
-    else: 
+    if perdu(): 
         label = tk.Label(fenetre, text="DEFEAT!",
                         padx=20, pady=20, font = ("TimesNewRoman", "15") , fg="White" ,bg="DodgerBlue4"
                         )
@@ -300,7 +300,7 @@ def transposedroite():
                         padx=20, pady=20, font = ("TimesNewRoman", "15") , fg="White" ,bg="DodgerBlue4"
                         )
         label.grid(row=0, column=6)
-    else: 
+    if perdu():
         label = tk.Label(fenetre, text="DEFEAT!",
                         padx=20, pady=20, font = ("TimesNewRoman", "15") , fg="White" ,bg="DodgerBlue4"
                         )
