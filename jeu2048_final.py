@@ -352,7 +352,7 @@ def load():
                                                             ('Fichier Texte','*.txt'),
                                                             ('Fichier Mp3','*.mp3')
                                                             ])
-    if fichier is not None: #Si le fichier n'existe pas 
+    if fichier is not None: #Si le fichier n'est pas nulle
         contenu = fichier.read() # le contenu du fichier est lu
         print(contenu) # Puis on print le contenu du fichier 
 
