@@ -15,13 +15,13 @@ les différentes sources utilisé pour la réalisation de ce code .
 (Pour information , la documentation ici ne résume que le code dans ça globalité et seul les points 
 important son abordés )
 
-# 1ere partie l'Interface Graphique:
+# 1ère partie l'Interface Graphique:
 
 Pour cette Interface Graphique nous avons utiliser une Fenetre Tkinter dans laquelle nous avons implémenter différents boutons notamment le bouton Left,Right,Up,Down et le Bouton Play (les autres Boutons tel que le Bouton Exit,Save et Load on été ajouter (pour plus d'homogénéité) dans le menu que nous détaillerons plus tard.)
 Les Différents Boutons cité precédemment ont un role majeur dan l'utilisation du jeux notamment pour les 
 déplacement par exemple . Ces différents Boutons ont été crée avec différent caractères propres à chacun notamment au niveau de la couleur et de leur taille et ses boutons on été positionner au niveaux de la grille de façon à être alignéé les uns a coté des autres . Nous avons aussi crée un Menu qui contient différents Label tel que le Label pour Noter le jeu ou encore d'autres permettant de partager le score sur les réseaux sociaux. Ce Menu est pratique car il nous à permis de mettre les différents Boutons tel que le Bouton Save,Load et Exit dans le Menu permettant a l'Interface Graphique d'etre plus méticuleux .
 
-# 2eme partie de le Code:
+# 2ème partie de le Code:
 
 Le Code ici comprend différentes fonctions que nous avons utilisée pour le Jeux du 2048,
 Tout d'abord , pour la création d'une Grille nous avons créé une Grille 4x4 (car il y a 16 cases aux totals dans le Jeu du 2048). 
@@ -70,7 +70,7 @@ case vide a droite a la fin la fonction ajoute ensuite un nombre aleatoire et me
 
 Dernièrement on affiche un score a la fin grace a score_label et score_label.grid
 
-# 3eme Partie(Source):
+# 3ème Partie(Source):
 - Pour le changement des couleurs des différentes cases en fonctions du chiffre(nombre):
 #https://medium.com/@jofre44/game-app-with-python-and-tkinter-let-s-play-2048-e9e25223a711
 - Pour le background:
