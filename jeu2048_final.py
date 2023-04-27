@@ -34,11 +34,30 @@ tile_colors = {
 # Pour afficher un label de bienvenue 
 label1 = tk.Label(fenetre, text="Welcome to the 2048 Game ", font = ("helvetica", "30"),fg='black',bg='DodgerBlue4') # création d'un widget
 label1.grid(column=0,row=10,columnspan=6)
-label3= tk.Label(fenetre,text="🦓",font=("helvetica","30"),bg='DodgerBlue4')
-label3.grid(column=3,row=100)
-label7= tk.Label(fenetre,text="⚽",font=("helvetica","30"),bg="DodgerBlue4")
-label7.grid(column=3,row=500)
-
+label2= tk.Label(fenetre,text="🦓",font=("helvetica","30"),bg='DodgerBlue4',fg="turquoise")
+label2.grid(column=3,row=100)
+label3= tk.Label(fenetre,text="⚽",font=("helvetica","30"),bg="DodgerBlue4",fg="firebrick1")
+label3.grid(column=3,row=500)
+label4= tk.Label(fenetre,text="🛻",font=("helvetica","30"),bg="DodgerBlue4",fg="mintcream")
+label4.grid(column=3,row=1000)
+label5=tk.Label(fenetre,text="🍕",font=("helvetica","30"),bg="DodgerBlue4",fg="olivedrab")
+label5.grid(column=1,row=100)
+label6=tk.Label(fenetre,text="💣",font=("helvetica","30"),bg="DodgerBlue4",fg="pink")
+label6.grid(column=1,row=500)
+label7=tk.Label(fenetre,text="😁",font=("helvetica","30"),bg="DodgerBlue4",fg="lawngreen")
+label7.grid(column=1,row=1000)
+label8= tk.Label(fenetre,text="💫",font=("helvetica","30"),bg='DodgerBlue4',fg="wheat")
+label8.grid(column=5,row=100)
+label9= tk.Label(fenetre,text="🍪",font=("helvetica","30"),bg="DodgerBlue4",fg="lightpink")
+label9.grid(column=5,row=500)
+label10= tk.Label(fenetre,text="☀️",font=("helvetica","30"),bg="DodgerBlue4",fg="grey")
+label10.grid(column=5,row=1000)
+label11=tk.Label(fenetre,text="🚀",font=("helvetica","30"),bg="DodgerBlue4",fg="ghostwhite")
+label11.grid(column=7,row=100)
+label12=tk.Label(fenetre,text="🐉",font=("helvetica","30"),bg="DodgerBlue4",fg="darkcyan")
+label12.grid(column=7,row=500)
+label13=tk.Label(fenetre,text="🎃",font=("helvetica","30"),bg="DodgerBlue4",fg="plum")
+label13.grid(column=7,row=1000)
 
 
 
