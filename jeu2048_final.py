@@ -347,7 +347,7 @@ def save():
     sauvegarderfichier= filedialog.asksaveasfile(title="Partie a sauvegarder",filetypes=fichier,defaultextension=fichier)
     
 def load():
-    fichier = filedialog.askopenfile(mode ='r', filetypes =[('Python Files', '*.py')])
+    fichier = filedialog.askopenfile(mode ='r', filetypes =[('Fichier Python', '*.py')])
     if fichier is not None:
         contenu = fichier.read()
         print(contenu)
