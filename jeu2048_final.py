@@ -4,7 +4,7 @@ import tkinter as tk
 import random
 from tkinter import *
 from tkinter import Widget, filedialog
-import copy
+
 
 # Pour afficher le jeu
 fenetre = tk.Tk()
