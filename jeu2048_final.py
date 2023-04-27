@@ -347,12 +347,11 @@ def save():
     sauvegarderfichier= filedialog.asksaveasfile(title="Partie a sauvegarder",filetypes=fichier,defaultextension=fichier)
     
 def load():
-    fichier=[('Tous Documents','*.')
-             ,('Fichier Python','*.py'),
-             ('Fichier Texte','*.txt'),
-             ('Fichier Mp3','*mp3')
-             ] 
-    ouvrirfichier=filedialog.askopenfile(title=" Partie a reprendre",fichiertypes=fichier,defaultextension=fichier)
+    file = filedialog.askopenfile(mode ='r', filetypes =[('Python Files', '*.py')])
+    if file is not None:
+        content = file.read()
+        print(content)
+     
 
 def fermer_fenetre():
     fenetre.destroy()
