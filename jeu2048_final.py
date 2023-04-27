@@ -342,12 +342,16 @@ def save():
     fichier=[('Tous Documents','*.')
              ,('Fichier Python','*.py'),
              ('Fichier Texte','*.txt'),
-             ('Fichier Mp3','*mp3')
+             ('Fichier Mp3','*.mp3')
              ]
     sauvegarderfichier= filedialog.asksaveasfile(title="Partie a sauvegarder",filetypes=fichier,defaultextension=fichier)
     
 def load():
-    fichier = filedialog.askopenfile(mode ='r', filetypes =[('Fichier Python', '*.py')])
+    fichier = filedialog.askopenfile(mode ='r', filetypes =[('Tous Documents','*.')
+                                                           ,('Fichier Python','*.py'),
+                                                            ('Fichier Texte','*.txt'),
+                                                            ('Fichier Mp3','*.mp3')
+                                                            ])
     if fichier is not None:
         contenu = fichier.read()
         print(contenu)
