@@ -121,7 +121,11 @@ def perdu(): # verifie tout est remplie dans la grille
         for j in range(4):
             if (i < 3 and grille[i][j] == grille[i+1][j]) or (j < 3 and grille[i][j] == grille[i][j+1]):
                 return False       
-    return True # si on peut pas mutiplier de nombre et que il y pas de case vide olr un game over s'affiche
+    return True 
+    
+
+
+# si on peut pas mutiplier de nombre et que il y pas de case vide olr un game over s'affiche
 #CCL (la fonction perdu):
 # ici la fonction permet de savoir si le jeu et terminé et que nous avons perdu la perdu 
 # le code au debut regarde si la grille est remplie la boucle for parcourt toute les lignes de la 
