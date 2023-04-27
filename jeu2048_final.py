@@ -352,9 +352,9 @@ def load():
                                                             ('Fichier Texte','*.txt'),
                                                             ('Fichier Mp3','*.mp3')
                                                             ])
-    if fichier is not None:
-        contenu = fichier.read()
-        print(contenu)
+    if fichier is not None: #Si le fichier n'existe pas 
+        contenu = fichier.read() # le contenu du fichier est lu
+        print(contenu) # Puis on print le contenu du fichier 
 
 def fermer_fenetre():
     fenetre.destroy()
