@@ -95,12 +95,6 @@ def affichagegrille(grille, score, fenetre):
                         padx=20, pady=20, font = ("TimesNewRoman", "15") , fg="White" ,bg="DodgerBlue4"
                         )
         label.grid(row=0, column=6)
-   
-# Fonction pour savoir si on as gagner ou non  
-def gagner():
-    for row in grille:
-        if 2048 in row: 
-            return True
 
 # Conclusion: la fonction affiche grille permet d afficher la grille dans la fenetre , la grille est 
 # stocker dans une variable globale et le score aussi *
@@ -109,6 +103,40 @@ def gagner():
 # du gris si ce n est pas le cas alors elle cree un label avec comme fond du une couleur blanche 
 # et la valeur 
 # score_label affiche le score actuel a cote du text "Score"
+
+
+   
+# Fonction pour savoir si on as gagner ou non  
+def gagner(): #verifie le 2048
+    for row in grille:
+        if 2048 in row: 
+            return True
+        
+# Fonction pour savoir si on as perdu 
+def perdu(): # verifie tout est remplie dans la grille 
+    for row in grille:
+        if 0 in row:
+           return False 
+    for i in range(4): # verifie que on peut pas additonner de nombre 
+        for j in range(4):
+            if (i < 3 and grille[i][j] == grille[i+1][j]) or (j < 3 and grille[i][j] == grille[i][j+1]):
+                return False       
+    return True # si on peut pas mutiplier de nombre et que il y pas de case vide olr un game over s'affiche
+#CCL:
+# ici la fonction permet de savoir si le jeu et terminé et que nous avons perdu la perdu 
+# le code au debut regarde si la grille est remplie la boucle for parcourt toute les lignes de la 
+# grille et regarde si il y a un 0 . Si il y a bien un zéro dans la ligne alors il y a une cases vides 
+# et donc le jeu n' est pas encore fini donc on renvoie donc un false 
+# mais si la grille et pleine le code regarde si on ne peut pas bouger dans la grille 
+#on utilise une autre boucle for qui voie toute les cases de la grille (les ligne et les colonnes)
+# ici le 3 ici correspond a la taille de la grille , la boucle for parcourt donc les indices de 0 à 3 
+# ce qui donne bien 4 indices pour 4 lignes et 4 colonnes 
+# ici la boucle for regardes les positions(i,j) de la grille en commencant par (0,0) en haut et a gauche 
+# et ensuite de (3,3) pour en bas et a droite 
+# le return True permet de de donner la permission que si on peut pas additioner aucun nombre et 
+# que aucune case et vide alors on c est la fin du jeu 
+
+
 
 
 
@@ -135,6 +163,11 @@ def transposebas():
     affichagegrille(grille,score,fenetre) 
     if gagner():
         label = tk.Label(fenetre, text="WIN!",
+                        padx=20, pady=20, font = ("TimesNewRoman", "15") , fg="White" ,bg="DodgerBlue4"
+                        )
+        label.grid(row=0, column=6)
+    else: 
+        label = tk.Label(fenetre, text="DEFEAT!",
                         padx=20, pady=20, font = ("TimesNewRoman", "15") , fg="White" ,bg="DodgerBlue4"
                         )
         label.grid(row=0, column=6)
@@ -181,6 +214,11 @@ def transposehaut():
                         padx=20, pady=20, font = ("TimesNewRoman", "15") , fg="White" ,bg="DodgerBlue4"
                         )
         label.grid(row=0, column=6)
+    else: 
+        label = tk.Label(fenetre, text="DEFEAT!",
+                        padx=20, pady=20, font = ("TimesNewRoman", "15") , fg="White" ,bg="DodgerBlue4"
+                        )
+        label.grid(row=0, column=6)
 
 # Conclusion : ici cette focntion permet de deplacer tout les nombres vers le haut 
 #la 1ere boucle for ici parcourt les lignes de la deuxieme a la quatrieme ligne tandis que la 2eme boucle for ici parcourt chaque colonne 
@@ -218,6 +256,11 @@ def transposegauche():
                         padx=20, pady=20, font = ("TimesNewRoman", "15") , fg="White" ,bg="DodgerBlue4"
                         )
         label.grid(row=0, column=6)
+    else: 
+        label = tk.Label(fenetre, text="DEFEAT!",
+                        padx=20, pady=20, font = ("TimesNewRoman", "15") , fg="White" ,bg="DodgerBlue4"
+                        )
+        label.grid(row=0, column=6)
 
 
 # Conclusion: la fonction ici permet de deplacer les nombres vers la gauche 
@@ -252,6 +295,16 @@ def transposedroite():
                 score += grille[i][j+1]
     ajoutenombre() 
     affichagegrille(grille,score,fenetre) 
+    if gagner():
+        label = tk.Label(fenetre, text="WIN!",
+                        padx=20, pady=20, font = ("TimesNewRoman", "15") , fg="White" ,bg="DodgerBlue4"
+                        )
+        label.grid(row=0, column=6)
+    else: 
+        label = tk.Label(fenetre, text="DEFEAT!",
+                        padx=20, pady=20, font = ("TimesNewRoman", "15") , fg="White" ,bg="DodgerBlue4"
+                        )
+        label.grid(row=0, column=6)
 
 #Conclusion :cette fonction permet de deplacer les nombres vers la droite ,
 # la premiere boucle permet a la fonction de voyager a chaque ligne tandis que la  deuxieme boucle permet
