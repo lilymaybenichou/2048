@@ -367,7 +367,8 @@ def load():
     fichier2=[('Tous Documents','*.')
              ,('Fichier Python','*.py'),
              ('Fichier Texte','*.txt')
-             ]
+             ] 
+# les fonctions load et save réaliser grace à https://www.geeksforgeeks.org/python-asksaveasfile-function-in-tkinter/
 def fermer_fenetre():
     fenetre.destroy()
 def help():

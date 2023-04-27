@@ -87,5 +87,6 @@ Dernièrement on affiche un score a la fin grace a score_label et score_label.gr
 #https://docs.python.org/3/library/webbrowser.html
 - Pour la création d'un menu (aide d'une video youtube):
 #https://www.youtube.com/watch?v=jGnGnro2vsk
- 
+- Pour la création de la fonction save et load:
+https://www.geeksforgeeks.org/python-asksaveasfile-function-in-tkinter/
 
