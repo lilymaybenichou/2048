@@ -415,7 +415,7 @@ def avisecrit():
     fenetre0['bg']="RoyalBlue2"
     edit=tk.Entry(fenetre0)
     edit.pack()
-    button9=tk.Button(fenetre0,text="Send") 
+    button9=tk.Button(fenetre0,text="Envoyer") 
     button9.pack()
 
 def play2():
