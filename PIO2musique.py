@@ -1,3 +1,8 @@
 import winsound
 
-winsound.PlaySound('Music1.mp3',winsound.SND_FILENAME)
+winsound.PlaySound('Music1.wav',winsound.SND_ASYNC)
+
+#Stop window for closing
+delay = input("Press ENTER to finish")
+
+#For Reference only 
