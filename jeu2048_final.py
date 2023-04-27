@@ -414,7 +414,9 @@ def avisecrit():
     fenetre0.geometry("200x200")
     fenetre0['bg']="RoyalBlue2"
     edit=tk.Entry(fenetre0)
-    edit.pack() 
+    edit.pack()
+    button9=tk.Button(fenetre0,text="Send") 
+    button9.pack()
 
 def play2():
   ajoutenombre()
