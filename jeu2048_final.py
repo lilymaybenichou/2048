@@ -13,10 +13,6 @@ score = 0 # definir le score = 0 pour le commencement du jeu
 fenetre.geometry("1000x1000")
 fenetre["bg"]="dodgerBlue4" # couleur de la fenetre 
 
-
-
-
-
 #dictionnaire des couleurs des tuiles
 
 
@@ -35,13 +31,9 @@ tile_colors = {
 }
 
 
-
 # Pour afficher un label de bienvenue 
 label1 = tk.Label(fenetre, text="Welcome to the 2048 Game ", font = ("helvetica", "30"),fg='black',bg='DodgerBlue4') # création d'un widget
 label1.grid(column=0,row=10,columnspan=6)
-
-#Les Differentes fonctions 
-
 
 
 
@@ -119,8 +111,6 @@ def perdu(): # verifie tout est remplie dans la grille
                 return False       
     return True 
     
-
-
 # si on peut pas mutiplier de nombre et que il y pas de case vide olr un game over s'affiche
 #CCL (la fonction perdu):
 # ici la fonction permet de savoir si le jeu et terminé et que nous avons perdu la perdu 
@@ -135,9 +125,6 @@ def perdu(): # verifie tout est remplie dans la grille
 # et ensuite de (3,3) pour en bas et a droite 
 # le return True permet de de donner la permission que si on peut pas additioner aucun nombre et 
 # que aucune case et vide alors on c est la fin du jeu 
-
-
-
 
 
 # Fonction pour déplacer les nombres vers le bas
@@ -317,67 +304,10 @@ def transposedroite():
 # grille qui es mis a jour
 
 
-
-    
-
-
-
 # Affichage du score
 score_label = Label(fenetre, text="Score : ", font=("Helvetica", 20))
 score_label.grid(row=4, column=0)
 
-
-
-
-#tentative echoué de la fonction game over, dans un premier temps on regarde si tout les cases sont remplis en parcourant la grille, lorsque une case
-#est rempli on fais +1 a cs et si cs = 16 ça veut dire que tout les cases sont remplis donc on passe au test d'assemblage entre une case et les cases qui les entourent
-#ensuite on regarde si pour tout les cases la valeur a droite a gauche en haut et en bas correspond a celle de la case pour les combiner, si ce n'est pas
-#le cas pour tout les cases on peut directement renvoyez game over
-#def gameover():
-    #cs=0
-    #for i in range(3):
-        #for j in range(3):
-            #if grille[i][j] != 0:
-                #cs=cs+1
-                #if cs==16:
-                    #return(testaddition())
-
-
-#amin
-#def testaddition():
-    #add=0
-    #for i in range(3):
-        #for j in range(3):
-            #if i==3 and j==3:
-                #if grille[i][j]!=grille[i-1][j] or grille[i][j]!=grille[i][j-1]:
-                    #add=add+1
-            #if i==0 and j==0:
-                #if grille[i][j]!=grille[i+1][j] or grille[i][j]!=grille[i][j+1]:
-                    #add=add+1
-            #if i==0 and j==3:
-                #if grille[i][j]!=grille[i+1][j] or grille[i][j]!=grille[i][j-1]:
-                    #add=add+1
-            #if i==3 and j==0:
-                #if grille[i][j]!=grille[i][j+1] or grille[i][j]!=grille[i-1][j]:
-                    #add=add+1
-            #if (i==3 and j==2) or (i==3 and j==1):
-                #if grille[i][j]!=grille[i-1][j] or grille[i][j]!=grille[i][j-1] or grille[i][j]!=grille[i][j+1]:
-                    #add=add+1
-            #if (i==0 and j==2) or (i==0 and j==1):
-                #if grille[i][j]!=grille[i+1][j] or grille[i][j]!=grille[i][j-1] or grille[i][j]!=grille[i][j+1]:
-                    #add=add+1
-            #if (i==2 and j==3) or (i==1 and j==3):
-                #if grille[i][j]!=grille[1][j-1] or grille[i][j]!=grille[i-1][j] or grille[i][j]!=grille[i+1][j]:
-                    #add=add+1
-            #if (i==2 and j==0) or (i==1 and j==0):
-                #if grille[i][j]!=grille[1][j+1] or grille[i][j]!=grille[i-1][j] or grille[i][j]!=grille[i+1][j]:
-                    #add=add+1
-            #else:
-                #if grille[i][j]!=grille[1][j+1] or grille[i][j]!=grille[i][j-1] or grille[i][j]!=grille[i+1][j] or grille[i][j]!=grille[i-1][j]:
-                    #add=add+1
-            #if add==16:
-                #labelfin=tk.Label(fenetre,fg="black",text="Game OVER")
-                #labelfin.pack()
 
 # ici le code permet de afficher 2 chiffres lorsque l'on appuye sur le bouton play 
 affichagegrille(grille,score,fenetre)
@@ -500,26 +430,6 @@ def restart():
     bouton_play6=tk.Button(fenetre,text="Play",font=("Helvetica",20),command=play2,bg="DodgerBlue3")
     bouton_play6.grid(row=5,column=4)
     bouton_play6.after(5000,bouton_play6.destroy)
-
-
-# savoir si la personne a perdu  fonction game over d ou elle ne peut pas bouger
-#def bougepas():
-    # creation de 2 copy du tableau 
-   # tableaucopya= copy.deepcopy(grille) # fonction deep copy est permet de copier son tableau 
-  #  tableaucopyb= copy.deepcopy(grille)
-    # test de reconnaisance pour savoir si on peut bouger 
-  #  tableaucopya = deplacer_bas(tableaucopya)
-  #  if tableaucopya == tableaucopyb:
-   #     tableaucopya = deplacer_haut(tableaucopya)
-   #     if tableaucopya == tableaucopyb:
-    #        tableaucopya = deplacer_gauche(tableaucopya)
-    #        if tableaucopya == tableaucopyb:
-    #            tableaucopya = deplacer_droite(tableaucopya)
-    #            if tableaucopya == tableaucopyb:
-    #                return True
-   # return False
-# arrete de faire (sois arrete le jeu l utilisateur ne peut plus jouer )
-#arrete2048=False
 
 # Menu 
 
