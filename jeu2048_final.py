@@ -58,7 +58,24 @@ label12=tk.Label(fenetre,text="🐉",font=("helvetica","30"),bg="DodgerBlue4",fg
 label12.grid(column=7,row=500)
 label13=tk.Label(fenetre,text="🎃",font=("helvetica","30"),bg="DodgerBlue4",fg="plum")
 label13.grid(column=7,row=1000)
-
+label14=tk.Label(fenetre,text="🛹",font=("helvetica","30"),bg="DodgerBlue4",fg="yellow")
+label14.grid(column=2,row=100)
+label15=tk.Label(fenetre,text="🎁",font=("helvetica","30"),bg="DodgerBlue4",fg="olivedrab")
+label15.grid(column=2,row=500)
+label16=tk.Label(fenetre,text="🔥",font=("helvetica","30"),bg="DodgerBlue4",fg="firebrick2")
+label16.grid(column=2,row=1000)
+label17=tk.Label(fenetre,text="🏅",font=("helvetica","30"),bg="DodgerBlue4",fg="white")
+label17.grid(column=4,row=100)
+label18=tk.Label(fenetre,text="🥐",font=("helvetica","30"),bg="DodgerBlue4",fg="darkorange")
+label18.grid(column=4,row=500)
+label19=tk.Label(fenetre,text="✈️",font=("helvetica","30"),bg="DodgerBlue4",fg="forestgreen")
+label19.grid(column=4,row=1000)
+label20=tk.Label(fenetre,text="🐒",font=("helvetica","30"),bg="DodgerBlue4",fg="goldenrod")
+label20.grid(column=0,row=100)
+label21=tk.Label(fenetre,text="🧸",font=("helvetica","30"),bg="DodgerBlue4",fg="peru")
+label21.grid(column=0,row=500)
+label22=tk.Label(fenetre,text="🏀",font=("helvetica","30"),bg="DodgerBlue4",fg="red")
+label22.grid(column=0,row=1000)
 
 
 # creation d un grille pour le jeu 4x4 soit 16 cases au debut toute les valeurs sont egales a 0
