@@ -15,7 +15,6 @@ import random
 from tkinter import *
 from tkinter import Widget, filedialog
 
-
 # __| |____________________________________________| |__
 #(__   ____________________________________________   __)
 #   | |                                            | |
@@ -32,7 +31,6 @@ score = 0 # definir le score = 0 pour le commencement du jeu
 fenetre.geometry("1000x1000")
 fenetre["bg"]="dodgerBlue4" # couleur de la fenetre 
 
-<<<<<<< HEAD
 # __| |____________________________________________| |__
 #(__   ____________________________________________   __)
 #   | |                                            | |
@@ -42,10 +40,6 @@ fenetre["bg"]="dodgerBlue4" # couleur de la fenetre
 # __| |____________________________________________| |__
 #(__   ____________________________________________   __)
 #   | |                                            | |
-=======
-#dictionnaire des couleurs des tuiles
-
->>>>>>> 24e71eb5d3e961658993fdf2fa92ed62ee7c07cf
 
 tile_colors = {
     2: "#fcefe6",
@@ -71,7 +65,6 @@ tile_colors = {
 #(__   ____________________________________________   __)
 #   | |                                            | |
 
-<<<<<<< HEAD
 label1 = tk.Label(fenetre, text="Welcome to the 2048 Game ", font = ("helvetica", "30"),fg='black',bg='DodgerBlue4') # création d'un widget
 label1.grid(column=0,row=10,columnspan=6)
 score_label = Label(fenetre, text="Score : ", font=("Helvetica", 20))
@@ -94,82 +87,6 @@ def save():
 
 def load():
     ouvrir_fichier=filedialog.askopenfile(title=" Partie a reprendre")
-=======
-# Pour afficher un label de bienvenue 
-label1 = tk.Label(fenetre, text="Welcome to the 2048 Game ", font = ("helvetica", "30"),fg='black',bg='DodgerBlue4') # création d'un widget
-label1.grid(column=0,row=10,columnspan=6)
-label2= tk.Label(fenetre,text="🦓",font=("helvetica","30"),bg='DodgerBlue4',fg="turquoise")
-label2.grid(column=3,row=100)
-label3= tk.Label(fenetre,text="⚽",font=("helvetica","30"),bg="DodgerBlue4",fg="firebrick1")
-label3.grid(column=3,row=500)
-label4= tk.Label(fenetre,text="🛻",font=("helvetica","30"),bg="DodgerBlue4",fg="mintcream")
-label4.grid(column=3,row=1000)
-label5=tk.Label(fenetre,text="🍕",font=("helvetica","30"),bg="DodgerBlue4",fg="olivedrab")
-label5.grid(column=1,row=100)
-label6=tk.Label(fenetre,text="💣",font=("helvetica","30"),bg="DodgerBlue4",fg="pink")
-label6.grid(column=1,row=500)
-label7=tk.Label(fenetre,text="😁",font=("helvetica","30"),bg="DodgerBlue4",fg="lawngreen")
-label7.grid(column=1,row=1000)
-label8= tk.Label(fenetre,text="💫",font=("helvetica","30"),bg='DodgerBlue4',fg="wheat")
-label8.grid(column=5,row=100)
-label9= tk.Label(fenetre,text="🍪",font=("helvetica","30"),bg="DodgerBlue4",fg="lightpink")
-label9.grid(column=5,row=500)
-label10= tk.Label(fenetre,text="☀️",font=("helvetica","30"),bg="DodgerBlue4",fg="grey")
-label10.grid(column=5,row=1000)
-label11=tk.Label(fenetre,text="🚀",font=("helvetica","30"),bg="DodgerBlue4",fg="ghostwhite")
-label11.grid(column=7,row=100)
-label12=tk.Label(fenetre,text="🐉",font=("helvetica","30"),bg="DodgerBlue4",fg="darkcyan")
-label12.grid(column=7,row=500)
-label13=tk.Label(fenetre,text="🎃",font=("helvetica","30"),bg="DodgerBlue4",fg="plum")
-label13.grid(column=7,row=1000)
-label14=tk.Label(fenetre,text="🛹",font=("helvetica","30"),bg="DodgerBlue4",fg="yellow")
-label14.grid(column=2,row=100)
-label15=tk.Label(fenetre,text="🎁",font=("helvetica","30"),bg="DodgerBlue4",fg="olivedrab")
-label15.grid(column=2,row=500)
-label16=tk.Label(fenetre,text="🔥",font=("helvetica","30"),bg="DodgerBlue4",fg="firebrick2")
-label16.grid(column=2,row=1000)
-label17=tk.Label(fenetre,text="🏅",font=("helvetica","30"),bg="DodgerBlue4",fg="white")
-label17.grid(column=4,row=100)
-label18=tk.Label(fenetre,text="🥐",font=("helvetica","30"),bg="DodgerBlue4",fg="darkorange")
-label18.grid(column=4,row=500)
-label19=tk.Label(fenetre,text="✈️",font=("helvetica","30"),bg="DodgerBlue4",fg="forestgreen")
-label19.grid(column=4,row=1000)
-label20=tk.Label(fenetre,text="🐒",font=("helvetica","30"),bg="DodgerBlue4",fg="goldenrod")
-label20.grid(column=0,row=100)
-label21=tk.Label(fenetre,text="🧸",font=("helvetica","30"),bg="DodgerBlue4",fg="peru")
-label21.grid(column=0,row=500)
-label22=tk.Label(fenetre,text="🏀",font=("helvetica","30"),bg="DodgerBlue4",fg="red")
-label22.grid(column=0,row=1000)
-label23=tk.Label(fenetre,text="🎵",font=("helvetica","30"),bg="DodgerBlue4",fg="violet")
-label23.grid(column=9,row=100)
-label24=tk.Label(fenetre,text="🥞",font=("helvetica","30"),bg="DodgerBlue4",fg="firebrick3")
-label24.grid(column=9,row=500)
-label25=tk.Label(fenetre,text="😎",font=("helvetica","30"),bg="DodgerBlue4",fg="green")
-label25.grid(column=9,row=1000)
-label26=tk.Label(fenetre,text="🦌",font=("helvetica","30"),bg="DodgerBlue4",fg="orange")
-label26.grid(column=10,row=100)
-label27=tk.Label(fenetre,text="🍖",font=("helvetica","30"),bg="DodgerBlue4",fg="brown")
-label27.grid(column=10,row=500)
-label28=tk.Label(fenetre,text="⚾",font=("helvetica","30"),bg="DodgerBlue4",fg="tan")
-label28.grid(column=10,row=1000)
-label29=tk.Label(fenetre,text="🎪",font=("helvetica","30"),bg="DodgerBlue4",fg="purple")
-label29.grid(column=11,row=100)
-label30=tk.Label(fenetre,text="😺",font=("helvetica","30"),bg="DodgerBlue4",fg="grey")
-label30.grid(column=11,row=500)
-label31=tk.Label(fenetre,text="🪁",font=("helvetica","30"),bg="DodgerBlue4",fg="green")
-label31.grid(column=11,row=1000)
-label32=tk.Label(fenetre,text="🏴",font=("helvetica","30"),bg="DodgerBlue4",fg="white")
-label32.grid(column=12,row=100)
-label33=tk.Label(fenetre,text="🐭",font=("helvetica","30"),bg="DodgerBlue4",fg="red")
-label33.grid(column=12,row=500)
-label34=tk.Label(fenetre,text="🆒",font=("helvetica","30"),bg="DodgerBlue4",fg="yellow")
-label34.grid(column=12,row=1000)
-label35=tk.Label(fenetre,text="⛷️",font=("helvetica","30"),bg="DodgerBlue4",fg="springgreen")
-label35.grid(column=13,row=100)
-label36=tk.Label(fenetre,text="💸",font=("helvetica","30"),bg="DodgerBlue4",fg="chartreuse")
-label36.grid(column=13,row=500)
-label37=tk.Label(fenetre,text="🚕",font=("helvetica","30"),bg="DodgerBlue4",fg="coral")
-label37.grid(column=13,row=1000)
 
 
 
@@ -491,7 +408,6 @@ def load():
     if fichier is not None: #Si le fichier n'est pas nulle
         contenu = fichier.read() # le contenu du fichier est lu
         print(contenu) # Puis on print le contenu du fichier 
->>>>>>> 24e71eb5d3e961658993fdf2fa92ed62ee7c07cf
 
 def fermer_fenetre():
     fenetre.destroy()
@@ -522,8 +438,6 @@ def partage5():
 
 def partage6():
     webbrowser.open("https://www.tiktok.com/fr/")
-
-
 
 def avis():
     fenetre6=tk.Tk()
@@ -577,7 +491,6 @@ def restart():
     bouton_play6.grid(row=5,column=4)
     bouton_play6.after(5000,bouton_play6.destroy)
 
-<<<<<<< HEAD
 #Toute les fonctions que vous appercevez au dessus nous seront utile pour la conception des menus unpeu plus tard
 
 
@@ -854,9 +767,7 @@ bas_button.grid(row=5, column=3)
 # __| |____________________________________________| |__
 #(__   ____________________________________________   __)
 #   | |                                            | |
-=======
-# Menu 
->>>>>>> 24e71eb5d3e961658993fdf2fa92ed62ee7c07cf
+
 
 mon_menu= tk.Menu(fenetre)
 exit=tk.Menu(mon_menu,tearoff=0)
