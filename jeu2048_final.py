@@ -34,6 +34,11 @@ tile_colors = {
 # Pour afficher un label de bienvenue 
 label1 = tk.Label(fenetre, text="Welcome to the 2048 Game ", font = ("helvetica", "30"),fg='black',bg='DodgerBlue4') # création d'un widget
 label1.grid(column=0,row=10,columnspan=6)
+label3= tk.Label(fenetre,text="🦓",font=("helvetica","30"),bg='DodgerBlue4')
+label3.grid(column=3,row=100)
+label7= tk.Label(fenetre,text="⚽",font=("helvetica","30"),bg="DodgerBlue4")
+label7.grid(column=3,row=500)
+
 
 
 
