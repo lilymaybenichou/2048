@@ -100,6 +100,12 @@ label33=tk.Label(fenetre,text="🐭",font=("helvetica","30"),bg="DodgerBlue4",fg
 label33.grid(column=12,row=500)
 label34=tk.Label(fenetre,text="🆒",font=("helvetica","30"),bg="DodgerBlue4",fg="yellow")
 label34.grid(column=12,row=1000)
+label35=tk.Label(fenetre,text="⛷️",font=("helvetica","30"),bg="DodgerBlue4",fg="springgreen")
+label35.grid(column=13,row=100)
+label36=tk.Label(fenetre,text="💸",font=("helvetica","30"),bg="DodgerBlue4",fg="chartreuse")
+label36.grid(column=13,row=500)
+label37=tk.Label(fenetre,text="🚕",font=("helvetica","30"),bg="DodgerBlue4",fg="coral")
+label37.grid(column=13,row=1000)
 
 
 
