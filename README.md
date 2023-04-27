@@ -89,4 +89,5 @@ Dernièrement on affiche un score a la fin grace a score_label et score_label.gr
 #https://www.youtube.com/watch?v=jGnGnro2vsk
 - Pour la création de la fonction save et load:
 https://www.geeksforgeeks.org/python-asksaveasfile-function-in-tkinter/
+https://www.geeksforgeeks.org/python-askopenfile-function-in-tkinter/
 
