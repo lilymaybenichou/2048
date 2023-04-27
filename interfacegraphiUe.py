@@ -32,7 +32,7 @@ tile_colors = {
 
 
 # Pour afficher un label de bienvenue 
-label1 = tk.Label(fenetre, text="Welcome to the 2048 Game ", font = ("helvetica", "30"),fg='black',bg='DodgerBlue4') # création d'un widget
+label1 = tk.Label(fenetre, text="Welcome to the 2048 Game ", font = ("helvetica", "30"),fg='gist_rainbow',bg='DodgerBlue4') # création d'un widget
 label1.grid(column=0,row=10,columnspan=6)
 
 
