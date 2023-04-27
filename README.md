@@ -45,13 +45,13 @@ la premiere boucle for parcout les lignes  de la troisième a la première tandi
 si une case n'est pas egal a zéro et donc cette dernière n'est pas vide alors , la fonction cherche et trouve la premiere case vide et en dessous de elle et elle regarde toutes les cases en dessous de elle dans la meme colonnes
 Si il y a une case vide trouver par la fonction alors alors la fonction deplace une case non vide vers
 la case vide sinon elle ne fait rien. 
-Lors de la seconde boucle imbriquée , la fonction voyage a travers chaque case et signale les cases(ici 2 cases) avec le meme nombres qui sont a coté  .  Si c'est le cas alors la case qui est dessous est additionné par la case du haut qui est remplacer par un zéro le score augmente à la valeur de la case du bas qui est additonnée avec la case du haut le resultat de l'addition se retrouvera tout en bas de la grille . A la fin , la fonction appel 2 autres fonctions soit la fonctions ici ajouter_nombre() et la fonction afficher_grille() pour mettre a jour la grille et les fonction pour savoir si on a gagner ou bien perdu.
+Lors de la seconde boucle imbriquée , la fonction voyage a travers chaque case et signale les cases(ici 2 cases) avec le meme nombres qui sont a coté  .  Si c'est le cas alors la case qui est dessous est additionné par la case du haut qui est remplacer par un zéro le score augmente à la valeur de la case du bas qui est additonnée avec la case du haut le resultat de l'addition se retrouvera tout en bas de la grille . A la fin , la fonction appel 2 autres fonctions soit la fonctions ici ajouter_nombre() et la fonction afficher_grille() pour mettre a jour la grille et les fonctions pour savoir si on a gagner ou bien perdu.
 
 Ensuite , la fonction transpose haut ici cette fonction permet de deplacer tout les nombres vers le haut 
 la 1ere boucle for ici parcourt les lignes de la deuxieme a la quatrieme ligne tandis que la 2eme boucle for ici parcourt chaque colonnes  de la matrice  si la case contient un nombre pas égal a zéro alors la fonction cherche la première case vide haut dessus de cette case et  déplace le nombre. 
 La deuxieme boucle double boucle (=boucle imbriquées) for permet la vérification de si deux nombres 
 sont à coté dans une colonne (car elle les additione et le déplace vers le haut et si c est le cas alors ),
-il y a une addition et on déplace le résultat de l'addition dans la case vide haut dessus  ensuite il y a la mise a jour de la grille et les fonction pour savoir si on a gagner ou bien perdu.
+il y a une addition et on déplace le résultat de l'addition dans la case vide haut dessus  ensuite il y a la mise a jour de la grille et les fonctions pour savoir si on a gagner ou bien perdu.
 
 La fonction transpose gauche la fonction ici permet de deplacer les nombres vers la gauche,
 la premiere boucle for voyage a travers chaque ligne tandis que la seconde avance a travers chaque colonne de la deuxieme a la quatrieme
@@ -59,14 +59,14 @@ si une case contient un nombre pas egal a zero alors la fonction cherchera la pr
 a gauche de cette case et elle y placera le nombre. 
 La deuxime boucle for permet la vérification pour savoir si deux nombres identique sont cote a cote si c'est le cas alors  elle le vérifie et si elle est vrai alors elle les additione et déplace le résulat dans la case vide à gauche des deux nombres identiques qui sont mis cote a cote et  additionner. 
 Ensuite la fonction ajoute un nombre aléatoire à la grille , affiche la grille et met 
-à jour le score et les fonction pour savoir si on a gagner ou bien perdu.
+à jour le score et les fonctions pour savoir si on a gagner ou bien perdu.
 
 Enfin la fonction transpose droite  permet de déplacer les nombres vers la droite ,
 la premiere boucle permet a la fonction de voyager a chaque ligne tandis que la  deuxieme boucle permet
 de parcourir de la troisieme a la premiere colonne , si la case a un nombre qui n est pas egal a zéro 
 alors la fonction cherche la premiere case vide a droite de cette case et deplace le nombre 
 la deuxieme boucle permet la verification pour savoir si deux nombres sont identiques et cote  a cote si c'est le cas elle sont toutes les deux additionners et le resultat et deplacer dans une 
-case vide a droite a la fin la fonction ajoute ensuite un nombre aleatoire et met a jour le score et affiche la nouvelle grille qui est mise a jour et les fonction pour savoir si on a gagner ou bien perdu.
+case vide a droite a la fin la fonction ajoute ensuite un nombre aleatoire et met a jour le score et affiche la nouvelle grille qui est mise a jour et les fonctions pour savoir si on a gagner ou bien perdu.
 
 Dernièrement on affiche un score a la fin grace a score_label et score_label.grid
 
