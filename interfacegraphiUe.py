@@ -32,7 +32,7 @@ tile_colors = {
 
 
 # Pour afficher un label de bienvenue 
-label1 = tk.Label(fenetre, text="Welcome to the 2048 Game ", font = ("helvetica", "30"),fg='gist_rainbow',bg='DodgerBlue4') # création d'un widget
+label1 = tk.Label(fenetre, text="Welcome to the 2048 Game ", font = ("helvetica", "30"),fg='Yellow',bg='DodgerBlue4') # création d'un widget
 label1.grid(column=0,row=10,columnspan=6)
 
 
@@ -81,7 +81,7 @@ def affichagegrille(grille, score, fenetre):
                 label = Label(fenetre, text=grille[i][j], font=("Helvetica", 20), width=4, height=2, bg=tile_colors.get(grille[i][j]))
                 label.grid(row=i, column=j)
     score_label = Label(fenetre, text=score, font=("Helvetica", 20))
-    score_label.grid(row=4, column=0, columnspan=4)
+    score_label.grid(row=4, column=2,columnspan=4)
     
 
 # Conclusion: la fonction affiche grille permet d afficher la grille dans la fenetre , la grille est 
