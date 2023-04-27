@@ -411,7 +411,8 @@ bas_button.grid(row=5, column=3)
 def save():
     fichier=[('Tous Documents','*.')
              ,('Fichier Python','*.py'),
-             ('Fichier Texte','*.txt')
+             ('Fichier Texte','*.txt'),
+             ('Fichier Mp3','*mp3')
              ]
     sauvegarderfichier= filedialog.asksaveasfile(title="Partie a sauvegarder",filetypes=fichier,defaultextension=fichier)
     
@@ -419,7 +420,8 @@ def load():
     ouvrirfichier=filedialog.askopenfile(title=" Partie a reprendre",fichiertypes=fichier2,defaultextension=fichier2)
     fichier2=[('Tous Documents','*.')
              ,('Fichier Python','*.py'),
-             ('Fichier Texte','*.txt')
+             ('Fichier Texte','*.txt'),
+             ('Fichier Mp3','*mp3')
              ] 
 # les fonctions load et save réaliser grace à https://www.geeksforgeeks.org/python-asksaveasfile-function-in-tkinter/
 def fermer_fenetre():
