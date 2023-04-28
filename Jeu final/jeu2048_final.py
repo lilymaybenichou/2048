@@ -548,11 +548,23 @@ def affichagegrille(grille, score, fenetre):
                         padx=20, pady=20, font = ("TimesNewRoman", "15") , fg="White" ,bg="DodgerBlue4"
                         )
         label.grid(row=0, column=6)
+    
   
 def gagner():
     for row in grille:
         if 2048 in row: 
             return True
+        
+def perdu(): # verifie tout est remplie dans la grille 
+    for row in grille:
+        if 0 in row:
+           return False 
+    for i in range(4): # verifie que on peut pas additonner de nombre 
+        for j in range(4):
+            if (i < 3 and grille[i][j] == grille[i+1][j]) or (j < 3 and grille[i][j] == grille[i][j+1]):
+                return False       
+    return True 
+    
         
 # Fonction pour afficher la grille
 # La fonction affiche grille permet d afficher la grille dans la fenetre , la grille est stocker dans une variable globale et le score aussi
@@ -587,6 +599,11 @@ def transposebas():
     if gagner():
         label = tk.Label(fenetre, text="WIN!",
                         padx=20, pady=20, font = ("TimesNewRoman", "15") , fg="White" ,bg="DodgerBlue4"
+                        )
+        label.grid(row=0, column=6)
+    if perdu():
+        label = tk.Label(fenetre, text="DEFEAT!",
+                        padx=20, pady=20, font = ("TimesNewRoman", "15") , fg="Red" ,bg="DodgerBlue4"
                         )
         label.grid(row=0, column=6)
 
@@ -630,6 +647,11 @@ def transposehaut():
                         padx=20, pady=20, font = ("TimesNewRoman", "15") , fg="White" ,bg="DodgerBlue4"
                         )
         label.grid(row=0, column=6)
+    if perdu():
+        label = tk.Label(fenetre, text="DEFEAT!",
+                        padx=20, pady=20, font = ("TimesNewRoman", "15") , fg="Red" ,bg="DodgerBlue4"
+                        )
+        label.grid(row=0, column=6)
 
 # Fonction pour déplacer les nombres vers le haut
 # Ici cette focntion permet de deplacer tout les nombres vers le haut 
@@ -668,6 +690,11 @@ def transposegauche():
                         padx=20, pady=20, font = ("TimesNewRoman", "15") , fg="White" ,bg="DodgerBlue4"
                         )
         label.grid(row=0, column=6)
+    if perdu():
+        label = tk.Label(fenetre, text="DEFEAT!",
+                        padx=20, pady=20, font = ("TimesNewRoman", "15") , fg="Red" ,bg="DodgerBlue4"
+                        )
+        label.grid(row=0, column=6)
 
 # Fonction pour déplacer les nombres vers la gauche
 # La fonction ici permet de deplacer les nombres vers la gauche 
@@ -701,6 +728,16 @@ def transposedroite():
                 score += grille[i][j+1]
     ajoutenombre() 
     affichagegrille(grille,score,fenetre)
+    if gagner():
+        label = tk.Label(fenetre, text="WIN!",
+                        padx=20, pady=20, font = ("TimesNewRoman", "15") , fg="White" ,bg="DodgerBlue4"
+                        )
+        label.grid(row=0, column=6)
+    if perdu():
+        label = tk.Label(fenetre, text="DEFEAT!",
+                        padx=20, pady=20, font = ("TimesNewRoman", "15") , fg="Red" ,bg="DodgerBlue4"
+                        )
+        label.grid(row=0, column=6)
 
 # Fonction pour déplacer les nombres vers la droite
 # Cette fonction permet de deplacer les nombres vers la droite ,
