@@ -97,5 +97,5 @@ Dernièrement on affiche un score a la fin grace a score_label et score_label.gr
 - Utilisation de différents Police de Charactères:
 #https://www.geeksforgeeks.org/how-to-set-font-for-text-in-tkinter/
 #https://www.tutorialspoint.com/python/tk_fonts.htm
--Utilisation d'emoji:
+- Utilisation d'emoji:
 https://emojipedia.org/microsoft/
