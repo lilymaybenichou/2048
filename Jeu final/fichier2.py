@@ -44,9 +44,6 @@ def save():
 def load():
     ouvrir_fichier=filedialog.askopenfile(title=" Partie a reprendre")
 
-
-
-# creation d un grille pour le jeu 4x4 soit 16 cases au debut toute les valeurs sont egales a 0
 grille = [] # une liste egal a 0 soit une liste nulle 
 for i in range(4): # la boucle ici permet ajouter ici 4 petite liste 
     grille.append([0] * 4) # la fonction append permet d ajouter des 0 au petite liste donc elle sont
@@ -56,9 +53,6 @@ for i in range(4): # la boucle ici permet ajouter ici 4 petite liste
     #                  0,0,0,0
     #                  0,0,0,0]
 
-
-
-# Fonction pour ajouter un nombre aléatoire dans la grille
 def ajoutenombre(): 
     global grille 
     x = random.randint(0, 3)  
@@ -68,17 +62,6 @@ def ajoutenombre():
         y = random.randint(0, 3)
     grille[x][y] = random.choice([2,4]) 
     
-# la fonction ajouter_nombre permet de ajouter 1 nombres dans une ligne ou colonnes aleatoires tirees
-# au sort 
-#Pour Conclure la fonction ajouter_nombre():
-#Plus Précisement cette fonction permet ajouter soit un 2 ou un 4 dans une grille de jeu 
-# global grille (deja definit en commentaire )
-# la fonction ici donne grace a la fontion random randint donne 2 nombre soit un 2 ou 4 dans la grille 
-# ici on cherche a ce que a ce que certain endroit de la grille ne sont pas vides pour ajouter des nombres
-# ensuite on ajoute soit un deux ou quatre 
-
-
-# Fonction pour afficher la grille
 
 def affichagegrille(grille, score, fenetre):
     for i in range(4):
@@ -92,19 +75,12 @@ def affichagegrille(grille, score, fenetre):
     score_label = Label(fenetre, text=score, font=("Helvetica", 20))
     score_label.grid(row=4, column=0, columnspan=4)
     
-
-
-
-
-   
-# Fonction pour savoir si on as gagner ou non  
-def gagner(): #verifie le 2048
+def gagner(): 
     for row in grille:
         if 2048 in row: 
             return True
-        
-# Fonction pour savoir si on as perdu 
-def perdu(): # verifie tout est remplie dans la grille 
+         
+def perdu():
     for row in grille:
         if 0 in row:
            return False 
@@ -114,10 +90,6 @@ def perdu(): # verifie tout est remplie dans la grille
                 return False       
     return True 
     
-
-
-
-# Fonction pour déplacer les nombres vers le bas
 def transposebas():
     global grille, score
     for i in range(2, -1, -1): 
@@ -149,7 +121,7 @@ def transposebas():
                         )
         label.grid(row=0, column=6)
 
-#
+
 
 
 
@@ -220,16 +192,6 @@ def transposegauche():
         label.grid(row=0, column=6)
 
 
-# Conclusion: la fonction ici permet de deplacer les nombres vers la gauche 
-# la premiere boucle for voyage a travers chaque ligne tandis que la seconde avance a travers chaque colonne de la deuxieme a la quatrieme
-# si une case contient un nombre pas egal a zero alors la fonction cherhcera la permiere case vide 
-# a gauche de cette case et elle y de placera le nombre 
-# la deuxime boucle for permet la verification pour savoir si deux nombres identique sont cote a cote 
-# si elle est verifier et vrai alors elle les additonen et deplace le resulat dans la case vide 
-# a gauche des deux nombres identiques cote a cote additionner 
-# ensuite la fonction ajoute un nombre aleatoire a la grille , affiche la grille et met 
-# a jour le score 
-
 
 
 # Fonction pour déplacer les nombres vers la droite
@@ -263,15 +225,6 @@ def transposedroite():
                         )
         label.grid(row=0, column=6)
 
-#Conclusion :Cette Fonction permet de déplacer les nombres vers la droite ,
-# la premiere boucle permet a la fonction de voyager a chaque ligne tandis que la  deuxieme boucle permet
-# de parcourir de la troisieme a la premiere colonne , si la case a un nombre qui n est pas egal a zéro 
-# alors la fonction cherche la premiere case vide a droite de cette case et deplace le nombre 
-# la deuxieme boucle permet la verification pour savoir si deux nombres sont identiques et cote 
-# a cote si c est le cas elle sont toutes les deux additionners et le resultat et deplacer dans une 
-# case vide a droite 
-# a la fin la fonction ajoute ensuite un nombre aleatoire et met a jour le score et affiche la nouvelle
-# grille qui es mis a jour
 
 
 # Affichage du score
@@ -417,7 +370,7 @@ grille = []
 for i in range(4):
     grille.append([0] * 4) 
 
-                                                                                                          0,0,0,0]
+
 
 
 
@@ -459,7 +412,7 @@ def gagner():
         if 2048 in row: 
             return True
         
-def perdu(): # verifie tout est remplie dans la grille 
+def perdu(): 
     for row in grille:
         if 0 in row:
            return False 
